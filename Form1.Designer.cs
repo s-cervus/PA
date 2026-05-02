@@ -37,7 +37,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(310, 126);
+            this.textBox1.Location = new System.Drawing.Point(310, 125);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
@@ -45,11 +45,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(333, 63);
+            this.label1.Location = new System.Drawing.Point(332, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.label1.Text = "Inicie Sesion";
             // 
             // button1
             // 
