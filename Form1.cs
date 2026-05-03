@@ -36,6 +36,6 @@ namespace PA
             lblW.Font = fuenteCustom;
 
         }
-        */
+        */  
     }
 }
