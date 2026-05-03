@@ -1,4 +1,4 @@
-name: Build and Release WinForms
+sename: Build and Release WinForms
 
 # El proceso se activa cada vez que haces un "push" a la rama main
 on:
@@ -48,7 +48,7 @@ jobs:
         tag_name: v1.0.${{ github.run_number }}
         name: Release Auto - Build ${{ github.run_number }}
         body: |
-          Compilación automática.
-          Status: Success!!!
+          Compilacion v1.0.${{ github.run_number }}.
+          Compilacion automatica.
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
