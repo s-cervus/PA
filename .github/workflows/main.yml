@@ -1,4 +1,4 @@
-sename: Build and Release WinForms
+name: Build and Release WinForms
 
 # El proceso se activa cada vez que haces un "push" a la rama main
 on:
