@@ -129,9 +129,10 @@
             this.txtPasswd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPasswd.Location = new System.Drawing.Point(73, 98);
             this.txtPasswd.Name = "txtPasswd";
-            this.txtPasswd.PasswordChar = '*';
+            this.txtPasswd.PasswordChar = '●';
             this.txtPasswd.Size = new System.Drawing.Size(214, 20);
             this.txtPasswd.TabIndex = 3;
+            this.txtPasswd.UseSystemPasswordChar = true;
             // 
             // panel2
             // 
