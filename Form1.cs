@@ -17,8 +17,10 @@ namespace PA
         public Form1()
         {
             InitializeComponent();
-            CargarFuentePersonalizada();
+            //CargarFuentePersonalizada();
         }
+
+        /*
         private void CargarFuentePersonalizada()
         {
             // 1. Cargamos el archivo de la fuente
@@ -34,5 +36,6 @@ namespace PA
             lblW.Font = fuenteCustom;
 
         }
+        */
     }
 }
