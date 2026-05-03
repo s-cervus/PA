@@ -11,14 +11,15 @@ using System.Drawing.Text;
 
 namespace PA
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         PrivateFontCollection pfc = new PrivateFontCollection();
-        public Form1()
+        public Login()
         {
             InitializeComponent();
             //CargarFuentePersonalizada();
         }
+
 
         /*
         private void CargarFuentePersonalizada()
