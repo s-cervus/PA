@@ -32,11 +32,9 @@ jobs:
       run: msbuild "PA.slnx" /p:Configuration=Release /p:Platform="Any CPU"
 
     - name: Preparar archivos para el ZIP
-  
-      # Esto busca los archivos compilados y los mueve a una carpeta limpia
       run: |
         mkdir publish
-        xcopy /s PA\bin\Release\* publish\
+        xcopy /s bin\Release\* publish\
 
     - name: Crear archivo ZIP
       shell: pwsh
