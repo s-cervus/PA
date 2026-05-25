@@ -26,5 +26,22 @@ namespace PA
         {
 
         }
+
+        private void MostrarPantalla(UserControl pantallaHija)
+        {
+            pnlContenedor.Controls.Clear(); // Limpia lo que haya en el centro
+            pantallaHija.Dock = DockStyle.Fill; // Hace que el UC se estire al tamaño del panel
+            pnlContenedor.Controls.Add(pantallaHija); // Lo mete al panel
+            pantallaHija.BringToFront(); // Lo trae al frente
+        }
+
+
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            MostrarPantalla(new uc_VentasCatalogo());
+
+        }
     }
 }
+
