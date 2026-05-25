@@ -39,16 +39,7 @@ jobs:
     - name: Crear archivo ZIP
       shell: pwsh
       run: |
-        # Compress-Archive -Path publish\* -DestinationPath Release.zip
-        if (Test-Path "publish") { Remove-Item -Recurse -Force "publish" }
-        New-Item -ItemType Directory -Path "publish"
-        
-        # Filtramos: Solo .exe y .dll. Ignoramos .config, .pdb y .xml
-        $files = Get-ChildItem -Path "**/bin/Release/*" -Include *.exe, *.dll -File -Recurse
-        
-        foreach ($file in $files) {
-            Copy-Item $file.FullName -Destination "publish\"
-        }
+        Compress-Archive -Path publish\* -DestinationPath Release.zip
 
     - name: Crear Release en GitHub
       uses: softprops/action-gh-release@v1
