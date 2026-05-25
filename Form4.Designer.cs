@@ -28,69 +28,238 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnEntrada = new System.Windows.Forms.Button();
-            this.btnSucursales = new System.Windows.Forms.Button();
-            this.btnSalida = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pnlBarrraSuperior = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pnlMenuLateral = new System.Windows.Forms.Panel();
+            this.btnContabilidad = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
+            this.btnCompras = new System.Windows.Forms.Button();
+            this.btnNuevaVenta = new System.Windows.Forms.Button();
+            this.btnVentas = new System.Windows.Forms.Button();
+            this.btnInicio = new System.Windows.Forms.Button();
+            this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.pnlBarrraSuperior.SuspendLayout();
+            this.pnlMenuLateral.SuspendLayout();
+            this.pnlContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnEntrada
+            // pictureBox6
             // 
-            this.btnEntrada.Location = new System.Drawing.Point(80, 84);
-            this.btnEntrada.Name = "btnEntrada";
-            this.btnEntrada.Size = new System.Drawing.Size(118, 50);
-            this.btnEntrada.TabIndex = 0;
-            this.btnEntrada.Text = "Entrada";
-            this.btnEntrada.UseVisualStyleBackColor = true;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(24, 616);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(151, 85);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 9;
+            this.pictureBox6.TabStop = false;
             // 
-            // btnSucursales
+            // pictureBox12
             // 
-            this.btnSucursales.Location = new System.Drawing.Point(80, 235);
-            this.btnSucursales.Name = "btnSucursales";
-            this.btnSucursales.Size = new System.Drawing.Size(118, 50);
-            this.btnSucursales.TabIndex = 1;
-            this.btnSucursales.Text = "Sucursales";
-            this.btnSucursales.UseVisualStyleBackColor = true;
+            this.pictureBox12.Location = new System.Drawing.Point(321, 616);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(151, 88);
+            this.pictureBox12.TabIndex = 15;
+            this.pictureBox12.TabStop = false;
             // 
-            // btnSalida
+            // pnlBarrraSuperior
             // 
-            this.btnSalida.Location = new System.Drawing.Point(80, 162);
-            this.btnSalida.Name = "btnSalida";
-            this.btnSalida.Size = new System.Drawing.Size(118, 50);
-            this.btnSalida.TabIndex = 2;
-            this.btnSalida.Text = "Salida";
-            this.btnSalida.UseVisualStyleBackColor = true;
+            this.pnlBarrraSuperior.BackColor = System.Drawing.Color.Gainsboro;
+            this.pnlBarrraSuperior.Controls.Add(this.label2);
+            this.pnlBarrraSuperior.Controls.Add(this.label1);
+            this.pnlBarrraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBarrraSuperior.Location = new System.Drawing.Point(0, 0);
+            this.pnlBarrraSuperior.Name = "pnlBarrraSuperior";
+            this.pnlBarrraSuperior.Size = new System.Drawing.Size(1068, 62);
+            this.pnlBarrraSuperior.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(861, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Usuario:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 31);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(449, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Reciclaje tecnològico";
+            this.label1.Size = new System.Drawing.Size(245, 30);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "SISTEMA DE RECICLAJE";
+            // 
+            // pnlMenuLateral
+            // 
+            this.pnlMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnlMenuLateral.Controls.Add(this.btnContabilidad);
+            this.pnlMenuLateral.Controls.Add(this.btnInventario);
+            this.pnlMenuLateral.Controls.Add(this.btnCompras);
+            this.pnlMenuLateral.Controls.Add(this.btnNuevaVenta);
+            this.pnlMenuLateral.Controls.Add(this.btnVentas);
+            this.pnlMenuLateral.Controls.Add(this.btnInicio);
+            this.pnlMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlMenuLateral.Location = new System.Drawing.Point(0, 62);
+            this.pnlMenuLateral.Name = "pnlMenuLateral";
+            this.pnlMenuLateral.Size = new System.Drawing.Size(220, 607);
+            this.pnlMenuLateral.TabIndex = 17;
+            // 
+            // btnContabilidad
+            // 
+            this.btnContabilidad.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnContabilidad.FlatAppearance.BorderSize = 0;
+            this.btnContabilidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnContabilidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContabilidad.Location = new System.Drawing.Point(0, 250);
+            this.btnContabilidad.Name = "btnContabilidad";
+            this.btnContabilidad.Size = new System.Drawing.Size(220, 50);
+            this.btnContabilidad.TabIndex = 5;
+            this.btnContabilidad.Text = "📊 DIARIO CONTABLE";
+            this.btnContabilidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContabilidad.UseVisualStyleBackColor = true;
+            // 
+            // btnInventario
+            // 
+            this.btnInventario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInventario.FlatAppearance.BorderSize = 0;
+            this.btnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventario.Location = new System.Drawing.Point(0, 200);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Size = new System.Drawing.Size(220, 50);
+            this.btnInventario.TabIndex = 4;
+            this.btnInventario.Text = "📦 INVENTARIO GENERAL";
+            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventario.UseVisualStyleBackColor = true;
+            // 
+            // btnCompras
+            // 
+            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompras.FlatAppearance.BorderSize = 0;
+            this.btnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.Location = new System.Drawing.Point(0, 150);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Size = new System.Drawing.Size(220, 50);
+            this.btnCompras.TabIndex = 3;
+            this.btnCompras.Text = "📤 COMPRA DE SCRAP";
+            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompras.UseVisualStyleBackColor = true;
+            // 
+            // btnNuevaVenta
+            // 
+            this.btnNuevaVenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNuevaVenta.FlatAppearance.BorderSize = 0;
+            this.btnNuevaVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnNuevaVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevaVenta.Location = new System.Drawing.Point(0, 100);
+            this.btnNuevaVenta.Name = "btnNuevaVenta";
+            this.btnNuevaVenta.Size = new System.Drawing.Size(220, 50);
+            this.btnNuevaVenta.TabIndex = 2;
+            this.btnNuevaVenta.Text = "🛒 NUEVA VENTA (CAJA)";
+            this.btnNuevaVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevaVenta.UseVisualStyleBackColor = true;
+            // 
+            // btnVentas
+            // 
+            this.btnVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVentas.FlatAppearance.BorderSize = 0;
+            this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.Location = new System.Drawing.Point(0, 50);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Size = new System.Drawing.Size(220, 50);
+            this.btnVentas.TabIndex = 1;
+            this.btnVentas.Text = "💰 CATÁLOGO DE VENTAS";
+            this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
+            // 
+            // btnInicio
+            // 
+            this.btnInicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInicio.FlatAppearance.BorderSize = 0;
+            this.btnInicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInicio.Location = new System.Drawing.Point(0, 0);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(220, 50);
+            this.btnInicio.TabIndex = 0;
+            this.btnInicio.Text = "🏠 INICIO";
+            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInicio.UseVisualStyleBackColor = true;
+            // 
+            // pnlContenedor
+            // 
+            this.pnlContenedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlContenedor.Controls.Add(this.pictureBox1);
+            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenedor.Location = new System.Drawing.Point(220, 62);
+            this.pnlContenedor.Name = "pnlContenedor";
+            this.pnlContenedor.Size = new System.Drawing.Size(848, 607);
+            this.pnlContenedor.TabIndex = 18;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(430, 357);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(230, 132);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 343);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSalida);
-            this.Controls.Add(this.btnSucursales);
-            this.Controls.Add(this.btnEntrada);
+            this.ClientSize = new System.Drawing.Size(1068, 669);
+            this.Controls.Add(this.pnlContenedor);
+            this.Controls.Add(this.pnlMenuLateral);
+            this.Controls.Add(this.pnlBarrraSuperior);
+            this.Controls.Add(this.pictureBox12);
+            this.Controls.Add(this.pictureBox6);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form4";
             this.Text = "Form4";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.pnlBarrraSuperior.ResumeLayout(false);
+            this.pnlBarrraSuperior.PerformLayout();
+            this.pnlMenuLateral.ResumeLayout(false);
+            this.pnlContenedor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnEntrada;
-        private System.Windows.Forms.Button btnSucursales;
-        private System.Windows.Forms.Button btnSalida;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Panel pnlBarrraSuperior;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pnlMenuLateral;
+        private System.Windows.Forms.Button btnInicio;
+        private System.Windows.Forms.Button btnContabilidad;
+        private System.Windows.Forms.Button btnInventario;
+        private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.Button btnNuevaVenta;
+        private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.Panel pnlContenedor;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
