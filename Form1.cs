@@ -13,30 +13,52 @@ namespace PA
 {
     public partial class Login : Form
     {
-        PrivateFontCollection pfc = new PrivateFontCollection();
+        private FontsProjectOWN FontCLo;
         public Login()
         {
             InitializeComponent();
-            //CargarFuentePersonalizada();
         }
 
-
-        /*
-        private void CargarFuentePersonalizada()
+        private void btnRegister_Click(object sender, EventArgs e)
         {
-            // 1. Cargamos el archivo de la fuente
-            // Asegúrate de que el nombre del archivo sea exacto
-            string rutaFuente = System.IO.Path.Combine(Application.StartupPath, "Resources", "NotoSans-Regular.ttf");
-            pfc.AddFontFile(rutaFuente);
+            Form2 register = new Form2();
+            register.ShowDialog();
+            this.Hide();
+        }
 
-            //pfc.AddFontFile(@"\Resources\\\NotoSans-Regular.ttf");
+        private void Login_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                FontCLo = new FontsProjectOWN();
 
-            // 2. Creamos la fuente (pfc.Families[0] es Noto Sans)
-            Font fuenteCustom = new Font(pfc.Families[0], 12, FontStyle.Regular);
 
-            lblW.Font = fuenteCustom;
+                //FontCLo.Apply4All(this, 9f, FontStyle.Regular);
+                lblW.Font = FontCLo.ObtainFont(50f, FontStyle.Regular);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error cargando la interfaz: " + ex.Message);
+            }
+        }
+
+
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+
+            // Liberamos la memoria de la PrivateFontCollection
+            if (FontCLo != null)
+            {
+                FontCLo.Dispose();
+            }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
-        */  
     }
 }
