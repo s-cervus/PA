@@ -141,14 +141,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-=======
->>>>>>> 203876475424d3d8c97a3af1ff99f347076fdcf6
     <Compile Include="uc_VentasCatalogo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,13 +172,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-<<<<<<< HEAD
-=======
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
->>>>>>> 203876475424d3d8c97a3af1ff99f347076fdcf6
     <EmbeddedResource Include="uc_VentasCatalogo.resx">
       <DependentUpon>uc_VentasCatalogo.cs</DependentUpon>
     </EmbeddedResource>
