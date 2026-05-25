@@ -47,9 +47,12 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.picEye = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.btnRegister = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.lblMark = new System.Windows.Forms.Label();
+            this.pnlDragZone = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,6 +66,7 @@
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEye)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,6 +101,7 @@
             // 
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.tableLayoutPanel2);
+            this.panel2.Controls.Add(this.pnlDragZone);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
@@ -113,20 +118,21 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.85715F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.69444F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.55556F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
             this.tableLayoutPanel2.Controls.Add(this.lblW, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 70);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 91);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(720, 105);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(720, 84);
             this.tableLayoutPanel2.TabIndex = 23;
             // 
             // lblW
@@ -134,9 +140,9 @@
             this.lblW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblW.AutoSize = true;
             this.lblW.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblW.Location = new System.Drawing.Point(208, 46);
+            this.lblW.Location = new System.Drawing.Point(260, 35);
             this.lblW.Name = "lblW";
-            this.lblW.Size = new System.Drawing.Size(302, 13);
+            this.lblW.Size = new System.Drawing.Size(250, 13);
             this.lblW.TabIndex = 21;
             this.lblW.Text = "¡Bienvenido!";
             this.lblW.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -279,41 +285,25 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lblMark);
             this.panel3.Controls.Add(this.tableLayoutPanel7);
+            this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 294);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(720, 249);
             this.panel3.TabIndex = 2;
             // 
-            // btnLogin
+            // pictureBox2
             // 
-            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogin.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(154, 35);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.btnLogin.Size = new System.Drawing.Size(170, 40);
-            this.btnLogin.TabIndex = 16;
-            this.btnLogin.Text = "Iniciar Sesion";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.ForeColor = System.Drawing.Color.Black;
-            this.btnRegister.Location = new System.Drawing.Point(395, 35);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.btnRegister.Size = new System.Drawing.Size(170, 40);
-            this.btnRegister.TabIndex = 18;
-            this.btnRegister.Text = "Registrarse";
-            this.btnRegister.UseVisualStyleBackColor = true;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Image = global::PA.Properties.Resources.pibble;
+            this.pictureBox2.Location = new System.Drawing.Point(474, 64);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(223, 176);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
             // 
             // tableLayoutPanel7
             // 
@@ -331,6 +321,57 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(720, 90);
             this.tableLayoutPanel7.TabIndex = 19;
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnRegister.FlatAppearance.BorderSize = 0;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.ForeColor = System.Drawing.Color.Black;
+            this.btnRegister.Location = new System.Drawing.Point(395, 35);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.btnRegister.Size = new System.Drawing.Size(170, 40);
+            this.btnRegister.TabIndex = 18;
+            this.btnRegister.Text = "Registrarse";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogin.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.ForeColor = System.Drawing.Color.Black;
+            this.btnLogin.Location = new System.Drawing.Point(154, 35);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.btnLogin.Size = new System.Drawing.Size(170, 40);
+            this.btnLogin.TabIndex = 16;
+            this.btnLogin.Text = "Iniciar Sesion";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            // 
+            // lblMark
+            // 
+            this.lblMark.AutoSize = true;
+            this.lblMark.Font = new System.Drawing.Font("Impact", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMark.ForeColor = System.Drawing.Color.White;
+            this.lblMark.Location = new System.Drawing.Point(20, 202);
+            this.lblMark.Name = "lblMark";
+            this.lblMark.Size = new System.Drawing.Size(139, 28);
+            this.lblMark.TabIndex = 21;
+            this.lblMark.Text = "4IM9 Equipo 7";
+            // 
+            // pnlDragZone
+            // 
+            this.pnlDragZone.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDragZone.Location = new System.Drawing.Point(0, 0);
+            this.pnlDragZone.Name = "pnlDragZone";
+            this.pnlDragZone.Size = new System.Drawing.Size(720, 37);
+            this.pnlDragZone.TabIndex = 24;
+            this.pnlDragZone.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlDragZone_MouseDown);
             // 
             // Login
             // 
@@ -363,6 +404,8 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picEye)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -391,6 +434,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.PictureBox picEye;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblMark;
+        private System.Windows.Forms.Panel pnlDragZone;
     }
 }
 
