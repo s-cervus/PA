@@ -19,12 +19,10 @@ namespace PA
         {
             InitializeComponent();
 
-            
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
-            this.FormBorderStyle = FormBorderStyle.None;
-            
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            this.FormBorderStyle = FormBorderStyle.None;//Rectificar el cambio de borde
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));//Redondear el formulario completo
+
             pnlU.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pnlU.Width, pnlU.Height, 15, 15));
             pnlP.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pnlP.Width, pnlP.Height, 15, 15));
             btnLogin.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnLogin.Width, btnLogin.Height, 15, 15));
@@ -77,8 +75,9 @@ namespace PA
         [DllImport("dwmapi.dll")]
         public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
 
+        /*
 
-        
+        */
         
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
