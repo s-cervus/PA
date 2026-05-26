@@ -49,6 +49,13 @@ namespace PA
             // Llamamos a la pantalla de la caja pasando el nuevo User Control
             MostrarPantalla(new uc_NuevaVenta());
         }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            Form3 menu = new Form3();
+            menu.Show();
+            this.Hide();
+        }
     }
 }
 
