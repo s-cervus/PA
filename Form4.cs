@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace PA
 {
-    public partial class Form4 : Form
+    public partial class FormEntrada : Form
     {
         public static List<ProductoCarrito> Carrito = new List<ProductoCarrito>();
-        public Form4()
+        public FormEntrada()
         {
             InitializeComponent();
         }

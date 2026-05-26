@@ -17,9 +17,30 @@ namespace PA
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnEntrada_Click(object sender, EventArgs e)
         {
+            this.Hide(); // Oculta el Form3 actual
+            FormEntrada formEntrada = new FormEntrada();
+            formEntrada.Show(); 
 
+            
+        }
+
+        private void btnSalida_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormSalida formSalida = new FormSalida();
+            formSalida.Show(); 
+        }
+
+        private void btnSucursales_Click(object sender, EventArgs e)
+        {
+            this.Hide(); 
+            FormSucusales formSucursales = new FormSucusales();
+            formSucursales.Show();
+            {
+                Application.Exit();
+            }
         }
     }
 }

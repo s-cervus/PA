@@ -24,11 +24,11 @@ namespace PA
         public void ActualizarPantallaCaja()
         {
             dgvCarrito.DataSource = null; // Limpiamos la tabla
-            dgvCarrito.DataSource = Form4.Carrito; // Le pasamos la lista global
+            dgvCarrito.DataSource = FormEntrada.Carrito; // Le pasamos la lista global
 
             // Calculamos la suma total de lo que lleva
             decimal totalGeneral = 0;
-            foreach (var item in Form4.Carrito)
+            foreach (var item in FormEntrada.Carrito)
             {
                 totalGeneral += item.Total;
             }
@@ -40,7 +40,7 @@ namespace PA
 
         private void btnTerminarVenta_Click_1(object sender, EventArgs e)
         {
-            if (Form4.Carrito.Count > 0)
+            if (FormEntrada.Carrito.Count > 0)
             {
                 // Mensaje contable pro para el Proyecto Aula
                 string asiento = "--- POLIZA DE DIARIO / INGRESO ---\n\n" +
@@ -53,7 +53,7 @@ namespace PA
                 MessageBox.Show(asiento, "Sistema Contable", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Limpiamos todo para la siguiente venta
-                Form4.Carrito.Clear();
+                FormEntrada.Carrito.Clear();
                 ActualizarPantallaCaja();
             }
             else

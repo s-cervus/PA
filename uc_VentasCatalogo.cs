@@ -99,7 +99,7 @@ namespace PA
                 };
 
                 // 5. Agregarlo al Carrito global usando el namespace correcto
-                PA.Form4.Carrito.Add(nuevoItem);
+                PA.FormEntrada.Carrito.Add(nuevoItem);
 
                 // 6. ¡ESTO ES CLAVE! El mensaje en pantalla para saber que sí funcionó
                 MessageBox.Show(nombre + " agregado a la venta, carnal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
