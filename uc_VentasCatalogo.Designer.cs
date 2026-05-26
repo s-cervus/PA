@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             this.tcCategorias = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.txtBuscarCelular = new System.Windows.Forms.TextBox();
-            this.dgvCelular = new System.Windows.Forms.DataGridView();
             this.btnAgregarVentaC = new System.Windows.Forms.Button();
-            this.txtBuscarLaptop = new System.Windows.Forms.TextBox();
-            this.dgvLaptop = new System.Windows.Forms.DataGridView();
+            this.dgvCelular = new System.Windows.Forms.DataGridView();
+            this.txtBuscarCelular = new System.Windows.Forms.TextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnAgregarVentaL = new System.Windows.Forms.Button();
-            this.btnAgregarVentaCR = new System.Windows.Forms.Button();
-            this.btnAgregarVentaM = new System.Windows.Forms.Button();
-            this.dgvComponentes = new System.Windows.Forms.DataGridView();
-            this.dgvMinerales = new System.Windows.Forms.DataGridView();
+            this.dgvLaptop = new System.Windows.Forms.DataGridView();
+            this.txtBuscarLaptop = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.txtBuscarComponentes = new System.Windows.Forms.TextBox();
+            this.dgvComponentes = new System.Windows.Forms.DataGridView();
+            this.btnAgregarVentaCR = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.txtBuscarMinerales = new System.Windows.Forms.TextBox();
+            this.dgvMinerales = new System.Windows.Forms.DataGridView();
+            this.btnAgregarVentaM = new System.Windows.Forms.Button();
             this.tcCategorias.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCelular)).BeginInit();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaptop)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).BeginInit();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMinerales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,19 +69,6 @@
             this.tcCategorias.Size = new System.Drawing.Size(700, 450);
             this.tcCategorias.TabIndex = 0;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.btnAgregarVentaL);
-            this.tabPage1.Controls.Add(this.dgvLaptop);
-            this.tabPage1.Controls.Add(this.txtBuscarLaptop);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(692, 424);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "🖥️ Laptops/PC";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnAgregarVentaC);
@@ -95,6 +82,74 @@
             this.tabPage2.Text = "📞 Celulares";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnAgregarVentaC
+            // 
+            this.btnAgregarVentaC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarVentaC.Location = new System.Drawing.Point(3, 359);
+            this.btnAgregarVentaC.Name = "btnAgregarVentaC";
+            this.btnAgregarVentaC.Size = new System.Drawing.Size(686, 23);
+            this.btnAgregarVentaC.TabIndex = 2;
+            this.btnAgregarVentaC.Text = "Agregar a la venta";
+            this.btnAgregarVentaC.UseVisualStyleBackColor = true;
+            // 
+            // dgvCelular
+            // 
+            this.dgvCelular.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCelular.Location = new System.Drawing.Point(3, 67);
+            this.dgvCelular.Name = "dgvCelular";
+            this.dgvCelular.Size = new System.Drawing.Size(686, 286);
+            this.dgvCelular.TabIndex = 1;
+            // 
+            // txtBuscarCelular
+            // 
+            this.txtBuscarCelular.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtBuscarCelular.Location = new System.Drawing.Point(3, 3);
+            this.txtBuscarCelular.Name = "txtBuscarCelular";
+            this.txtBuscarCelular.Size = new System.Drawing.Size(686, 20);
+            this.txtBuscarCelular.TabIndex = 0;
+            this.txtBuscarCelular.Text = "[ Buscar Material... ]";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.btnAgregarVentaL);
+            this.tabPage1.Controls.Add(this.dgvLaptop);
+            this.tabPage1.Controls.Add(this.txtBuscarLaptop);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(692, 424);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "🖥️ Laptops/PC";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarVentaL
+            // 
+            this.btnAgregarVentaL.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAgregarVentaL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarVentaL.Location = new System.Drawing.Point(3, 398);
+            this.btnAgregarVentaL.Name = "btnAgregarVentaL";
+            this.btnAgregarVentaL.Size = new System.Drawing.Size(686, 23);
+            this.btnAgregarVentaL.TabIndex = 3;
+            this.btnAgregarVentaL.Text = "Agregar a la venta";
+            this.btnAgregarVentaL.UseVisualStyleBackColor = true;
+            // 
+            // dgvLaptop
+            // 
+            this.dgvLaptop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLaptop.Location = new System.Drawing.Point(3, 69);
+            this.dgvLaptop.Name = "dgvLaptop";
+            this.dgvLaptop.Size = new System.Drawing.Size(687, 286);
+            this.dgvLaptop.TabIndex = 2;
+            // 
+            // txtBuscarLaptop
+            // 
+            this.txtBuscarLaptop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtBuscarLaptop.Location = new System.Drawing.Point(3, 3);
+            this.txtBuscarLaptop.Name = "txtBuscarLaptop";
+            this.txtBuscarLaptop.Size = new System.Drawing.Size(686, 20);
+            this.txtBuscarLaptop.TabIndex = 1;
+            this.txtBuscarLaptop.Text = "[ Buscar Material... ]";
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.txtBuscarComponentes);
@@ -106,6 +161,34 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "🔧 Componentes/Refacciones";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // txtBuscarComponentes
+            // 
+            this.txtBuscarComponentes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtBuscarComponentes.Location = new System.Drawing.Point(0, 0);
+            this.txtBuscarComponentes.Name = "txtBuscarComponentes";
+            this.txtBuscarComponentes.Size = new System.Drawing.Size(692, 20);
+            this.txtBuscarComponentes.TabIndex = 5;
+            this.txtBuscarComponentes.Text = "[ Buscar Material... ]";
+            // 
+            // dgvComponentes
+            // 
+            this.dgvComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComponentes.Location = new System.Drawing.Point(3, 69);
+            this.dgvComponentes.Name = "dgvComponentes";
+            this.dgvComponentes.Size = new System.Drawing.Size(687, 286);
+            this.dgvComponentes.TabIndex = 4;
+            // 
+            // btnAgregarVentaCR
+            // 
+            this.btnAgregarVentaCR.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAgregarVentaCR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarVentaCR.Location = new System.Drawing.Point(0, 401);
+            this.btnAgregarVentaCR.Name = "btnAgregarVentaCR";
+            this.btnAgregarVentaCR.Size = new System.Drawing.Size(692, 23);
+            this.btnAgregarVentaCR.TabIndex = 3;
+            this.btnAgregarVentaCR.Text = "Agregar a la venta";
+            this.btnAgregarVentaCR.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -119,72 +202,22 @@
             this.tabPage4.Text = "💎 Minerales/Materiales";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // txtBuscarCelular
+            // txtBuscarMinerales
             // 
-            this.txtBuscarCelular.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtBuscarCelular.Location = new System.Drawing.Point(3, 3);
-            this.txtBuscarCelular.Name = "txtBuscarCelular";
-            this.txtBuscarCelular.Size = new System.Drawing.Size(686, 20);
-            this.txtBuscarCelular.TabIndex = 0;
-            this.txtBuscarCelular.Text = "[ Buscar Material... ]";
+            this.txtBuscarMinerales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtBuscarMinerales.Location = new System.Drawing.Point(0, 0);
+            this.txtBuscarMinerales.Name = "txtBuscarMinerales";
+            this.txtBuscarMinerales.Size = new System.Drawing.Size(692, 20);
+            this.txtBuscarMinerales.TabIndex = 5;
+            this.txtBuscarMinerales.Text = "[ Buscar Material... ]";
             // 
-            // dgvCelular
+            // dgvMinerales
             // 
-            this.dgvCelular.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCelular.Location = new System.Drawing.Point(3, 67);
-            this.dgvCelular.Name = "dgvCelular";
-            this.dgvCelular.Size = new System.Drawing.Size(686, 286);
-            this.dgvCelular.TabIndex = 1;
-            // 
-            // btnAgregarVentaC
-            // 
-            this.btnAgregarVentaC.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAgregarVentaC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarVentaC.Location = new System.Drawing.Point(3, 398);
-            this.btnAgregarVentaC.Name = "btnAgregarVentaC";
-            this.btnAgregarVentaC.Size = new System.Drawing.Size(686, 23);
-            this.btnAgregarVentaC.TabIndex = 2;
-            this.btnAgregarVentaC.Text = "Agregar a la venta";
-            this.btnAgregarVentaC.UseVisualStyleBackColor = true;
-            // 
-            // txtBuscarLaptop
-            // 
-            this.txtBuscarLaptop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtBuscarLaptop.Location = new System.Drawing.Point(3, 3);
-            this.txtBuscarLaptop.Name = "txtBuscarLaptop";
-            this.txtBuscarLaptop.Size = new System.Drawing.Size(686, 20);
-            this.txtBuscarLaptop.TabIndex = 1;
-            this.txtBuscarLaptop.Text = "[ Buscar Material... ]";
-            // 
-            // dgvLaptop
-            // 
-            this.dgvLaptop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLaptop.Location = new System.Drawing.Point(3, 69);
-            this.dgvLaptop.Name = "dgvLaptop";
-            this.dgvLaptop.Size = new System.Drawing.Size(687, 286);
-            this.dgvLaptop.TabIndex = 2;
-            // 
-            // btnAgregarVentaL
-            // 
-            this.btnAgregarVentaL.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAgregarVentaL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarVentaL.Location = new System.Drawing.Point(3, 398);
-            this.btnAgregarVentaL.Name = "btnAgregarVentaL";
-            this.btnAgregarVentaL.Size = new System.Drawing.Size(686, 23);
-            this.btnAgregarVentaL.TabIndex = 3;
-            this.btnAgregarVentaL.Text = "Agregar a la venta";
-            this.btnAgregarVentaL.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarVentaCR
-            // 
-            this.btnAgregarVentaCR.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnAgregarVentaCR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarVentaCR.Location = new System.Drawing.Point(0, 401);
-            this.btnAgregarVentaCR.Name = "btnAgregarVentaCR";
-            this.btnAgregarVentaCR.Size = new System.Drawing.Size(692, 23);
-            this.btnAgregarVentaCR.TabIndex = 3;
-            this.btnAgregarVentaCR.Text = "Agregar a la venta";
-            this.btnAgregarVentaCR.UseVisualStyleBackColor = true;
+            this.dgvMinerales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMinerales.Location = new System.Drawing.Point(3, 69);
+            this.dgvMinerales.Name = "dgvMinerales";
+            this.dgvMinerales.Size = new System.Drawing.Size(687, 286);
+            this.dgvMinerales.TabIndex = 4;
             // 
             // btnAgregarVentaM
             // 
@@ -197,40 +230,6 @@
             this.btnAgregarVentaM.Text = "Agregar a la venta";
             this.btnAgregarVentaM.UseVisualStyleBackColor = true;
             // 
-            // dgvComponentes
-            // 
-            this.dgvComponentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComponentes.Location = new System.Drawing.Point(3, 69);
-            this.dgvComponentes.Name = "dgvComponentes";
-            this.dgvComponentes.Size = new System.Drawing.Size(687, 286);
-            this.dgvComponentes.TabIndex = 4;
-            // 
-            // dgvMinerales
-            // 
-            this.dgvMinerales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMinerales.Location = new System.Drawing.Point(3, 69);
-            this.dgvMinerales.Name = "dgvMinerales";
-            this.dgvMinerales.Size = new System.Drawing.Size(687, 286);
-            this.dgvMinerales.TabIndex = 4;
-            // 
-            // txtBuscarComponentes
-            // 
-            this.txtBuscarComponentes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtBuscarComponentes.Location = new System.Drawing.Point(0, 0);
-            this.txtBuscarComponentes.Name = "txtBuscarComponentes";
-            this.txtBuscarComponentes.Size = new System.Drawing.Size(692, 20);
-            this.txtBuscarComponentes.TabIndex = 5;
-            this.txtBuscarComponentes.Text = "[ Buscar Material... ]";
-            // 
-            // txtBuscarMinerales
-            // 
-            this.txtBuscarMinerales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtBuscarMinerales.Location = new System.Drawing.Point(0, 0);
-            this.txtBuscarMinerales.Name = "txtBuscarMinerales";
-            this.txtBuscarMinerales.Size = new System.Drawing.Size(692, 20);
-            this.txtBuscarMinerales.TabIndex = 5;
-            this.txtBuscarMinerales.Text = "[ Buscar Material... ]";
-            // 
             // uc_VentasCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,17 +239,17 @@
             this.Size = new System.Drawing.Size(700, 450);
             this.Load += new System.EventHandler(this.uc_VentasCatalogo_Load);
             this.tcCategorias.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCelular)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLaptop)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCelular)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLaptop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComponentes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMinerales)).EndInit();
             this.ResumeLayout(false);
 
