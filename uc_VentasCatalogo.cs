@@ -74,5 +74,40 @@ namespace PA
             // No agregamos filas (Rows) porque aún no hay stock disponible de scrap procesado
             dgvMinerales.DataSource = dtMinerales; // Cambia 'dgvMinerales' por tu tabla de metales
         }
+
+        private void btnAgregarVentaC_Click(object sender, EventArgs e)
+        {
+            // 1. Verificar que el usuario tenga seleccionada una fila de la tabla dgvLaptops
+            if (dgvCelular.CurrentRow != null)
+            {
+                // 2. Extraer los datos de la fila seleccionada
+                string id = dgvCelular.CurrentRow.Cells["ID"].Value.ToString();
+                string nombre = dgvCelular.CurrentRow.Cells["Componente/Equipo"].Value.ToString();
+                string stockStr = dgvCelular.CurrentRow.Cells["Stock"].Value.ToString();
+                string precioStr = dgvCelular.CurrentRow.Cells["Precio Pub"].Value.ToString();
+
+                // 3. Limpiar el signo de $ y espacios para poder convertir a número
+                decimal precio = decimal.Parse(precioStr.Replace("$", "").Trim());
+
+                // 4. Crear el objeto con el molde
+                ProductoCarrito nuevoItem = new ProductoCarrito()
+                {
+                    ID = id,
+                    Descripcion = nombre,
+                    Cantidad = 1,
+                    Precio = precio
+                };
+
+                // 5. Agregarlo al Carrito global usando el namespace correcto
+                PA.Form4.Carrito.Add(nuevoItem);
+
+                // 6. ¡ESTO ES CLAVE! El mensaje en pantalla para saber que sí funcionó
+                MessageBox.Show(nombre + " agregado a la venta, carnal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una laptop de la tabla primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

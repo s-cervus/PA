@@ -171,6 +171,7 @@
             this.btnNuevaVenta.Text = "🛒 NUEVA VENTA (CAJA)";
             this.btnNuevaVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevaVenta.UseVisualStyleBackColor = true;
+            this.btnNuevaVenta.Click += new System.EventHandler(this.btnNuevaVenta_Click);
             // 
             // btnVentas
             // 

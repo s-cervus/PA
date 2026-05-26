@@ -91,6 +91,7 @@
             this.btnAgregarVentaC.TabIndex = 2;
             this.btnAgregarVentaC.Text = "Agregar a la venta";
             this.btnAgregarVentaC.UseVisualStyleBackColor = true;
+            this.btnAgregarVentaC.Click += new System.EventHandler(this.btnAgregarVentaC_Click);
             // 
             // dgvCelular
             // 
