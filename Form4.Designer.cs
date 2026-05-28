@@ -1,6 +1,6 @@
 ﻿namespace PA
 {
-    partial class Form4
+    partial class FormEntrada
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEntrada));
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pnlBarrraSuperior = new System.Windows.Forms.Panel();
@@ -143,6 +143,7 @@
             this.btnInventario.Text = "📦 INVENTARIO GENERAL";
             this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // btnCompras
             // 
@@ -171,6 +172,7 @@
             this.btnNuevaVenta.Text = "🛒 NUEVA VENTA (CAJA)";
             this.btnNuevaVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevaVenta.UseVisualStyleBackColor = true;
+            this.btnNuevaVenta.Click += new System.EventHandler(this.btnNuevaVenta_Click);
             // 
             // btnVentas
             // 
@@ -200,6 +202,7 @@
             this.btnInicio.Text = "🏠 INICIO";
             this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInicio.UseVisualStyleBackColor = true;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
             // pnlContenedor
             // 
@@ -215,14 +218,14 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(430, 357);
+            this.pictureBox1.Location = new System.Drawing.Point(-92, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(230, 132);
+            this.pictureBox1.Size = new System.Drawing.Size(998, 589);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Form4
+            // FormEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,7 +236,7 @@
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form4";
+            this.Name = "FormEntrada";
             this.Text = "Form4";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
