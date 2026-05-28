@@ -20,7 +20,7 @@ namespace PA
         private const string PEPPER = "Equipo 7";
 
         // ========================================================
-        // 🛠️ FONTANERÍA INTERNA (Engine Privado - Nunca sale a la UI)
+        // Func Priv------------
         // ========================================================
 
         private static string _get_caramel()
@@ -47,7 +47,7 @@ namespace PA
             }
         }
 
-        private static void _forzar_mutacion(SQLiteConnection conexion, string hashViejo, string usuario, string password)
+        private static void _force_mutation(SQLiteConnection conexion, string hashViejo, string usuario, string password)
         {
             string nuevoCaramel = _get_caramel();
             string nuevoDataHash = _get_data(usuario, password, nuevoCaramel);
@@ -63,6 +63,7 @@ namespace PA
                 updateCmd.ExecuteNonQuery();
             }
         }
+
 
         // ========================================================
         // INTERFAZ PÚBLICA
@@ -123,7 +124,7 @@ namespace PA
                                     lector.Close(); // Rompemos el candado de lectura
 
                                     // Mutamos el estado en caliente para volverlo basura
-                                    _forzar_mutacion(conexion, dataEnDB, usuario, password);
+                                    _force_mutation(conexion, dataEnDB, usuario, password);
 
                                     return true;
                                 }

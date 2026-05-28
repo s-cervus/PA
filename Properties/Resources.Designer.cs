@@ -91,11 +91,41 @@ namespace PA.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] LibSQL_DLLe {
+            get {
+                object obj = ResourceManager.GetObject("LibSQL_DLLe", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OrGround {
+            get {
+                object obj = ResourceManager.GetObject("OrGround", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap pibble {
             get {
                 object obj = ResourceManager.GetObject("pibble", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteGround {
+            get {
+                object obj = ResourceManager.GetObject("WhiteGround", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
