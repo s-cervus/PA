@@ -8,11 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PA
-{
-    public partial class Register : Form
+namespace PA{
+    public partial class Form2 : Form
     {
-        public Register()
+        public Form2()
         {
             InitializeComponent();
         }

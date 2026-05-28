@@ -18,19 +18,26 @@ namespace PA
         public Login()
         {
             InitializeComponent();
-            flaged_screen();
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+
+
+            this.FormBorderStyle = FormBorderStyle.None;//Rectificar el cambio de borde
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));//Redondear el formulario completo
+
             pnlU.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pnlU.Width, pnlU.Height, 15, 15));
             pnlP.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pnlP.Width, pnlP.Height, 15, 15));
             btnLogin.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnLogin.Width, btnLogin.Height, 15, 15));
             btnRegister.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnRegister.Width, btnRegister.Height, 15, 15));
         }
 
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Form2 register = new Form2();
+            register.ShowDialog();
+            this.Hide();
+        }
+
         private void Login_Load(object sender, EventArgs e)
         {
-            this.OpFullUI();
             try
             {
                 FontCLo = new FontsProjectOWN();
@@ -64,9 +71,13 @@ namespace PA
             }
         }
 
-        // P/Invoke para el efecto de sombra
+        // P/Invoke para el efecto de sombra (opcional pero muy recomendado para el look)
         [DllImport("dwmapi.dll")]
         public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
+
+        /*
+
+        */
         
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -79,6 +90,7 @@ namespace PA
             int nHeightEllipse // height of ellipse
         );
 
+        // Variable global en tu formulario para guardar el estado
         private bool passwordOculta = true;
 
         private void picEye_Click(object sender, EventArgs e)
@@ -120,7 +132,7 @@ namespace PA
         private static extern void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         // Este evento se encargará del arrastre
-        private void MoveWindow_MouseDown(object sender, MouseEventArgs e)
+        private void MoverVentana_MouseDown(object sender, MouseEventArgs e)
         {
             // Validamos que sea el click izquierdo el que arrastra
             if (e.Button == MouseButtons.Left)
@@ -132,57 +144,12 @@ namespace PA
         }
         // ----------------------------------------------------
 
-        private void btnClose_Click(object sender, EventArgs e)
+        // --- LÓGICA DEL BOTÓN CERRAR ---
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        public void flaged_screen()
-        {
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint |
-                          ControlStyles.UserPaint |
-                          ControlStyles.OptimizedDoubleBuffer |
-                          ControlStyles.ResizeRedraw, true);
-
-            this.UpdateStyles();
-        }
-
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                // 0x02000000 es el flag de Win32 para WS_EX_COMPOSITED
-                // Fuerza al sistema operativo a renderizar de abajo hacia arriba de forma síncrona
-                cp.ExStyle |= 0x02000000;
-                return cp;
-            }
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            /*
-            if (string.IsNullOrWhiteSpace(txtUser.Text) || string.IsNullOrWhiteSpace(txtPasswd.Text))
-            {
-                MessageBox.Show("No dejes campos vacíos, genio.", "Error de entrada");
-                return;
-            }
-
-            if (DataManagerLR.ValidarLogin(txtUser.Text, txtPasswd.Text))
-            {
-                MessageBox.Show("Login Screen", "Bienvenido " + txtUser);
-
-                // Abrir el otro form y ocultar este
-                Form3 menu = new Form3();
-                menu.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Credenciales incorrectas o inexistentes.", "Acceso Denegado");
-            }
-             */
-        }
     }
 }
 

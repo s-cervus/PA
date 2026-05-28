@@ -35,7 +35,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblW = new System.Windows.Forms.Label();
-            this.pnlDragZone = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lblP = new System.Windows.Forms.Label();
             this.lblU = new System.Windows.Forms.Label();
@@ -48,11 +47,12 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.picEye = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblMark = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblMark = new System.Windows.Forms.Label();
+            this.pnlDragZone = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -66,8 +66,8 @@
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEye)).BeginInit();
             this.panel3.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -118,7 +118,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.btnClose_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -146,15 +146,6 @@
             this.lblW.TabIndex = 21;
             this.lblW.Text = "¡Bienvenido!";
             this.lblW.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlDragZone
-            // 
-            this.pnlDragZone.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlDragZone.Location = new System.Drawing.Point(0, 0);
-            this.pnlDragZone.Name = "pnlDragZone";
-            this.pnlDragZone.Size = new System.Drawing.Size(720, 37);
-            this.pnlDragZone.TabIndex = 24;
-            this.pnlDragZone.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlDragZone_MouseDown);
             // 
             // tableLayoutPanel5
             // 
@@ -303,16 +294,16 @@
             this.panel3.Size = new System.Drawing.Size(720, 249);
             this.panel3.TabIndex = 2;
             // 
-            // lblMark
+            // pictureBox2
             // 
-            this.lblMark.AutoSize = true;
-            this.lblMark.Font = new System.Drawing.Font("Impact", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMark.ForeColor = System.Drawing.Color.White;
-            this.lblMark.Location = new System.Drawing.Point(20, 202);
-            this.lblMark.Name = "lblMark";
-            this.lblMark.Size = new System.Drawing.Size(139, 28);
-            this.lblMark.TabIndex = 21;
-            this.lblMark.Text = "4IM9 Equipo 7";
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Image = global::PA.Properties.Resources.pibble;
+            this.pictureBox2.Location = new System.Drawing.Point(474, 64);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(223, 176);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
             // 
             // tableLayoutPanel7
             // 
@@ -361,31 +352,38 @@
             this.btnLogin.TabIndex = 16;
             this.btnLogin.Text = "Iniciar Sesion";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // pictureBox2
+            // lblMark
             // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(474, 64);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(223, 176);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
+            this.lblMark.AutoSize = true;
+            this.lblMark.Font = new System.Drawing.Font("Impact", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMark.ForeColor = System.Drawing.Color.White;
+            this.lblMark.Location = new System.Drawing.Point(20, 202);
+            this.lblMark.Name = "lblMark";
+            this.lblMark.Size = new System.Drawing.Size(139, 28);
+            this.lblMark.TabIndex = 21;
+            this.lblMark.Text = "4IM9 Equipo 7";
+            // 
+            // pnlDragZone
+            // 
+            this.pnlDragZone.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDragZone.Location = new System.Drawing.Point(0, 0);
+            this.pnlDragZone.Name = "pnlDragZone";
+            this.pnlDragZone.Size = new System.Drawing.Size(720, 37);
+            this.pnlDragZone.TabIndex = 24;
+            this.pnlDragZone.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlDragZone_MouseDown);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(726, 546);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
-            this.ShowInTaskbar = false;
             this.Text = "Inicie Sesion";
             this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
@@ -407,8 +405,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picEye)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
