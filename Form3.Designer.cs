@@ -42,7 +42,6 @@
             this.btnEntrada.TabIndex = 0;
             this.btnEntrada.Text = "Entrada";
             this.btnEntrada.UseVisualStyleBackColor = true;
-            this.btnEntrada.Click += new System.EventHandler(this.btnEntrada_Click);
             // 
             // btnSalida
             // 
@@ -52,7 +51,7 @@
             this.btnSalida.TabIndex = 1;
             this.btnSalida.Text = "Salida";
             this.btnSalida.UseVisualStyleBackColor = true;
-            this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
+            this.btnSalida.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnSucursales
             // 
@@ -62,7 +61,6 @@
             this.btnSucursales.TabIndex = 2;
             this.btnSucursales.Text = "Sucursales";
             this.btnSucursales.UseVisualStyleBackColor = true;
-            this.btnSucursales.Click += new System.EventHandler(this.btnSucursales_Click);
             // 
             // label1
             // 

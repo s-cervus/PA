@@ -19,123 +19,60 @@ namespace PA
 
         private void uc_VentasCatalogo_Load(object sender, EventArgs e)
         {
-            // En cuanto carga la pantalla, enlazamos las tablas a las del Almacén Global
-            CargarTablasDesdeAlmacen();
+            CargarDatosPrueba();
         }
 
-        private void CargarTablasDesdeAlmacen()
+        private void CargarDatosPrueba()
         {
-            // Jalamos las tablas vivas que viven en FormEntrada
-            dgvLaptop.DataSource = PA.FormEntrada.TablaLaptops;
-            dgvCelular.DataSource = PA.FormEntrada.TablaCelulares;
-            dgvComponentes.DataSource = PA.FormEntrada.TablaComponentes;
+            // 1. DATOS PARA LAPTOPS / PCs
+            DataTable dtLaptops = new DataTable();
+            dtLaptops.Columns.Add("ID");
+            dtLaptops.Columns.Add("Componente/Equipo");
+            dtLaptops.Columns.Add("Stock");
+            dtLaptops.Columns.Add("Precio Pub");
 
-            // 4. DATOS PARA MINERALES (Se queda igual por separado por ahora)
-            if (dgvMinerales.DataSource == null)
-            {
-                DataTable dtMinerales = new DataTable();
-                dtMinerales.Columns.Add("ID");
-                dtMinerales.Columns.Add("Material/Metal");
-                dtMinerales.Columns.Add("Peso Disponible");
-                dtMinerales.Columns.Add("Precio x Kg");
-                dgvMinerales.DataSource = dtMinerales;
-            }
-        }
+            dtLaptops.Rows.Add("01", "Laptop Dell Inspiron R.", "4 pzas", "$3,500.00");
+            dtLaptops.Rows.Add("02", "PC de Escritorio HP ProDesk", "2 pzas", "$4,200.00");
 
-        // --- BOTÓN PARA AGREGAR CELULARES ---
-        private void btnAgregarVentaC_Click(object sender, EventArgs e)
-        {
-            if (dgvCelular.CurrentRow != null)
-            {
-                string id = dgvCelular.CurrentRow.Cells["ID"].Value.ToString();
-                string nombre = dgvCelular.CurrentRow.Cells["Componente/Equipo"].Value.ToString();
+            dgvLaptop.DataSource = dtLaptops; // Cambia 'dgvLaptops' por el Name de tu tabla de PCs
 
-                // 1. Obtener el stock físico real disponible en la tabla global
-                int stockActual = Convert.ToInt32(dgvCelular.CurrentRow.Cells["Stock"].Value);
 
-                // 2. Contar cuántas piezas de ESTE mismo ID ya se metieron al carrito provisionalmente
-                int cantidadEnCarrito = 0;
-                foreach (var item in PA.FormEntrada.Carrito)
-                {
-                    if (item.ID == id)
-                    {
-                        cantidadEnCarrito += item.Cantidad;
-                    }
-                }
+            // 2. DATOS PARA CELULARES
+            DataTable dtCelulares = new DataTable();
+            dtCelulares.Columns.Add("ID");
+            dtCelulares.Columns.Add("Componente/Equipo");
+            dtCelulares.Columns.Add("Stock");
+            dtCelulares.Columns.Add("Precio Pub");
 
-                // 3. CANDADO: Si ya no hay stock o si lo que quieren agregar supera lo disponible
-                if (stockActual <= 0 || (cantidadEnCarrito >= stockActual))
-                {
-                    MessageBox.Show("¡Alerta de Almacén! Ya no queda stock disponible de: " + nombre, "Producto Agotado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Frena el código en seco y no lo mete al carrito
-                }
+            dtCelulares.Rows.Add("03", "iPhone 11 Negro 64GB (Reacondicionado)", "3 pzas", "$5,800.00");
+            dtCelulares.Rows.Add("04", "Samsung Galaxy S20 FE", "5 pzas", "$4,500.00");
 
-                string precioStr = dgvCelular.CurrentRow.Cells["Precio Pub"].Value.ToString();
-                decimal precio = decimal.Parse(precioStr.Replace("$", "").Trim());
+            dgvCelular.DataSource = dtCelulares; // Cambia 'dgvCelulares' por el Name de tu tabla de móviles
 
-                ProductoCarrito nuevoItem = new ProductoCarrito()
-                {
-                    ID = id,
-                    Descripcion = nombre,
-                    Cantidad = 1,
-                    Precio = precio
-                };
 
-                PA.FormEntrada.Carrito.Add(nuevoItem);
-                MessageBox.Show(nombre + " agregado a la venta, carnal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Por favor, selecciona un celular de la tabla primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+            // 3. DATOS PARA COMPONENTES / REFACCIONES
+            DataTable dtComponentes = new DataTable();
+            dtComponentes.Columns.Add("ID");
+            dtComponentes.Columns.Add("Componente/Equipo");
+            dtComponentes.Columns.Add("Stock");
+            dtComponentes.Columns.Add("Precio Pub");
 
-        // --- BOTÓN PARA AGREGAR LAPTOPS ---
-        private void btnAgregarVentaL_Click(object sender, EventArgs e)
-        {
-            if (dgvLaptop.CurrentRow != null)
-            {
-                string id = dgvLaptop.CurrentRow.Cells["ID"].Value.ToString();
-                string nombre = dgvLaptop.CurrentRow.Cells["Componente/Equipo"].Value.ToString();
+            dtComponentes.Rows.Add("05", "Batería para iPhone 11 (Nueva homologada)", "12 pzas", "$450.00");
+            dtComponentes.Rows.Add("06", "Placa Madre icloud libre iPhone X", "2 pzas", "$1,200.00");
+            dtComponentes.Rows.Add("07", "Conector de Carga Tipo C genérico", "50 pzas", "$45.00");
 
-                // 1. Obtener el stock físico real disponible en la tabla global
-                int stockActual = Convert.ToInt32(dgvLaptop.CurrentRow.Cells["Stock"].Value);
+            dgvComponentes.DataSource = dtComponentes; // Cambia 'dgvComponentes' por tu tabla de piezas
 
-                // 2. Contar cuántas piezas de ESTE mismo ID ya se metieron al carrito provisionalmente
-                int cantidadEnCarrito = 0;
-                foreach (var item in PA.FormEntrada.Carrito)
-                {
-                    if (item.ID == id)
-                    {
-                        cantidadEnCarrito += item.Cantidad;
-                    }
-                }
 
-                // 3. CANDADO: Si ya no hay stock o si lo que quieren agregar supera lo disponible
-                if (stockActual <= 0 || (cantidadEnCarrito >= stockActual))
-                {
-                    MessageBox.Show("¡Alerta de Almacén! Ya no queda stock disponible de: " + nombre, "Producto Agotado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Frena el código en seco y no lo mete al carrito
-                }
+            // 4. DATOS PARA MINERALES (Vacía por ahora)
+            DataTable dtMinerales = new DataTable();
+            dtMinerales.Columns.Add("ID");
+            dtMinerales.Columns.Add("Material/Metal");
+            dtMinerales.Columns.Add("Peso Disponible");
+            dtMinerales.Columns.Add("Precio x Kg");
 
-                string precioStr = dgvLaptop.CurrentRow.Cells["Precio Pub"].Value.ToString();
-                decimal precio = decimal.Parse(precioStr.Replace("$", "").Trim());
-
-                ProductoCarrito nuevoItem = new ProductoCarrito()
-                {
-                    ID = id,
-                    Descripcion = nombre,
-                    Cantidad = 1,
-                    Precio = precio
-                };
-
-                PA.FormEntrada.Carrito.Add(nuevoItem);
-                MessageBox.Show(nombre + " agregado a la venta, carnal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Por favor, selecciona una laptop de la tabla primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            // No agregamos filas (Rows) porque aún no hay stock disponible de scrap procesado
+            dgvMinerales.DataSource = dtMinerales; // Cambia 'dgvMinerales' por tu tabla de metales
         }
     }
 }
