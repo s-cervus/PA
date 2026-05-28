@@ -133,6 +133,7 @@
             this.btnAgregarVentaL.TabIndex = 3;
             this.btnAgregarVentaL.Text = "Agregar a la venta";
             this.btnAgregarVentaL.UseVisualStyleBackColor = true;
+            this.btnAgregarVentaL.Click += new System.EventHandler(this.btnAgregarVentaL_Click);
             // 
             // dgvLaptop
             // 

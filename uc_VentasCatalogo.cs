@@ -19,77 +19,60 @@ namespace PA
 
         private void uc_VentasCatalogo_Load(object sender, EventArgs e)
         {
-            CargarDatosPrueba();
+            // En cuanto carga la pantalla, enlazamos las tablas a las del Almacén Global
+            CargarTablasDesdeAlmacen();
         }
 
-        private void CargarDatosPrueba()
+        private void CargarTablasDesdeAlmacen()
         {
-            // 1. DATOS PARA LAPTOPS / PCs
-            DataTable dtLaptops = new DataTable();
-            dtLaptops.Columns.Add("ID");
-            dtLaptops.Columns.Add("Componente/Equipo");
-            dtLaptops.Columns.Add("Stock");
-            dtLaptops.Columns.Add("Precio Pub");
+            // Jalamos las tablas vivas que viven en FormEntrada
+            dgvLaptop.DataSource = PA.FormEntrada.TablaLaptops;
+            dgvCelular.DataSource = PA.FormEntrada.TablaCelulares;
+            dgvComponentes.DataSource = PA.FormEntrada.TablaComponentes;
 
-            dtLaptops.Rows.Add("01", "Laptop Dell Inspiron R.", "4 pzas", "$3,500.00");
-            dtLaptops.Rows.Add("02", "PC de Escritorio HP ProDesk", "2 pzas", "$4,200.00");
-
-            dgvLaptop.DataSource = dtLaptops; // Cambia 'dgvLaptops' por el Name de tu tabla de PCs
-
-
-            // 2. DATOS PARA CELULARES
-            DataTable dtCelulares = new DataTable();
-            dtCelulares.Columns.Add("ID");
-            dtCelulares.Columns.Add("Componente/Equipo");
-            dtCelulares.Columns.Add("Stock");
-            dtCelulares.Columns.Add("Precio Pub");
-
-            dtCelulares.Rows.Add("03", "iPhone 11 Negro 64GB (Reacondicionado)", "3 pzas", "$5,800.00");
-            dtCelulares.Rows.Add("04", "Samsung Galaxy S20 FE", "5 pzas", "$4,500.00");
-
-            dgvCelular.DataSource = dtCelulares; // Cambia 'dgvCelulares' por el Name de tu tabla de móviles
-
-
-            // 3. DATOS PARA COMPONENTES / REFACCIONES
-            DataTable dtComponentes = new DataTable();
-            dtComponentes.Columns.Add("ID");
-            dtComponentes.Columns.Add("Componente/Equipo");
-            dtComponentes.Columns.Add("Stock");
-            dtComponentes.Columns.Add("Precio Pub");
-
-            dtComponentes.Rows.Add("05", "Batería para iPhone 11 (Nueva homologada)", "12 pzas", "$450.00");
-            dtComponentes.Rows.Add("06", "Placa Madre icloud libre iPhone X", "2 pzas", "$1,200.00");
-            dtComponentes.Rows.Add("07", "Conector de Carga Tipo C genérico", "50 pzas", "$45.00");
-
-            dgvComponentes.DataSource = dtComponentes; // Cambia 'dgvComponentes' por tu tabla de piezas
-
-
-            // 4. DATOS PARA MINERALES (Vacía por ahora)
-            DataTable dtMinerales = new DataTable();
-            dtMinerales.Columns.Add("ID");
-            dtMinerales.Columns.Add("Material/Metal");
-            dtMinerales.Columns.Add("Peso Disponible");
-            dtMinerales.Columns.Add("Precio x Kg");
-
-            // No agregamos filas (Rows) porque aún no hay stock disponible de scrap procesado
-            dgvMinerales.DataSource = dtMinerales; // Cambia 'dgvMinerales' por tu tabla de metales
+            // 4. DATOS PARA MINERALES (Se queda igual por separado por ahora)
+            if (dgvMinerales.DataSource == null)
+            {
+                DataTable dtMinerales = new DataTable();
+                dtMinerales.Columns.Add("ID");
+                dtMinerales.Columns.Add("Material/Metal");
+                dtMinerales.Columns.Add("Peso Disponible");
+                dtMinerales.Columns.Add("Precio x Kg");
+                dgvMinerales.DataSource = dtMinerales;
+            }
         }
 
+        // --- BOTÓN PARA AGREGAR CELULARES ---
         private void btnAgregarVentaC_Click(object sender, EventArgs e)
         {
-            // 1. Verificar que el usuario tenga seleccionada una fila de la tabla dgvLaptops
             if (dgvCelular.CurrentRow != null)
             {
-                // 2. Extraer los datos de la fila seleccionada
                 string id = dgvCelular.CurrentRow.Cells["ID"].Value.ToString();
                 string nombre = dgvCelular.CurrentRow.Cells["Componente/Equipo"].Value.ToString();
-                string stockStr = dgvCelular.CurrentRow.Cells["Stock"].Value.ToString();
-                string precioStr = dgvCelular.CurrentRow.Cells["Precio Pub"].Value.ToString();
 
-                // 3. Limpiar el signo de $ y espacios para poder convertir a número
+                // 1. Obtener el stock físico real disponible en la tabla global
+                int stockActual = Convert.ToInt32(dgvCelular.CurrentRow.Cells["Stock"].Value);
+
+                // 2. Contar cuántas piezas de ESTE mismo ID ya se metieron al carrito provisionalmente
+                int cantidadEnCarrito = 0;
+                foreach (var item in PA.FormEntrada.Carrito)
+                {
+                    if (item.ID == id)
+                    {
+                        cantidadEnCarrito += item.Cantidad;
+                    }
+                }
+
+                // 3. CANDADO: Si ya no hay stock o si lo que quieren agregar supera lo disponible
+                if (stockActual <= 0 || (cantidadEnCarrito >= stockActual))
+                {
+                    MessageBox.Show("¡Alerta de Almacén! Ya no queda stock disponible de: " + nombre, "Producto Agotado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Frena el código en seco y no lo mete al carrito
+                }
+
+                string precioStr = dgvCelular.CurrentRow.Cells["Precio Pub"].Value.ToString();
                 decimal precio = decimal.Parse(precioStr.Replace("$", "").Trim());
 
-                // 4. Crear el objeto con el molde
                 ProductoCarrito nuevoItem = new ProductoCarrito()
                 {
                     ID = id,
@@ -98,10 +81,55 @@ namespace PA
                     Precio = precio
                 };
 
-                // 5. Agregarlo al Carrito global usando el namespace correcto
                 PA.FormEntrada.Carrito.Add(nuevoItem);
+                MessageBox.Show(nombre + " agregado a la venta, carnal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un celular de la tabla primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
-                // 6. ¡ESTO ES CLAVE! El mensaje en pantalla para saber que sí funcionó
+        // --- BOTÓN PARA AGREGAR LAPTOPS ---
+        private void btnAgregarVentaL_Click(object sender, EventArgs e)
+        {
+            if (dgvLaptop.CurrentRow != null)
+            {
+                string id = dgvLaptop.CurrentRow.Cells["ID"].Value.ToString();
+                string nombre = dgvLaptop.CurrentRow.Cells["Componente/Equipo"].Value.ToString();
+
+                // 1. Obtener el stock físico real disponible en la tabla global
+                int stockActual = Convert.ToInt32(dgvLaptop.CurrentRow.Cells["Stock"].Value);
+
+                // 2. Contar cuántas piezas de ESTE mismo ID ya se metieron al carrito provisionalmente
+                int cantidadEnCarrito = 0;
+                foreach (var item in PA.FormEntrada.Carrito)
+                {
+                    if (item.ID == id)
+                    {
+                        cantidadEnCarrito += item.Cantidad;
+                    }
+                }
+
+                // 3. CANDADO: Si ya no hay stock o si lo que quieren agregar supera lo disponible
+                if (stockActual <= 0 || (cantidadEnCarrito >= stockActual))
+                {
+                    MessageBox.Show("¡Alerta de Almacén! Ya no queda stock disponible de: " + nombre, "Producto Agotado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Frena el código en seco y no lo mete al carrito
+                }
+
+                string precioStr = dgvLaptop.CurrentRow.Cells["Precio Pub"].Value.ToString();
+                decimal precio = decimal.Parse(precioStr.Replace("$", "").Trim());
+
+                ProductoCarrito nuevoItem = new ProductoCarrito()
+                {
+                    ID = id,
+                    Descripcion = nombre,
+                    Cantidad = 1,
+                    Precio = precio
+                };
+
+                PA.FormEntrada.Carrito.Add(nuevoItem);
                 MessageBox.Show(nombre + " agregado a la venta, carnal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

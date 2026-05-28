@@ -143,6 +143,7 @@
             this.btnInventario.Text = "📦 INVENTARIO GENERAL";
             this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // btnCompras
             // 

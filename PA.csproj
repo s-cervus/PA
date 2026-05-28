@@ -153,6 +153,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="uc_InventarioGeneral.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_InventarioGeneral.Designer.cs">
+      <DependentUpon>uc_InventarioGeneral.cs</DependentUpon>
+    </Compile>
     <Compile Include="uc_NuevaVenta.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -187,6 +193,9 @@
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_InventarioGeneral.resx">
+      <DependentUpon>uc_InventarioGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uc_NuevaVenta.resx">
       <DependentUpon>uc_NuevaVenta.cs</DependentUpon>
