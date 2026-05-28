@@ -159,19 +159,28 @@ namespace PA
             }
         }
 
+        private int tryes = 0;
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            /*
-            if (string.IsNullOrWhiteSpace(txtUser.Text) || string.IsNullOrWhiteSpace(txtPasswd.Text))
+            if(tryes >= 3)
             {
-                MessageBox.Show("No dejes campos vacíos, genio.", "Error de entrada");
+                MessageBox.Show("Has excedido el número de intentos. La aplicación se cerrará.", "Acceso Denegado");
+                Application.Exit();
                 return;
             }
 
-            if (DataManagerLR.ValidarLogin(txtUser.Text, txtPasswd.Text))
+            if (string.IsNullOrWhiteSpace(txtUser.Text) || string.IsNullOrWhiteSpace(txtPasswd.Text))
             {
+                MessageBox.Show("No dejes campos vacíos.", "Error de entrada");
+                return;
+            }
+            
+            if (txtUser.Text == "User" && txtPasswd.Text == "Password")
+            {
+                /*
                 MessageBox.Show("Login Screen", "Bienvenido " + txtUser);
-
+                */
                 // Abrir el otro form y ocultar este
                 Form3 menu = new Form3();
                 menu.Show();
@@ -181,7 +190,13 @@ namespace PA
             {
                 MessageBox.Show("Credenciales incorrectas o inexistentes.", "Acceso Denegado");
             }
-             */
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Register Register = new Register();
+            Register.Show();
+            this.Hide();
         }
     }
 }

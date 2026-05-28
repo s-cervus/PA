@@ -16,7 +16,7 @@ namespace PA
     public static class DataManagerLR
     {
         // Configuración Maestra del Sistema
-        private const string ConnectionString = "Data Source=local.db;Version=3;";
+        private const string ConnectionString = "Data Source=LocalLogin.db;Version=3;";
         private const string PEPPER = "Equipo 7";
 
         // ========================================================
@@ -69,7 +69,7 @@ namespace PA
         // INTERFAZ PÚBLICA
         // ========================================================
 
-        public static bool RegistrarUsuario(string usuario, string password)
+        public static bool RegUserPW(string usuario, string password)
         {
             string caramel = _get_caramel();
             string dataHash = _get_data(usuario, password, caramel);
@@ -90,13 +90,13 @@ namespace PA
                     }
                     catch (SQLiteException)
                     {
-                        throw new Exception("Error de infraestructura: El identificador ya existe.");
+                        throw new Exception("Error: El identificador ya existe.");
                     }
                 }
             }
         }
 
-        public static bool ValidarYMutarLogin(string usuario, string password)
+        public static bool CheckLogin(string usuario, string password)
         {
             // Escaneo sigiloso en la RAM del servidor local
             string query = "SELECT Data, Caramel FROM Login";
