@@ -153,7 +153,7 @@ namespace PA
 
         private void btnRegresaralmenu_Click(object sender, EventArgs e)
         {
-            // 1. Creamos la instancia del Formulario 3 monse es puta
+            // 1. Creamos la instancia del Formulario 3
             Form3 formulario3 = new Form3();
 
             // 2. Lo mostramos en pantalla
