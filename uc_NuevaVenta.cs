@@ -87,6 +87,20 @@ namespace PA
                             }
                         }
                     }
+
+                    // ¡NUEVO! 4. Validar en Minerales
+                    foreach (DataRow fila in FormEntrada.TablaMinerales.Rows)
+                    {
+                        if (fila["ID"].ToString() == item.ID)
+                        {
+                            int stockActual = Convert.ToInt32(fila["Stock"]);
+                            if (stockActual < item.Cantidad)
+                            {
+                                MessageBox.Show("¡Gis de alerta! No hay suficiente stock/peso de '" + item.Descripcion + "'.\nDisponibles: " + stockActual + " unidades.\nSolicitadas en carrito: " + item.Cantidad + " unidades.", "Falta de Inventario", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                                return; // Frena toda la venta de golpe.
+                            }
+                        }
+                    }
                 }
 
                 // =========================================================================
@@ -116,6 +130,16 @@ namespace PA
 
                     // Descontar en Componentes / Refacciones
                     foreach (DataRow fila in FormEntrada.TablaComponentes.Rows)
+                    {
+                        if (fila["ID"].ToString() == item.ID)
+                        {
+                            int stockActual = Convert.ToInt32(fila["Stock"]);
+                            fila["Stock"] = stockActual - item.Cantidad;
+                        }
+                    }
+
+                    // ¡NUEVO! Descontar en Minerales
+                    foreach (DataRow fila in FormEntrada.TablaMinerales.Rows)
                     {
                         if (fila["ID"].ToString() == item.ID)
                         {

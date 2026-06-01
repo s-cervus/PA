@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEntrada));
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pnlBarrraSuperior = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,31 +41,16 @@
             this.btnInicio = new System.Windows.Forms.Button();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.btnVerMapa = new System.Windows.Forms.Button();
             this.pnlBarrraSuperior.SuspendLayout();
             this.pnlMenuLateral.SuspendLayout();
             this.pnlContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(24, 616);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(151, 85);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 9;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Location = new System.Drawing.Point(321, 616);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(151, 88);
-            this.pictureBox12.TabIndex = 15;
-            this.pictureBox12.TabStop = false;
             // 
             // pnlBarrraSuperior
             // 
@@ -104,6 +87,7 @@
             // pnlMenuLateral
             // 
             this.pnlMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pnlMenuLateral.Controls.Add(this.btnVerMapa);
             this.pnlMenuLateral.Controls.Add(this.btnContabilidad);
             this.pnlMenuLateral.Controls.Add(this.btnInventario);
             this.pnlMenuLateral.Controls.Add(this.btnCompras);
@@ -225,6 +209,39 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Location = new System.Drawing.Point(321, 616);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(151, 88);
+            this.pictureBox12.TabIndex = 15;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(24, 616);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(151, 85);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 9;
+            this.pictureBox6.TabStop = false;
+            // 
+            // btnVerMapa
+            // 
+            this.btnVerMapa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVerMapa.FlatAppearance.BorderSize = 0;
+            this.btnVerMapa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnVerMapa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerMapa.Location = new System.Drawing.Point(0, 300);
+            this.btnVerMapa.Name = "btnVerMapa";
+            this.btnVerMapa.Size = new System.Drawing.Size(220, 50);
+            this.btnVerMapa.TabIndex = 6;
+            this.btnVerMapa.Text = "🏪 Sucursales";
+            this.btnVerMapa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerMapa.UseVisualStyleBackColor = true;
+            this.btnVerMapa.Click += new System.EventHandler(this.btnVerMapa_Click);
+            // 
             // FormEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,13 +255,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormEntrada";
             this.Text = "Form4";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.pnlBarrraSuperior.ResumeLayout(false);
             this.pnlBarrraSuperior.PerformLayout();
             this.pnlMenuLateral.ResumeLayout(false);
             this.pnlContenedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -264,5 +281,6 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnVerMapa;
     }
 }
