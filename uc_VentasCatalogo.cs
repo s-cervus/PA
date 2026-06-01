@@ -30,19 +30,13 @@ namespace PA
             dgvCelular.DataSource = PA.FormEntrada.TablaCelulares;
             dgvComponentes.DataSource = PA.FormEntrada.TablaComponentes;
 
-            // 4. DATOS PARA MINERALES (Se queda igual por separado por ahora)
-            if (dgvMinerales.DataSource == null)
-            {
-                DataTable dtMinerales = new DataTable();
-                dtMinerales.Columns.Add("ID");
-                dtMinerales.Columns.Add("Material/Metal");
-                dtMinerales.Columns.Add("Peso Disponible");
-                dtMinerales.Columns.Add("Precio x Kg");
-                dgvMinerales.DataSource = dtMinerales;
-            }
+            // ¡CORREGIDO!: Enlazamos directamente la tabla global real de Minerales
+            dgvMinerales.DataSource = PA.FormEntrada.TablaMinerales;
         }
 
+        // =========================================================================
         // --- BOTÓN PARA AGREGAR CELULARES ---
+        // =========================================================================
         private void btnAgregarVentaC_Click(object sender, EventArgs e)
         {
             if (dgvCelular.CurrentRow != null)
@@ -50,24 +44,18 @@ namespace PA
                 string id = dgvCelular.CurrentRow.Cells["ID"].Value.ToString();
                 string nombre = dgvCelular.CurrentRow.Cells["Componente/Equipo"].Value.ToString();
 
-                // 1. Obtener el stock físico real disponible en la tabla global
                 int stockActual = Convert.ToInt32(dgvCelular.CurrentRow.Cells["Stock"].Value);
 
-                // 2. Contar cuántas piezas de ESTE mismo ID ya se metieron al carrito provisionalmente
                 int cantidadEnCarrito = 0;
                 foreach (var item in PA.FormEntrada.Carrito)
                 {
-                    if (item.ID == id)
-                    {
-                        cantidadEnCarrito += item.Cantidad;
-                    }
+                    if (item.ID == id) { cantidadEnCarrito += item.Cantidad; }
                 }
 
-                // 3. CANDADO: Si ya no hay stock o si lo que quieren agregar supera lo disponible
                 if (stockActual <= 0 || (cantidadEnCarrito >= stockActual))
                 {
                     MessageBox.Show("¡Alerta de Almacén! Ya no queda stock disponible de: " + nombre, "Producto Agotado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Frena el código en seco y no lo mete al carrito
+                    return;
                 }
 
                 string precioStr = dgvCelular.CurrentRow.Cells["Precio Pub"].Value.ToString();
@@ -90,7 +78,9 @@ namespace PA
             }
         }
 
+        // =========================================================================
         // --- BOTÓN PARA AGREGAR LAPTOPS ---
+        // =========================================================================
         private void btnAgregarVentaL_Click(object sender, EventArgs e)
         {
             if (dgvLaptop.CurrentRow != null)
@@ -98,24 +88,18 @@ namespace PA
                 string id = dgvLaptop.CurrentRow.Cells["ID"].Value.ToString();
                 string nombre = dgvLaptop.CurrentRow.Cells["Componente/Equipo"].Value.ToString();
 
-                // 1. Obtener el stock físico real disponible en la tabla global
                 int stockActual = Convert.ToInt32(dgvLaptop.CurrentRow.Cells["Stock"].Value);
 
-                // 2. Contar cuántas piezas de ESTE mismo ID ya se metieron al carrito provisionalmente
                 int cantidadEnCarrito = 0;
                 foreach (var item in PA.FormEntrada.Carrito)
                 {
-                    if (item.ID == id)
-                    {
-                        cantidadEnCarrito += item.Cantidad;
-                    }
+                    if (item.ID == id) { cantidadEnCarrito += item.Cantidad; }
                 }
 
-                // 3. CANDADO: Si ya no hay stock o si lo que quieren agregar supera lo disponible
                 if (stockActual <= 0 || (cantidadEnCarrito >= stockActual))
                 {
                     MessageBox.Show("¡Alerta de Almacén! Ya no queda stock disponible de: " + nombre, "Producto Agotado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Frena el código en seco y no lo mete al carrito
+                    return;
                 }
 
                 string precioStr = dgvLaptop.CurrentRow.Cells["Precio Pub"].Value.ToString();
@@ -135,6 +119,96 @@ namespace PA
             else
             {
                 MessageBox.Show("Por favor, selecciona una laptop de la tabla primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        // =========================================================================
+        // ¡NUEVO! --- BOTÓN PARA AGREGAR COMPONENTES / REFACCIONES ---
+        // =========================================================================
+        private void btnAgregarVentaCR_Click(object sender, EventArgs e)
+        {
+            if (dgvComponentes.CurrentRow != null)
+            {
+                string id = dgvComponentes.CurrentRow.Cells["ID"].Value.ToString();
+                string nombre = dgvComponentes.CurrentRow.Cells["Componente/Equipo"].Value.ToString();
+
+                // Validamos el stock real en la tabla de refacciones
+                int stockActual = Convert.ToInt32(dgvComponentes.CurrentRow.Cells["Stock"].Value);
+
+                int cantidadEnCarrito = 0;
+                foreach (var item in PA.FormEntrada.Carrito)
+                {
+                    if (item.ID == id) { cantidadEnCarrito += item.Cantidad; }
+                }
+
+                if (stockActual <= 0 || (cantidadEnCarrito >= stockActual))
+                {
+                    MessageBox.Show("¡Alerta de Almacén! Ya no quedan refacciones disponibles de: " + nombre, "Producto Agotado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string precioStr = dgvComponentes.CurrentRow.Cells["Precio Pub"].Value.ToString();
+                decimal precio = decimal.Parse(precioStr.Replace("$", "").Trim());
+
+                ProductoCarrito nuevoItem = new ProductoCarrito()
+                {
+                    ID = id,
+                    Descripcion = nombre,
+                    Cantidad = 1,
+                    Precio = precio
+                };
+
+                PA.FormEntrada.Carrito.Add(nuevoItem);
+                MessageBox.Show(nombre + " agregado a la venta, carnal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una refacción de la tabla primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        // =========================================================================
+        // ¡NUEVO! --- BOTÓN PARA AGREGAR MINERALES ---
+        // =========================================================================
+        private void btnAgregarVentaM_Click(object sender, EventArgs e)
+        {
+            if (dgvMinerales.CurrentRow != null)
+            {
+                string id = dgvMinerales.CurrentRow.Cells["ID"].Value.ToString();
+                string nombre = dgvMinerales.CurrentRow.Cells["Componente/Equipo"].Value.ToString();
+
+                // Validamos el stock/peso disponible en la tabla de minerales
+                int stockActual = Convert.ToInt32(dgvMinerales.CurrentRow.Cells["Stock"].Value);
+
+                int cantidadEnCarrito = 0;
+                foreach (var item in PA.FormEntrada.Carrito)
+                {
+                    if (item.ID == id) { cantidadEnCarrito += item.Cantidad; }
+                }
+
+                if (stockActual <= 0 || (cantidadEnCarrito >= stockActual))
+                {
+                    MessageBox.Show("¡Alerta de Almacén! Ya no queda peso/material disponible de: " + nombre, "Material Agotado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string precioStr = dgvMinerales.CurrentRow.Cells["Precio Pub"].Value.ToString();
+                decimal precio = decimal.Parse(precioStr.Replace("$", "").Trim());
+
+                ProductoCarrito nuevoItem = new ProductoCarrito()
+                {
+                    ID = id,
+                    Descripcion = nombre,
+                    Cantidad = 1,
+                    Precio = precio
+                };
+
+                PA.FormEntrada.Carrito.Add(nuevoItem);
+                MessageBox.Show(nombre + " agregado a la venta correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un material de la tabla de minerales primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

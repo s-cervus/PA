@@ -65,6 +65,7 @@
             this.lblTotalArtículos = new System.Windows.Forms.Label();
             this.BtnConfirmarVenta = new System.Windows.Forms.Button();
             this.btnLimpiarFormulario = new System.Windows.Forms.Button();
+            this.btnRegresaralmenu = new System.Windows.Forms.Button();
             this.gbxSecciónProveedor.SuspendLayout();
             this.gbxSecciónDetalles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
@@ -387,11 +388,22 @@
             this.btnLimpiarFormulario.Text = "Limpiar formulario";
             this.btnLimpiarFormulario.UseVisualStyleBackColor = true;
             // 
+            // btnRegresaralmenu
+            // 
+            this.btnRegresaralmenu.Location = new System.Drawing.Point(705, 523);
+            this.btnRegresaralmenu.Name = "btnRegresaralmenu";
+            this.btnRegresaralmenu.Size = new System.Drawing.Size(170, 39);
+            this.btnRegresaralmenu.TabIndex = 6;
+            this.btnRegresaralmenu.Text = "regresar al menu";
+            this.btnRegresaralmenu.UseVisualStyleBackColor = true;
+            this.btnRegresaralmenu.Click += new System.EventHandler(this.btnRegresaralmenu_Click);
+            // 
             // FormSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 626);
+            this.Controls.Add(this.btnRegresaralmenu);
             this.Controls.Add(this.btnLimpiarFormulario);
             this.Controls.Add(this.BtnConfirmarVenta);
             this.Controls.Add(this.gpbTotales);
@@ -450,5 +462,6 @@
         private System.Windows.Forms.Button BtnConfirmarVenta;
         private System.Windows.Forms.TextBox txtTotalCobrar;
         private System.Windows.Forms.Button btnLimpiarFormulario;
+        private System.Windows.Forms.Button btnRegresaralmenu;
     }
 }

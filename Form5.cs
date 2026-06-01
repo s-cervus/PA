@@ -150,7 +150,19 @@ namespace PA
                     default: return 10.00m;
                 }
             }
+
+        private void btnRegresaralmenu_Click(object sender, EventArgs e)
+        {
+            // 1. Creamos la instancia del Formulario 3
+            Form3 formulario3 = new Form3();
+
+            // 2. Lo mostramos en pantalla
+            formulario3.Show();
+
+            // 3. Cerramos el Formulario 5 actual
+            this.Close();
         }
+    }
     }
 
 
