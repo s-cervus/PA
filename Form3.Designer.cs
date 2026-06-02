@@ -30,7 +30,6 @@
         {
             this.btnEntrada = new System.Windows.Forms.Button();
             this.btnSalida = new System.Windows.Forms.Button();
-            this.btnSucursales = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -54,16 +53,6 @@
             this.btnSalida.UseVisualStyleBackColor = true;
             this.btnSalida.Click += new System.EventHandler(this.btnSalida_Click);
             // 
-            // btnSucursales
-            // 
-            this.btnSucursales.Location = new System.Drawing.Point(130, 339);
-            this.btnSucursales.Name = "btnSucursales";
-            this.btnSucursales.Size = new System.Drawing.Size(134, 54);
-            this.btnSucursales.TabIndex = 2;
-            this.btnSucursales.Text = "Sucursales";
-            this.btnSucursales.UseVisualStyleBackColor = true;
-            this.btnSucursales.Click += new System.EventHandler(this.btnSucursales_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -80,7 +69,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 496);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSucursales);
             this.Controls.Add(this.btnSalida);
             this.Controls.Add(this.btnEntrada);
             this.Name = "Form3";
@@ -94,7 +82,6 @@
 
         private System.Windows.Forms.Button btnEntrada;
         private System.Windows.Forms.Button btnSalida;
-        private System.Windows.Forms.Button btnSucursales;
         private System.Windows.Forms.Label label1;
     }
 }
