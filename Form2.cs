@@ -26,7 +26,6 @@ namespace PA
                 return;
             }
 
-
             if (txtUser.Text == txtPasswd2.Text)
             {
                 DataManagerLR.RegUserPW(txtUser.Text, txtPasswd.Text);
