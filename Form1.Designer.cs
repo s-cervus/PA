@@ -335,7 +335,6 @@
             // 
             this.btnRegister.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnRegister.Enabled = false;
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.ForeColor = System.Drawing.Color.Black;

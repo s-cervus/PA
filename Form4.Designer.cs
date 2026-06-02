@@ -1,4 +1,6 @@
-﻿namespace PA
+﻿using System.Windows.Forms;
+
+namespace PA
 {
     partial class FormEntrada
     {
@@ -33,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlMenuLateral = new System.Windows.Forms.Panel();
+            this.btnVerMapa = new System.Windows.Forms.Button();
             this.btnContabilidad = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
@@ -43,7 +46,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.btnVerMapa = new System.Windows.Forms.Button();
             this.pnlBarrraSuperior.SuspendLayout();
             this.pnlMenuLateral.SuspendLayout();
             this.pnlContenedor.SuspendLayout();
@@ -73,6 +75,7 @@
             this.label2.Size = new System.Drawing.Size(62, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Usuario:";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -100,12 +103,29 @@
             this.pnlMenuLateral.Size = new System.Drawing.Size(220, 607);
             this.pnlMenuLateral.TabIndex = 17;
             // 
+            // btnVerMapa
+            // 
+            this.btnVerMapa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVerMapa.FlatAppearance.BorderSize = 0;
+            this.btnVerMapa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnVerMapa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerMapa.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnVerMapa.Location = new System.Drawing.Point(0, 300);
+            this.btnVerMapa.Name = "btnVerMapa";
+            this.btnVerMapa.Size = new System.Drawing.Size(220, 50);
+            this.btnVerMapa.TabIndex = 6;
+            this.btnVerMapa.Text = "🏪 Sucursales";
+            this.btnVerMapa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerMapa.UseVisualStyleBackColor = true;
+            this.btnVerMapa.Click += new System.EventHandler(this.btnVerMapa_Click);
+            // 
             // btnContabilidad
             // 
             this.btnContabilidad.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnContabilidad.FlatAppearance.BorderSize = 0;
             this.btnContabilidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnContabilidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContabilidad.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnContabilidad.Location = new System.Drawing.Point(0, 250);
             this.btnContabilidad.Name = "btnContabilidad";
             this.btnContabilidad.Size = new System.Drawing.Size(220, 50);
@@ -113,6 +133,7 @@
             this.btnContabilidad.Text = "📊 DIARIO CONTABLE";
             this.btnContabilidad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnContabilidad.UseVisualStyleBackColor = true;
+            this.btnContabilidad.Click += new System.EventHandler(this.btnContabilidad_Click);
             // 
             // btnInventario
             // 
@@ -120,6 +141,7 @@
             this.btnInventario.FlatAppearance.BorderSize = 0;
             this.btnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventario.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnInventario.Location = new System.Drawing.Point(0, 200);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(220, 50);
@@ -135,6 +157,7 @@
             this.btnCompras.FlatAppearance.BorderSize = 0;
             this.btnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCompras.Location = new System.Drawing.Point(0, 150);
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Size = new System.Drawing.Size(220, 50);
@@ -142,6 +165,7 @@
             this.btnCompras.Text = "📤 COMPRA DE SCRAP";
             this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // btnNuevaVenta
             // 
@@ -149,6 +173,7 @@
             this.btnNuevaVenta.FlatAppearance.BorderSize = 0;
             this.btnNuevaVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnNuevaVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevaVenta.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnNuevaVenta.Location = new System.Drawing.Point(0, 100);
             this.btnNuevaVenta.Name = "btnNuevaVenta";
             this.btnNuevaVenta.Size = new System.Drawing.Size(220, 50);
@@ -164,6 +189,7 @@
             this.btnVentas.FlatAppearance.BorderSize = 0;
             this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnVentas.Location = new System.Drawing.Point(0, 50);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(220, 50);
@@ -179,6 +205,7 @@
             this.btnInicio.FlatAppearance.BorderSize = 0;
             this.btnInicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInicio.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnInicio.Location = new System.Drawing.Point(0, 0);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(220, 50);
@@ -226,21 +253,6 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 9;
             this.pictureBox6.TabStop = false;
-            // 
-            // btnVerMapa
-            // 
-            this.btnVerMapa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVerMapa.FlatAppearance.BorderSize = 0;
-            this.btnVerMapa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnVerMapa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerMapa.Location = new System.Drawing.Point(0, 300);
-            this.btnVerMapa.Name = "btnVerMapa";
-            this.btnVerMapa.Size = new System.Drawing.Size(220, 50);
-            this.btnVerMapa.TabIndex = 6;
-            this.btnVerMapa.Text = "🏪 Sucursales";
-            this.btnVerMapa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerMapa.UseVisualStyleBackColor = true;
-            this.btnVerMapa.Click += new System.EventHandler(this.btnVerMapa_Click);
             // 
             // FormEntrada
             // 

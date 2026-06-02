@@ -215,5 +215,15 @@ namespace PA
             miMapa.Dock = DockStyle.Fill;
             pnlContenedor.Controls.Add(miMapa);
         }
+
+        private void btnContabilidad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

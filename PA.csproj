@@ -164,6 +164,7 @@
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
     <Compile Include="GraphicExt.cs" />
+    <Compile Include="Login4Emergency.cs" />
     <Compile Include="ProductoCarrito.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

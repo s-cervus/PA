@@ -5,7 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -161,6 +163,10 @@ namespace PA
 
         private int tryes = 0;
 
+
+
+        public string user = "bam";
+        public string passwd = "bam";
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if(tryes >= 3)
@@ -176,7 +182,7 @@ namespace PA
                 return;
             }
             
-            if (txtUser.Text == "User" && txtPasswd.Text == "Password")
+            if (user == txtUser.Text && passwd == txtPasswd.Text)
             {
                 /*
                 MessageBox.Show("Login Screen", "Bienvenido " + txtUser);
@@ -194,10 +200,69 @@ namespace PA
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            user = txtUser.Text;
+            passwd = txtPasswd.Text;
+
+            txtUser.Clear();
+            txtPasswd.Clear();
+
+            MessageBox.Show("Ya se registro, vuelva a ingresar las credenciales", "Registrar");
+            /*
             Register Register = new Register();
             Register.Show();
             this.Hide();
+            */
         }
+
+
+
+
+
+        //=================================================================
+        /*
+        public void _Login(string txtUser, string txtPasswd)
+        {
+            if (txtUser == "Panfilo" && txtPasswd == "12345678")
+            {
+            }
+            else
+            {
+                MessageBox.Show("Usuario o clave incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                if (txtUser == usuarioRegistrado && txtPasswd == claveRegistrada)
+                {
+                    MessageBox.Show("Eso, ya pasaste");
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos.");
+
+
+                }
+            }
+        }
+
+
+        string usuarioRegistrado = "";
+        string claveRegistrada = " ";
+
+        public void _Register(string txtUser, string txtPasswd)
+        {
+            if (txtUser != "" && txtPasswd != "")
+            {
+                usuarioRegistrado = txtUser;
+                claveRegistrada = txtPasswd;
+
+                MessageBox.Show("Usuario registrado con éxito. Ahora puedes acceder.");
+
+            }
+            else
+            {
+                MessageBox.Show("Tienes que llenar los espacios en blanco para registrarte" + ".");
+            }
+        }
+
+        */
     }
 }
 
