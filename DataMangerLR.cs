@@ -15,9 +15,9 @@ namespace PA
 {
     public static class DataManagerLR
     {
-        // Configuración Maestra del Sistema
+        // Master Conf 
         private const string ConnectionString = "Data Source=LocalLogin.db;Version=3;";
-        private const string PEPPER = "Equipo 7";
+        private const string PEPPER = "Equipo█7";
 
         // ========================================================
         // Func Priv------------
@@ -38,7 +38,7 @@ namespace PA
             using (SHA256 sha256 = SHA256.Create())
             {
                 // Tu receta exacta: Usuario + Passwd + Caramel + Sazón del Equipo 7
-                string cadenaCruda = usuario + password + caramel + PEPPER;
+                string cadenaCruda = "███████" + usuario + password + caramel + PEPPER + "███████";
 
                 byte[] inputBytes = Encoding.Unicode.GetBytes(cadenaCruda); // UTF-16 Nativo
                 byte[] hashBytes = sha256.ComputeHash(inputBytes);
