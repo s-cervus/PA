@@ -1,46 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PA
 {
     public partial class Login : Form
     {
-        private FontsProjectOWN FontCLo;
+        private FontCLo FontCLo;
+
+
         public Login()
         {
+            //ActivarModoOscuroBarra();
             InitializeComponent();
+            flaged_screen();
+            
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            this.FormBorderStyle = FormBorderStyle.None;
 
-
-            this.FormBorderStyle = FormBorderStyle.None;//Rectificar el cambio de borde
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));//Redondear el formulario completo
-
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             pnlU.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pnlU.Width, pnlU.Height, 15, 15));
             pnlP.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pnlP.Width, pnlP.Height, 15, 15));
             btnLogin.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnLogin.Width, btnLogin.Height, 15, 15));
             btnRegister.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnRegister.Width, btnRegister.Height, 15, 15));
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
-        {
-            Form2 register = new Form2();
-            register.ShowDialog();
-            this.Hide();
-        }
-
         private void Login_Load(object sender, EventArgs e)
         {
+            this.OpFullUI();
             try
             {
-                FontCLo = new FontsProjectOWN();
+                FontCLo = new FontCLo();
 
 
                 //FontCLo.Apply4All(this, 9f, FontStyle.Regular);
@@ -58,26 +49,8 @@ namespace PA
             }
         }
 
+              
 
-
-        protected override void OnFormClosed(FormClosedEventArgs e)
-        {
-            base.OnFormClosed(e);
-
-            // Liberamos la memoria de la PrivateFontCollection
-            if (FontCLo != null)
-            {
-                FontCLo.Dispose();
-            }
-        }
-
-        // P/Invoke para el efecto de sombra (opcional pero muy recomendado para el look)
-        [DllImport("dwmapi.dll")]
-        public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
-
-        /*
-
-        */
         
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -89,8 +62,6 @@ namespace PA
             int nWidthEllipse, // width of ellipse
             int nHeightEllipse // height of ellipse
         );
-
-        // Variable global en tu formulario para guardar el estado
         private bool passwordOculta = true;
 
         private void picEye_Click(object sender, EventArgs e)
@@ -112,6 +83,15 @@ namespace PA
             }
         }
 
+
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
+        // Este evento se encargará del arrastre
         private void pnlDragZone_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -123,38 +103,111 @@ namespace PA
             }
         }
 
-
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private static extern void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private static extern void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-        // Este evento se encargará del arrastre
-        private void MoverVentana_MouseDown(object sender, MouseEventArgs e)
-        {
-            // Validamos que sea el click izquierdo el que arrastra
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                // Envía el mensaje al sistema operativo para indicarle que se está moviendo el formulario completo
-                SendMessage(this.Handle, 0x112, 0xf012, 0);
-            }
-        }
         // ----------------------------------------------------
 
-        // --- LÓGICA DEL BOTÓN CERRAR ---
-        private void btnCerrar_Click(object sender, EventArgs e)
+
+
+
+        private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        public void flaged_screen()
+        {
+            this.SetStyle
+                (
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint |
+                ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.ResizeRedraw, true
+                );
+            this.UpdateStyles();
+        }
+
+        private int tryes = 0;
+        
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if(tryes >= 3)
+            {
+                MessageBox.Show("Has excedido el número de intentos. La aplicación se cerrará.", "Acceso Denegado");
+                Application.Exit();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtUser.Text) || string.IsNullOrWhiteSpace(txtPasswd.Text))
+            {
+                MessageBox.Show("No dejes campos vacíos.", "Error de entrada");
+                return;
+            }
+
+            if (ControlUnit.CheckLogin(txtUser.Text, txtUser.Text))
+            {
+                /*
+                MessageBox.Show("Login Screen", "Bienvenido " + txtUser);
+                */
+                // Abrir el otro form y ocultar este
+                Form3 menu = new Form3();
+                menu.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Credenciales incorrectas o inexistentes.", "Acceso Denegado");
+                return;
+            }
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+
+            Register menu = new Register();
+            menu.Show();
+            this.Hide();
+            
+        }
     }
 }
 
 
 //Pixeles y Curiosidades
+
+
+        /*
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                // 0x02000000 es el flag de Win32 para WS_EX_COMPOSITED
+                // Fuerza al sistema operativo a renderizar de abajo hacia arriba de forma síncrona
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+        */
+
+
+
+        /*
+        // P/Invoke para el efecto de sombra
+        [DllImport("dwmapi.dll")]
+        public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
+        private const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
+        private void ActivarModoOscuroBarra()
+        {
+            int verdadero = 1; // 1 = Activar Modo Oscuro, 0 = Desactivar (Modo Claro)
+
+            // Invocamos la función mágica
+            DwmSetWindowAttribute(this.Handle, DWMWA_USE_IMMERSIVE_DARK_MODE, ref verdadero, sizeof(int));
+        }
+        */
+
+
+
+
+
 
 
 

@@ -11,16 +11,18 @@ using System.Data.SQLite;
 
 
 
+
 namespace PA
 {
-    public static class DataManagerLR
+    public static class ControlUnit
     {
-        // Configuración Maestra del Sistema
-        private const string ConnectionString = "Data Source=local.db;Version=3;";
-        private const string PEPPER = "Equipo 7";
+        // Master Conf 
+        private const string ConnectionString = "Data Source=LocalLogin.db;Version=3;";
+        private const string PEPPER = "Equipo█7";
+        private const int _GOLD_HEARTH = 65537;
 
         // ========================================================
-        // 🛠️ FONTANERÍA INTERNA (Engine Privado - Nunca sale a la UI)
+        // Func Priv------------
         // ========================================================
 
         private static string _get_caramel()
@@ -33,21 +35,29 @@ namespace PA
             return BitConverter.ToString(buffer).Replace("-", "").ToLower();
         }
 
+
         private static string _get_data(string usuario, string password, string caramel)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
-                // Tu receta exacta: Usuario + Passwd + Caramel + Sazón del Equipo 7
-                string cadenaCruda = usuario + password + caramel + PEPPER;
+                // "THE SECRET RECIPE"
+                string srecipe = "███████" + usuario + password + caramel + PEPPER + "███████";
 
-                byte[] inputBytes = Encoding.Unicode.GetBytes(cadenaCruda); // UTF-16 Nativo
-                byte[] hashBytes = sha256.ComputeHash(inputBytes);
-
-                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+                byte[] procBytes = Encoding.Unicode.GetBytes(srecipe); // UTF-16 Nativo
+                
+                // Estirar el dulce hasta quedar irreconocible :)
+                for (int i = 0; i < _GOLD_HEARTH ; i++)
+                {
+                    procBytes = sha256.ComputeHash(procBytes);
+                }
+                
+                return BitConverter.ToString(procBytes).Replace("-", "").ToLower();
             }
+            
+
         }
 
-        private static void _forzar_mutacion(SQLiteConnection conexion, string hashViejo, string usuario, string password)
+        private static void _force_mutation(SQLiteConnection conexion, string hashViejo, string usuario, string password)
         {
             string nuevoCaramel = _get_caramel();
             string nuevoDataHash = _get_data(usuario, password, nuevoCaramel);
@@ -64,11 +74,12 @@ namespace PA
             }
         }
 
+
         // ========================================================
         // INTERFAZ PÚBLICA
         // ========================================================
 
-        public static bool RegistrarUsuario(string usuario, string password)
+        public static bool RegUserPW(string usuario, string password)
         {
             string caramel = _get_caramel();
             string dataHash = _get_data(usuario, password, caramel);
@@ -89,30 +100,30 @@ namespace PA
                     }
                     catch (SQLiteException)
                     {
-                        throw new Exception("Error de infraestructura: El identificador ya existe.");
+                        throw new Exception("Error: El identificador ya existe.");
                     }
                 }
             }
         }
 
-        public static bool ValidarYMutarLogin(string usuario, string password)
+        public static bool CheckLogin(string usuario, string password)
         {
             // Escaneo sigiloso en la RAM del servidor local
             string query = "SELECT Data, Caramel FROM Login";
 
-            using (SQLiteConnection conexion = new SQLiteConnection(ConnectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(ConnectionString))
             {
-                using (SQLiteCommand comando = new SQLiteCommand(query, conexion))
+                using (SQLiteCommand comando = new SQLiteCommand(query, connection))
                 {
                     try
                     {
-                        conexion.Open();
-                        using (SQLiteDataReader lector = comando.ExecuteReader())
+                        connection.Open();
+                        using (SQLiteDataReader reader = comando.ExecuteReader())
                         {
-                            while (lector.Read())
+                            while (reader.Read())
                             {
-                                string dataEnDB = lector["Data"].ToString();
-                                string caramelEnDB = lector["Caramel"].ToString();
+                                string dataEnDB = reader["Data"].ToString();
+                                string caramelEnDB = reader["Caramel"].ToString();
 
                                 // Replicamos la fórmula usando el micro-getter privado
                                 string hashIntento = _get_data(usuario, password, caramelEnDB);
@@ -120,10 +131,10 @@ namespace PA
                                 // Si la matemática coincide, el usuario es legítimo
                                 if (hashIntento == dataEnDB)
                                 {
-                                    lector.Close(); // Rompemos el candado de lectura
+                                    reader.Close(); // Rompemos el candado de lectura
 
                                     // Mutamos el estado en caliente para volverlo basura
-                                    _forzar_mutacion(conexion, dataEnDB, usuario, password);
+                                    _force_mutation(connection, dataEnDB, usuario, password);
 
                                     return true;
                                 }

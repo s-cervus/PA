@@ -20,6 +20,19 @@ namespace PA
             Application.Run(new Form3());
             
 
+<<<<<<< Updated upstream
+=======
+            // ==================================
+            // Periodo de insert
+            // ==================================
+
+            //MyPreLoaderLib.MyPre_0();
+
+
+            // Secuestro el MainForm y lo proceso
+            Application.Run(new GlobalFormSupervisor(new Login()));
+            
+>>>>>>> Stashed changes
         }
     }
     public class OVERLOAD
@@ -35,6 +48,67 @@ namespace PA
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    /*
+    public class MyPreLoaderLib
+    {
+        public static void MyPre_0()
+        {
+            // ========================================================
+            // <<<< FILE DEPEND EXTRACTOR.... >>>>
+            // ========================================================
+            try
+            {
+                string execRoute = AppDomain.CurrentDomain.BaseDirectory;
+                string routeDLLphysic = Path.Combine(execRoute, "SQLite.Interop.dll");
+
+                if (!File.Exists(routeDLLphysic))
+                {
+                    byte[] dllBytes = Properties.Resources.LibSQL_DLLe;
+                    File.WriteAllBytes(routeDLLphysic, dllBytes);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error crítico de inicialización : " + ex.Message, "Error :(");
+                return; // Abortamos antes de que explote por falta de DLL
+            }
+        }
+    }
+    */
+
+
+    public class GlobalFormSupervisor : ApplicationContext
+    {
+        public GlobalFormSupervisor(Form mainForm)
+        {
+            // Reg Main Form
+            RegisterForm(mainForm);
+            mainForm.Show();
+        }
+
+        private void RegisterForm(Form form)
+        {
+            // Synth detected<<<<<<<
+            form.FormClosed += new FormClosedEventHandler(GraphicExt.ClosesAll);
+
+            // IF another form opens apply rule>>>>
+            form.Activated += (sender, e) =>
+            {
+                // Searching...
+                foreach (Form openForm in Application.OpenForms)
+                {
+                    // IF a Window hadn't this event we try to apply this...
+                    openForm.FormClosed -= GraphicExt.ClosesAll;
+                    openForm.FormClosed += GraphicExt.ClosesAll;
+                }
+            };
+        }
+    }
+
+
+>>>>>>> Stashed changes
 }
 
 

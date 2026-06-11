@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Security.Cryptography.X509Certificates;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace PA
 {
@@ -51,7 +53,15 @@ namespace PA
             // Arrancamos el barrido desde la raíz del formulario
             ReadControls(form_item);
 
+            
+
         }
         
+        public static void ClosesAll(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
     }
 }
+

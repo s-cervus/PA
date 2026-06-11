@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace PA
 {
     // Implementamos IDisposable para liberar la memoria de forma limpia después
-    public class FontsProjectOWN : IDisposable
+    public class FontCLo : IDisposable
     {
         // API de Windows para el renderizado correcto
         [DllImport("gdi32.dll")]
@@ -14,7 +14,7 @@ namespace PA
 
         private PrivateFontCollection pfc;
 
-        public FontsProjectOWN()
+        public FontCLo()
         {
             pfc = new PrivateFontCollection();
             LoadFontFrom();
