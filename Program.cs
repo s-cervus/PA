@@ -20,8 +20,7 @@ namespace PA
             Application.Run(new Form3());
             
 
-<<<<<<< Updated upstream
-=======
+
             // ==================================
             // Periodo de insert
             // ==================================
@@ -32,7 +31,7 @@ namespace PA
             // Secuestro el MainForm y lo proceso
             Application.Run(new GlobalFormSupervisor(new Login()));
             
->>>>>>> Stashed changes
+
         }
     }
     public class OVERLOAD
@@ -48,8 +47,7 @@ namespace PA
         }
     }
 
-<<<<<<< Updated upstream
-=======
+
     /*
     public class MyPreLoaderLib
     {
@@ -108,7 +106,7 @@ namespace PA
     }
 
 
->>>>>>> Stashed changes
+
 }
 
 

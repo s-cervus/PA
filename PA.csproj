@@ -12,8 +12,6 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-<<<<<<< Updated upstream
-=======
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
@@ -31,7 +29,6 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
->>>>>>> Stashed changes
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -128,8 +125,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
-=======
     <Compile Include="ControlUnit.cs" />
     <Compile Include="DreamStyle.cs" />
 >>>>>>> Stashed changes
@@ -158,8 +153,7 @@
     <Compile Include="Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
-=======
+
     <Compile Include="GraphicExt.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -167,7 +161,6 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
->>>>>>> Stashed changes
     <Compile Include="ProductoCarrito.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,11 +225,8 @@
     <EmbeddedResource Include="uc_VentasCatalogo.resx">
       <DependentUpon>uc_VentasCatalogo.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< Updated upstream
-=======
     <None Include="LocalLogin.db" />
     <None Include="packages.config" />
->>>>>>> Stashed changes
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -250,8 +240,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-<<<<<<< Updated upstream
-=======
   <ItemGroup>
     <Content Include="cosa.txt" />
     <Content Include="not1.cs.txt" />
@@ -268,6 +256,5 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
->>>>>>> Stashed changes
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
