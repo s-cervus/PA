@@ -1,14 +1,22 @@
-# PA Tareas Pendientes
+# PA Tareas Pendientes terminar antes del 16 de {$date}
 
 El repositorio entero cambiara totalmente
 
-Falta integrar:
+# Importante
+
+Arreglar bug de Running by Outside (No puede acabar PA.exe debido a que no se cierra correctamente)
+
+Integrar boton de regreso
+
+# Mecanicas Importantes
 
 Rediseño de interfaz dado que se ve desfazado en comparacion con el login (facil)
 
 Integracion de archivo PDF y xml de facturas y tickets (nivel medio)
 
 Cambios SQL para los datagrid (dificil si no se sabe integrar)
+
+# Relevante pero se estructura para antes de
 
 Control Granular de Usuarios (Dificil si no se sabe integrar, pero muy laborioso por acceso de controles)
 Nota : (dedica +8 horas debido al rediseño y prohibiciones)
