@@ -1,6 +1,6 @@
 ﻿namespace PA
 {
-    partial class Form5
+    partial class FormSalida
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblSistemaReciclaje = new System.Windows.Forms.Label();
             this.grpDatosVendedor = new System.Windows.Forms.GroupBox();
@@ -72,14 +71,6 @@
             this.lblSubtot = new System.Windows.Forms.Label();
             this.lblPesoTot = new System.Windows.Forms.Label();
             this.lblTotalArtículos = new System.Windows.Forms.Label();
-<<<<<<< Updated upstream
-            this.BtnConfirmarVenta = new System.Windows.Forms.Button();
-            this.btnLimpiarFormulario = new System.Windows.Forms.Button();
-            this.gbxSecciónProveedor.SuspendLayout();
-            this.gbxSecciónDetalles.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
-            this.gpbTotales.SuspendLayout();
-=======
             this.dgvCompras = new System.Windows.Forms.DataGridView();
             this.clmID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmTipoMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,7 +87,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grpResumenCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
->>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // flowLayoutPanel3
@@ -411,10 +401,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(796, 88);
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::PA.Properties.Resources.pibble;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(630, 72);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(205, 241);
+            this.pictureBox1.Size = new System.Drawing.Size(539, 241);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
@@ -565,28 +557,6 @@
             this.clmID.HeaderText = "ID";
             this.clmID.Name = "clmID";
             // 
-<<<<<<< Updated upstream
-            // FormSalida
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 626);
-            this.Controls.Add(this.btnLimpiarFormulario);
-            this.Controls.Add(this.BtnConfirmarVenta);
-            this.Controls.Add(this.gpbTotales);
-            this.Controls.Add(this.gbxSecciónDetalles);
-            this.Controls.Add(this.dtpFechaCompra);
-            this.Controls.Add(this.gbxSecciónProveedor);
-            this.Name = "FormSalida";
-            this.Text = "Compra";
-            this.gbxSecciónProveedor.ResumeLayout(false);
-            this.gbxSecciónProveedor.PerformLayout();
-            this.gbxSecciónDetalles.ResumeLayout(false);
-            this.gbxSecciónDetalles.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();
-            this.gpbTotales.ResumeLayout(false);
-            this.gpbTotales.PerformLayout();
-=======
             // ClmTipoMaterial
             // 
             this.ClmTipoMaterial.HeaderText = "Tipo de Material";
@@ -647,7 +617,7 @@
             this.btnTicket.UseVisualStyleBackColor = false;
             this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
-            // Form1
+            // FormSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -657,7 +627,6 @@
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.dgvCompras);
             this.Controls.Add(this.grpResumenCompra);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -670,8 +639,9 @@
             this.Controls.Add(this.grpDatosVendedor);
             this.Controls.Add(this.lblSistemaReciclaje);
             this.Controls.Add(this.flowLayoutPanel3);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "FormSalida";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.grpDatosVendedor.ResumeLayout(false);
@@ -683,7 +653,6 @@
             this.grpResumenCompra.ResumeLayout(false);
             this.grpResumenCompra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).EndInit();
->>>>>>> Stashed changes
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -726,17 +695,6 @@
         private System.Windows.Forms.GroupBox grpResumenCompra;
         private System.Windows.Forms.Label lblPesoTot;
         private System.Windows.Forms.Label lblTotalArtículos;
-<<<<<<< Updated upstream
-        private System.Windows.Forms.Label lblMetodoCobro;
-        private System.Windows.Forms.Label lblTotalCobrar;
-        private System.Windows.Forms.Label lblTotalPeso;
-        private System.Windows.Forms.TextBox txtTotalPeso;
-        private System.Windows.Forms.TextBox txtTotalArtículos;
-        private System.Windows.Forms.ComboBox cmbMetodoPago;
-        private System.Windows.Forms.Button BtnConfirmarVenta;
-        private System.Windows.Forms.TextBox txtTotalCobrar;
-        private System.Windows.Forms.Button btnLimpiarFormulario;
-=======
         private System.Windows.Forms.DataGridView dgvCompras;
         private System.Windows.Forms.Label lblimpuest;
         private System.Windows.Forms.Label lblSubtot;
@@ -755,7 +713,6 @@
         private System.Windows.Forms.Button btnRegresarMenu;
         private System.Windows.Forms.Button btnTicket;
         private System.Windows.Forms.Label label9;
->>>>>>> Stashed changes
     }
 }
 

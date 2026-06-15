@@ -12,18 +12,17 @@ namespace PA
 
         public Login()
         {
-            //ActivarModoOscuroBarra();
             InitializeComponent();
             flaged_screen();
             
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            this.Region = System.Drawing.Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             this.FormBorderStyle = FormBorderStyle.None;
 
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            pnlU.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pnlU.Width, pnlU.Height, 15, 15));
-            pnlP.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pnlP.Width, pnlP.Height, 15, 15));
-            btnLogin.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnLogin.Width, btnLogin.Height, 15, 15));
-            btnRegister.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnRegister.Width, btnRegister.Height, 15, 15));
+            
+            pnlUser.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, pnlUser.Width, pnlUser.Height, 15, 15));
+            pnlPasswd.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, pnlPasswd.Width, pnlPasswd.Height, 15, 15));
+            btnLogin.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnLogin.Width, btnLogin.Height, 15, 15));
+            btnRegister.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnRegister.Width, btnRegister.Height, 15, 15));
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -35,12 +34,12 @@ namespace PA
 
 
                 //FontCLo.Apply4All(this, 9f, FontStyle.Regular);
-                lblW.Font = FontCLo.ObtainFont(35f, FontStyle.Regular);
+                lblW.Font = FontCLo.ObtainFont(45f, FontStyle.Regular);
                 lblP.Font = FontCLo.ObtainFont(19f, FontStyle.Regular);
                 lblU.Font = FontCLo.ObtainFont(19f, FontStyle.Regular);
                 btnLogin.Font = FontCLo.ObtainFont(19F, FontStyle.Regular);
                 btnRegister.Font = FontCLo.ObtainFont(19F, FontStyle.Regular);
-                //lblMark.Font=FontCLo.ObtainFont(19F, FontStyle.Regular);
+                
 
             }
             catch (Exception ex)
@@ -51,39 +50,28 @@ namespace PA
 
               
 
-        
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect,     // x-coordinate of upper-left corner
-            int nTopRect,      // y-coordinate of upper-left corner
-            int nRightRect,    // x-coordinate of lower-right corner
-            int nBottomRect,   // y-coordinate of lower-right corner
-            int nWidthEllipse, // width of ellipse
-            int nHeightEllipse // height of ellipse
-        );
-        private bool passwordOculta = true;
-
+        private bool passwdHide = true;
         private void picEye_Click(object sender, EventArgs e)
         {
-            if (passwordOculta)
+            if (passwdHide)
             {
                 // Mostrar contraseña
                 txtPasswd.UseSystemPasswordChar = false;
                 txtPasswd.PasswordChar = '\0';
                 picEye.Image = Properties.Resources.eye; // Cambia el icono
-                passwordOculta = false;
+                passwdHide = false;
             }
             else
             {
                 // Ocultar contraseña
                 txtPasswd.UseSystemPasswordChar = true;
                 picEye.Image = Properties.Resources.eye_closed; // Cambia el icono
-                passwordOculta = true;
+                passwdHide = true;
             }
         }
 
 
+        // Este evento se encargará del arrastre
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private static extern void ReleaseCapture();
@@ -91,7 +79,6 @@ namespace PA
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private static extern void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-        // Este evento se encargará del arrastre
         private void pnlDragZone_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -142,13 +129,13 @@ namespace PA
                 return;
             }
 
-            if (ControlUnit.CheckLogin(txtUser.Text, txtUser.Text))
+            if (ControlUnit.ValidarYMutarLogin(txtUser.Text, txtUser.Text))
             {
                 /*
                 MessageBox.Show("Login Screen", "Bienvenido " + txtUser);
                 */
                 // Abrir el otro form y ocultar este
-                Form3 menu = new Form3();
+                Menu menu = new Menu();
                 menu.Show();
                 this.Hide();
             }
@@ -172,6 +159,23 @@ namespace PA
 
 
 //Pixeles y Curiosidades
+
+
+        /*
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
+        */
+
+
+
 
 
         /*

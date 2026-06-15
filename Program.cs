@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace PA
 {
@@ -15,11 +17,12 @@ namespace PA
         [STAThread]
         static void Main()
         {
+            LibraryLoader.Load();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form3());
             
-
+            
 
             // ==================================
             // Periodo de insert
@@ -29,11 +32,14 @@ namespace PA
 
 
             // Secuestro el MainForm y lo proceso
-            Application.Run(new GlobalFormSupervisor(new Login()));
-            
+            Application.Run(new GlobalFormSupervisor(new Menu()));
 
+            Application.Exit();
         }
     }
+
+
+    /*
     public class OVERLOAD
     {
         public void OverChargeScreen(TableLayoutPanel panel)
@@ -47,8 +53,7 @@ namespace PA
         }
     }
 
-
-    /*
+    
     public class MyPreLoaderLib
     {
         public static void MyPre_0()
@@ -74,7 +79,11 @@ namespace PA
             }
         }
     }
+
     */
+
+
+
 
 
     public class GlobalFormSupervisor : ApplicationContext

@@ -125,9 +125,8 @@
             // 
             // btnAgregarVentaL
             // 
-            this.btnAgregarVentaL.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAgregarVentaL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarVentaL.Location = new System.Drawing.Point(3, 398);
+            this.btnAgregarVentaL.Location = new System.Drawing.Point(3, 361);
             this.btnAgregarVentaL.Name = "btnAgregarVentaL";
             this.btnAgregarVentaL.Size = new System.Drawing.Size(686, 23);
             this.btnAgregarVentaL.TabIndex = 3;
@@ -183,14 +182,14 @@
             // 
             // btnAgregarVentaCR
             // 
-            this.btnAgregarVentaCR.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAgregarVentaCR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarVentaCR.Location = new System.Drawing.Point(0, 401);
+            this.btnAgregarVentaCR.Location = new System.Drawing.Point(-1, 361);
             this.btnAgregarVentaCR.Name = "btnAgregarVentaCR";
             this.btnAgregarVentaCR.Size = new System.Drawing.Size(692, 23);
             this.btnAgregarVentaCR.TabIndex = 3;
             this.btnAgregarVentaCR.Text = "Agregar a la venta";
             this.btnAgregarVentaCR.UseVisualStyleBackColor = true;
+            this.btnAgregarVentaCR.Click += new System.EventHandler(this.btnAgregarVentaCR_Click);
             // 
             // tabPage4
             // 
@@ -223,14 +222,14 @@
             // 
             // btnAgregarVentaM
             // 
-            this.btnAgregarVentaM.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAgregarVentaM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarVentaM.Location = new System.Drawing.Point(0, 401);
+            this.btnAgregarVentaM.Location = new System.Drawing.Point(4, 361);
             this.btnAgregarVentaM.Name = "btnAgregarVentaM";
             this.btnAgregarVentaM.Size = new System.Drawing.Size(692, 23);
             this.btnAgregarVentaM.TabIndex = 3;
             this.btnAgregarVentaM.Text = "Agregar a la venta";
             this.btnAgregarVentaM.UseVisualStyleBackColor = true;
+            this.btnAgregarVentaM.Click += new System.EventHandler(this.btnAgregarVentaM_Click);
             // 
             // uc_VentasCatalogo
             // 

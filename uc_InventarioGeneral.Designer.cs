@@ -39,6 +39,7 @@
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.btnGuardarAlmacen = new System.Windows.Forms.Button();
+            this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -121,7 +122,8 @@
             this.cmbCategoria.Items.AddRange(new object[] {
             "Laptops / PCs",
             "Celulares",
-            "Componentes / Refacciones"});
+            "Componentes / Refacciones",
+            "Minerales"});
             this.cmbCategoria.Location = new System.Drawing.Point(225, 256);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(121, 21);
@@ -138,11 +140,23 @@
             this.btnGuardarAlmacen.UseVisualStyleBackColor = true;
             this.btnGuardarAlmacen.Click += new System.EventHandler(this.btnGuardarAlmacen_Click_1);
             // 
+            // btnEliminarProducto
+            // 
+            this.btnEliminarProducto.BackColor = System.Drawing.Color.Red;
+            this.btnEliminarProducto.Location = new System.Drawing.Point(30, 400);
+            this.btnEliminarProducto.Name = "btnEliminarProducto";
+            this.btnEliminarProducto.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarProducto.TabIndex = 11;
+            this.btnEliminarProducto.Text = "Dar de Baja";
+            this.btnEliminarProducto.UseVisualStyleBackColor = false;
+            this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
+            // 
             // uc_InventarioGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
+            this.Controls.Add(this.btnEliminarProducto);
             this.Controls.Add(this.btnGuardarAlmacen);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.txtPrecio);
@@ -174,5 +188,6 @@
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.Button btnGuardarAlmacen;
+        private System.Windows.Forms.Button btnEliminarProducto;
     }
 }
