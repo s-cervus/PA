@@ -3,8 +3,8 @@ using System.IO;
 using System.Data;
 using System.Text;
 using System.Security.Cryptography;
-using System.Data.SQLite;    // Búnker local autogestionado en data_PDC7
-using System.Data.SqlClient; // Conexión transaccional remota (Server Mode)
+using System.Data.SQLite;
+using System.Data.SqlClient;
 
 namespace PA
 {
@@ -13,7 +13,7 @@ namespace PA
     public static class ControlUnit
     {
         // ========================================================
-        // 🎛️ CONFIGURACIÓN Y ESTADOS DE SESIÓN GLOBALES
+        // CONFIGURACIÓN Y ESTADOS DE SESIÓN GLOBALES
         // ========================================================
         public static DbMode CurrentMode { get; set; } = DbMode.Local; // Switch maestro
 
@@ -31,7 +31,7 @@ namespace PA
         private const string LOCK_SIGNATURE = "system_final_door_lock"; // Identificador DOM
 
         // ========================================================
-        // 🛠️ FONTANERÍA CRIPTOGRÁFICA DE BAJO NIVEL (BYTES PUROS)
+        // CRIPTO DE BAJO NIVEL (BYTES PUROS)
         // ========================================================
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace PA
 
             if (CurrentMode == DbMode.Server)
             {
-                // Fallback de seguridad si consultas el VPS remoto
+                // Fallback de seguridad si consultas el srv remoto.
                 if (rolId == 1) CurrentRole = "SUPER_ADMIN";
                 else if (rolId == 2) CurrentRole = "ADMIN_RW";
                 else CurrentRole = "NORMAL_USER";
@@ -155,9 +155,9 @@ namespace PA
             }
 
             /* * ===================================================================
-             * ⚠️ POLÍTICAS DE DENEGACIÓN SOBERANAS (Implementación en tus Forms)
+             * ⚠️ POLÍTICAS DE DENEGACIÓN
              * ===================================================================
-             * Aqui van tus políitcas de denegación según los forms que quieras controlar
+             * Aqui van las políitcas de denegación
              * ===================================================================
              */
         }
@@ -189,7 +189,7 @@ namespace PA
                             }
                             else
                             {
-                                _limpiar_lockdown(con); // El castigo expiró, restauramos el búnker
+                                _limpiar_lockdown(con); // El castigo expiró, restauramos.
                             }
                         }
                     }
@@ -259,7 +259,7 @@ namespace PA
         }
 
         // ========================================================
-        // 📥 INFRAESTRUCTURA DE REGISTRO SEGURO (Códigos: 1, 2, 3)
+        // INFRAESTRUCTURA DE REGISTRO SEGURO (Códigos: 1, 2, 3)
         // ========================================================
 
         public static int RegistrarUsuario(string username, string password, int uid)
@@ -298,7 +298,7 @@ namespace PA
             }
             else
             {
-                // Réplica en espejo para el VPS corporativo
+                // Réplica en espejo para el srv corporativo
                 using (SqlConnection con = new SqlConnection(ServerConnectionString))
                 {
                     string query = "INSERT INTO Login (Username, uID, Data, Caramel, Lockdown) VALUES (@user, @uid, @data, @caramel, NULL)";
@@ -350,7 +350,7 @@ namespace PA
         }
 
         // ========================================================
-        // 🔑 AUTENTICACIÓN DIRECTA E INSTANTÁNEA O(1)
+        // AUTENTICACIÓN DIRECTA E INSTANTÁNEA
         // ========================================================
 
         public static bool ValidarYMutarLogin(string usuario, string password)
@@ -406,7 +406,7 @@ namespace PA
             }
             else
             {
-                // Autenticación remota en el búnker del VPS de Finlandia
+                // Autenticación remota
                 string query = "SELECT uID, Data, Caramel FROM Login WHERE Username = @user";
                 using (SqlConnection con = new SqlConnection(ServerConnectionString))
                 {
@@ -482,7 +482,7 @@ namespace PA
         }
 
         // ========================================================
-        // 🗃️ SECCIÓN DE INICIALIZACIÓN SOBERANA DEL REPOSITORIO
+        // SECCIÓN DE INICIALIZACIÓN
         // ========================================================
 
         public static void InicializarEntornoLocal()
@@ -502,7 +502,7 @@ namespace PA
 
                 if (recienCreado)
                 {
-                    // Tu tabla Login adaptada al estándar STRICT binario puro
+                    // Tabla Login adaptada al estándar STRICT binario puro
                     string tablaLogin = @"
                         CREATE TABLE ""Login"" (
                             ""Username"" TEXT UNIQUE,
@@ -513,7 +513,7 @@ namespace PA
                             PRIMARY KEY(""Username"")
                         ) STRICT;";
 
-                    // Tu tabla cID con llave compuesta para control estricto de roles
+                    // Tabla cID con llave compuesta para control estricto de roles
                     string tablaCID = @"
                         CREATE TABLE ""cID"" (
                             ""ID""      INTEGER,
@@ -546,9 +546,9 @@ namespace PA
             }
 
             // ========================================================
-            // 💡 EXTRACCIÓN AUTOMÁTICA DE PLANTILLAS EXTRA DESDE .RESX
+            // EXTRACCIÓN AUTOMÁTICA DE PLANTILLAS EXTRA DESDE .RESX
             // ========================================================
-            // Aquí es donde el ControlUnit se toma la molestia de rellenar la carpeta data_PDC7
+            // Aquí es donde el ControlUnit crea la carpeta data_PDC7
             // inyectando los archivos vacíos de las otras bases contables desde tus recursos internos:
             /*
             string rutaProductos = Path.Combine(DirectorioBunker, "store.db");
