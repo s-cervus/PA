@@ -12,9 +12,9 @@ using System.Diagnostics;
 
 namespace PA
 {
-    public partial class FormSalida : Form
+    public partial class FormCompra : Form
     {
-        public FormSalida()
+        public FormCompra()
         {
             InitializeComponent();
         }
@@ -505,6 +505,15 @@ namespace PA
                     MessageBoxIcon.Warning);
 
                 txtTeléfono.Focus();
+            }
+        }
+
+        private void btnRegresarMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Menu menu = new Menu();
+            menu.Show();
+            {
             }
         }
     }

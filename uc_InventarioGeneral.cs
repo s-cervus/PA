@@ -57,7 +57,7 @@ namespace PA
             // =========================================================================
 
             // Buscar en Laptops
-            foreach (DataRow fila in FormEntrada.TablaLaptops.Rows)
+            foreach (DataRow fila in FormVenta.TablaLaptops.Rows)
             {
                 if (fila["ID"].ToString() == idBuscar)
                 {
@@ -72,7 +72,7 @@ namespace PA
             // Buscar en Celulares
             if (!productoEncontrado)
             {
-                foreach (DataRow fila in FormEntrada.TablaCelulares.Rows)
+                foreach (DataRow fila in FormVenta.TablaCelulares.Rows)
                 {
                     if (fila["ID"].ToString() == idBuscar)
                     {
@@ -88,7 +88,7 @@ namespace PA
             // Buscar en Componentes / Refacciones
             if (!productoEncontrado)
             {
-                foreach (DataRow fila in FormEntrada.TablaComponentes.Rows)
+                foreach (DataRow fila in FormVenta.TablaComponentes.Rows)
                 {
                     if (fila["ID"].ToString() == idBuscar)
                     {
@@ -104,7 +104,7 @@ namespace PA
             // ¡NUEVO! Buscar en Minerales
             if (!productoEncontrado)
             {
-                foreach (DataRow fila in FormEntrada.TablaMinerales.Rows)
+                foreach (DataRow fila in FormVenta.TablaMinerales.Rows)
                 {
                     if (fila["ID"].ToString() == idBuscar)
                     {
@@ -139,19 +139,19 @@ namespace PA
 
                 if (categoriaSeleccionada == "Laptops / PCs")
                 {
-                    FormEntrada.TablaLaptops.Rows.Add(idBuscar, nombreProductoModificado, stockIngresado, precioTexto);
+                    FormVenta.TablaLaptops.Rows.Add(idBuscar, nombreProductoModificado, stockIngresado, precioTexto);
                 }
                 else if (categoriaSeleccionada == "Celulares")
                 {
-                    FormEntrada.TablaCelulares.Rows.Add(idBuscar, nombreProductoModificado, stockIngresado, precioTexto);
+                    FormVenta.TablaCelulares.Rows.Add(idBuscar, nombreProductoModificado, stockIngresado, precioTexto);
                 }
                 else if (categoriaSeleccionada == "Componentes / Refacciones")
                 {
-                    FormEntrada.TablaComponentes.Rows.Add(idBuscar, nombreProductoModificado, stockIngresado, precioTexto);
+                    FormVenta.TablaComponentes.Rows.Add(idBuscar, nombreProductoModificado, stockIngresado, precioTexto);
                 }
                 else if (categoriaSeleccionada == "Minerales") // <-- ¡NUEVO!
                 {
-                    FormEntrada.TablaMinerales.Rows.Add(idBuscar, nombreProductoModificado, stockIngresado, precioTexto);
+                    FormVenta.TablaMinerales.Rows.Add(idBuscar, nombreProductoModificado, stockIngresado, precioTexto);
                 }
 
                 MessageBox.Show("¡" + nombreProductoModificado + " registrado como NUEVO producto con éxito!", "Alta de Almacén", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -161,7 +161,7 @@ namespace PA
                 MessageBox.Show("¡Stock actualizado! Se agregaron " + stockIngresado + " piezas a '" + nombreProductoModificado + "'.", "Surtido de Almacén", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            FormEntrada.GuardarInventarioEnDisco();
+            FormVenta.GuardarInventarioEnDisco();
             LimpiarFormulario();
         }
 
@@ -185,12 +185,12 @@ namespace PA
             if (respuesta == DialogResult.No) return;
 
             // 1. Buscar y borrar en TablaLaptops
-            for (int i = 0; i < FormEntrada.TablaLaptops.Rows.Count; i++)
+            for (int i = 0; i < FormVenta.TablaLaptops.Rows.Count; i++)
             {
-                if (FormEntrada.TablaLaptops.Rows[i]["ID"].ToString() == idEliminar)
+                if (FormVenta.TablaLaptops.Rows[i]["ID"].ToString() == idEliminar)
                 {
-                    nombreBorrado = FormEntrada.TablaLaptops.Rows[i]["Componente/Equipo"].ToString();
-                    FormEntrada.TablaLaptops.Rows[i].Delete();
+                    nombreBorrado = FormVenta.TablaLaptops.Rows[i]["Componente/Equipo"].ToString();
+                    FormVenta.TablaLaptops.Rows[i].Delete();
                     borradoExitoso = true;
                     break;
                 }
@@ -199,12 +199,12 @@ namespace PA
             // 2. Buscar y borrar en TablaCelulares
             if (!borradoExitoso)
             {
-                for (int i = 0; i < FormEntrada.TablaCelulares.Rows.Count; i++)
+                for (int i = 0; i < FormVenta.TablaCelulares.Rows.Count; i++)
                 {
-                    if (FormEntrada.TablaCelulares.Rows[i]["ID"].ToString() == idEliminar)
+                    if (FormVenta.TablaCelulares.Rows[i]["ID"].ToString() == idEliminar)
                     {
-                        nombreBorrado = FormEntrada.TablaCelulares.Rows[i]["Componente/Equipo"].ToString();
-                        FormEntrada.TablaCelulares.Rows[i].Delete();
+                        nombreBorrado = FormVenta.TablaCelulares.Rows[i]["Componente/Equipo"].ToString();
+                        FormVenta.TablaCelulares.Rows[i].Delete();
                         borradoExitoso = true;
                         break;
                     }
@@ -214,12 +214,12 @@ namespace PA
             // 3. Buscar y borrar en TablaComponentes
             if (!borradoExitoso)
             {
-                for (int i = 0; i < FormEntrada.TablaComponentes.Rows.Count; i++)
+                for (int i = 0; i < FormVenta.TablaComponentes.Rows.Count; i++)
                 {
-                    if (FormEntrada.TablaComponentes.Rows[i]["ID"].ToString() == idEliminar)
+                    if (FormVenta.TablaComponentes.Rows[i]["ID"].ToString() == idEliminar)
                     {
-                        nombreBorrado = FormEntrada.TablaComponentes.Rows[i]["Componente/Equipo"].ToString();
-                        FormEntrada.TablaComponentes.Rows[i].Delete();
+                        nombreBorrado = FormVenta.TablaComponentes.Rows[i]["Componente/Equipo"].ToString();
+                        FormVenta.TablaComponentes.Rows[i].Delete();
                         borradoExitoso = true;
                         break;
                     }
@@ -229,12 +229,12 @@ namespace PA
             // 4. ¡NUEVO! Buscar y borrar en TablaMinerales
             if (!borradoExitoso)
             {
-                for (int i = 0; i < FormEntrada.TablaMinerales.Rows.Count; i++)
+                for (int i = 0; i < FormVenta.TablaMinerales.Rows.Count; i++)
                 {
-                    if (FormEntrada.TablaMinerales.Rows[i]["ID"].ToString() == idEliminar)
+                    if (FormVenta.TablaMinerales.Rows[i]["ID"].ToString() == idEliminar)
                     {
-                        nombreBorrado = FormEntrada.TablaMinerales.Rows[i]["Componente/Equipo"].ToString();
-                        FormEntrada.TablaMinerales.Rows[i].Delete();
+                        nombreBorrado = FormVenta.TablaMinerales.Rows[i]["Componente/Equipo"].ToString();
+                        FormVenta.TablaMinerales.Rows[i].Delete();
                         borradoExitoso = true;
                         break;
                     }
@@ -244,12 +244,12 @@ namespace PA
             // 5. RESPUESTA Y ACTUALIZACIÓN EN DISCO
             if (borradoExitoso)
             {
-                FormEntrada.TablaLaptops.AcceptChanges();
-                FormEntrada.TablaCelulares.AcceptChanges();
-                FormEntrada.TablaComponentes.AcceptChanges();
-                FormEntrada.TablaMinerales.AcceptChanges(); // <-- ¡NUEVO!
+                FormVenta.TablaLaptops.AcceptChanges();
+                FormVenta.TablaCelulares.AcceptChanges();
+                FormVenta.TablaComponentes.AcceptChanges();
+                FormVenta.TablaMinerales.AcceptChanges(); // <-- ¡NUEVO!
 
-                FormEntrada.GuardarInventarioEnDisco();
+                FormVenta.GuardarInventarioEnDisco();
 
                 MessageBox.Show("¡El producto '" + nombreBorrado + "' (ID: " + idEliminar + ") fue eliminado exitosamente del sistema!", "Catálogo Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarFormulario();

@@ -2,7 +2,7 @@
 
 namespace PA
 {
-    partial class FormEntrada
+    partial class FormVenta
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace PA
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEntrada));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVenta));
             this.pnlBarrraSuperior = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();

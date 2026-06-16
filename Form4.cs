@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PA
 {
-    public partial class FormEntrada : Form
+    public partial class FormVenta : Form
     {
         // El carrito funcional
         public static List<ProductoCarrito> Carrito = new List<ProductoCarrito>();
@@ -28,7 +28,7 @@ namespace PA
         private static string archivoComponentes = Path.Combine(Application.StartupPath, "inventario_componentes.xml");
         private static string archivoMinerales = Path.Combine(Application.StartupPath, "inventario_minerales.xml"); // <-- NUEVA
 
-        public FormEntrada()
+        public FormVenta()
         {
             InitializeComponent();
 
@@ -197,7 +197,7 @@ namespace PA
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            Form3 menu = new Form3();
+            Menu menu = new Menu();
             menu.Show();
             this.Hide();
         }

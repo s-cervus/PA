@@ -129,7 +129,7 @@ namespace PA
                 return;
             }
 
-            if (ControlUnit.ValidarYMutarLogin(txtUser.Text, txtUser.Text))
+            if (ControlUnit.ValidarYMutarLogin(txtUser.Text, txtPasswd.Text))
             {
                 /*
                 MessageBox.Show("Login Screen", "Bienvenido " + txtUser);

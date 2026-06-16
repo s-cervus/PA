@@ -26,12 +26,12 @@ namespace PA
         private void CargarTablasDesdeAlmacen()
         {
             // Jalamos las tablas vivas que viven en FormEntrada
-            dgvLaptop.DataSource = PA.FormEntrada.TablaLaptops;
-            dgvCelular.DataSource = PA.FormEntrada.TablaCelulares;
-            dgvComponentes.DataSource = PA.FormEntrada.TablaComponentes;
+            dgvLaptop.DataSource = PA.FormVenta.TablaLaptops;
+            dgvCelular.DataSource = PA.FormVenta.TablaCelulares;
+            dgvComponentes.DataSource = PA.FormVenta.TablaComponentes;
 
             // ¡CORREGIDO!: Enlazamos directamente la tabla global real de Minerales
-            dgvMinerales.DataSource = PA.FormEntrada.TablaMinerales;
+            dgvMinerales.DataSource = PA.FormVenta.TablaMinerales;
         }
 
         // =========================================================================
@@ -47,7 +47,7 @@ namespace PA
                 int stockActual = Convert.ToInt32(dgvCelular.CurrentRow.Cells["Stock"].Value);
 
                 int cantidadEnCarrito = 0;
-                foreach (var item in PA.FormEntrada.Carrito)
+                foreach (var item in PA.FormVenta.Carrito)
                 {
                     if (item.ID == id) { cantidadEnCarrito += item.Cantidad; }
                 }
@@ -69,7 +69,7 @@ namespace PA
                     Precio = precio
                 };
 
-                PA.FormEntrada.Carrito.Add(nuevoItem);
+                PA.FormVenta.Carrito.Add(nuevoItem);
                 MessageBox.Show(nombre + " agregado a la venta, carnal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -91,7 +91,7 @@ namespace PA
                 int stockActual = Convert.ToInt32(dgvLaptop.CurrentRow.Cells["Stock"].Value);
 
                 int cantidadEnCarrito = 0;
-                foreach (var item in PA.FormEntrada.Carrito)
+                foreach (var item in PA.FormVenta.Carrito)
                 {
                     if (item.ID == id) { cantidadEnCarrito += item.Cantidad; }
                 }
@@ -113,7 +113,7 @@ namespace PA
                     Precio = precio
                 };
 
-                PA.FormEntrada.Carrito.Add(nuevoItem);
+                PA.FormVenta.Carrito.Add(nuevoItem);
                 MessageBox.Show(nombre + " agregado a la venta, carnal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -136,7 +136,7 @@ namespace PA
                 int stockActual = Convert.ToInt32(dgvComponentes.CurrentRow.Cells["Stock"].Value);
 
                 int cantidadEnCarrito = 0;
-                foreach (var item in PA.FormEntrada.Carrito)
+                foreach (var item in PA.FormVenta.Carrito)
                 {
                     if (item.ID == id) { cantidadEnCarrito += item.Cantidad; }
                 }
@@ -158,7 +158,7 @@ namespace PA
                     Precio = precio
                 };
 
-                PA.FormEntrada.Carrito.Add(nuevoItem);
+                PA.FormVenta.Carrito.Add(nuevoItem);
                 MessageBox.Show(nombre + " agregado a la venta, carnal.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -181,7 +181,7 @@ namespace PA
                 int stockActual = Convert.ToInt32(dgvMinerales.CurrentRow.Cells["Stock"].Value);
 
                 int cantidadEnCarrito = 0;
-                foreach (var item in PA.FormEntrada.Carrito)
+                foreach (var item in PA.FormVenta.Carrito)
                 {
                     if (item.ID == id) { cantidadEnCarrito += item.Cantidad; }
                 }
@@ -203,7 +203,7 @@ namespace PA
                     Precio = precio
                 };
 
-                PA.FormEntrada.Carrito.Add(nuevoItem);
+                PA.FormVenta.Carrito.Add(nuevoItem);
                 MessageBox.Show(nombre + " agregado a la venta correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

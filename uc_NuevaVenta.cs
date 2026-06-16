@@ -26,11 +26,11 @@ namespace PA
         public void ActualizarPantallaCaja()
         {
             dgvCarrito.DataSource = null; // Limpiamos la tabla
-            dgvCarrito.DataSource = FormEntrada.Carrito; // Le pasamos la lista global
+            dgvCarrito.DataSource = FormVenta.Carrito; // Le pasamos la lista global
 
             // Calculamos la suma total de lo que lleva
             decimal totalGeneral = 0;
-            foreach (var item in FormEntrada.Carrito)
+            foreach (var item in FormVenta.Carrito)
             {
                 totalGeneral += item.Total;
             }
@@ -41,15 +41,15 @@ namespace PA
         // Evento del botón para cobrar, actualizar inventario y simular la contabilidad
         private void btnTerminarVenta_Click_1(object sender, EventArgs e)
         {
-            if (FormEntrada.Carrito.Count > 0)
+            if (FormVenta.Carrito.Count > 0)
             {
                 // =========================================================================
                 // FASE 1: VALIDACIÓN DE SEGURIDAD (Revisar que haya suficiente stock de TODO)
                 // =========================================================================
-                foreach (var item in FormEntrada.Carrito)
+                foreach (var item in FormVenta.Carrito)
                 {
                     // 1. Validar en Laptops
-                    foreach (DataRow fila in FormEntrada.TablaLaptops.Rows)
+                    foreach (DataRow fila in FormVenta.TablaLaptops.Rows)
                     {
                         if (fila["ID"].ToString() == item.ID)
                         {
@@ -63,7 +63,7 @@ namespace PA
                     }
 
                     // 2. Validar en Celulares
-                    foreach (DataRow fila in FormEntrada.TablaCelulares.Rows)
+                    foreach (DataRow fila in FormVenta.TablaCelulares.Rows)
                     {
                         if (fila["ID"].ToString() == item.ID)
                         {
@@ -77,7 +77,7 @@ namespace PA
                     }
 
                     // 3. Validar en Componentes
-                    foreach (DataRow fila in FormEntrada.TablaComponentes.Rows)
+                    foreach (DataRow fila in FormVenta.TablaComponentes.Rows)
                     {
                         if (fila["ID"].ToString() == item.ID)
                         {
@@ -91,7 +91,7 @@ namespace PA
                     }
 
                     // 4. Validar en Minerales
-                    foreach (DataRow fila in FormEntrada.TablaMinerales.Rows)
+                    foreach (DataRow fila in FormVenta.TablaMinerales.Rows)
                     {
                         if (fila["ID"].ToString() == item.ID)
                         {
@@ -108,10 +108,10 @@ namespace PA
                 // =========================================================================
                 // FASE 2: PROCESAR DESCUENTOS (Solo entra si la Fase 1 fue totalmente exitosa)
                 // =========================================================================
-                foreach (var item in FormEntrada.Carrito)
+                foreach (var item in FormVenta.Carrito)
                 {
                     // Descontar en Laptops
-                    foreach (DataRow fila in FormEntrada.TablaLaptops.Rows)
+                    foreach (DataRow fila in FormVenta.TablaLaptops.Rows)
                     {
                         if (fila["ID"].ToString() == item.ID)
                         {
@@ -121,7 +121,7 @@ namespace PA
                     }
 
                     // Descontar en Celulares
-                    foreach (DataRow fila in FormEntrada.TablaCelulares.Rows)
+                    foreach (DataRow fila in FormVenta.TablaCelulares.Rows)
                     {
                         if (fila["ID"].ToString() == item.ID)
                         {
@@ -131,7 +131,7 @@ namespace PA
                     }
 
                     // Descontar en Componentes / Refacciones
-                    foreach (DataRow fila in FormEntrada.TablaComponentes.Rows)
+                    foreach (DataRow fila in FormVenta.TablaComponentes.Rows)
                     {
                         if (fila["ID"].ToString() == item.ID)
                         {
@@ -141,7 +141,7 @@ namespace PA
                     }
 
                     // Descontar en Minerales
-                    foreach (DataRow fila in FormEntrada.TablaMinerales.Rows)
+                    foreach (DataRow fila in FormVenta.TablaMinerales.Rows)
                     {
                         if (fila["ID"].ToString() == item.ID)
                         {
@@ -152,7 +152,7 @@ namespace PA
                 }
 
                 // === GUARDADO MAESTRO EN DISCO DURO ===
-                FormEntrada.GuardarInventarioEnDisco();
+                FormVenta.GuardarInventarioEnDisco();
 
                 // =========================================================================
                 // FASE 3: GENERACIÓN DE TICKET CORPORATIVO DETALLADO (.TXT)
@@ -175,7 +175,7 @@ namespace PA
 
                     // Cálculos Contables e IVA
                     decimal totalVenta = 0;
-                    foreach (var item in FormEntrada.Carrito)
+                    foreach (var item in FormVenta.Carrito)
                     {
                         totalVenta += item.Total;
                     }
@@ -198,7 +198,7 @@ namespace PA
                     ticket.AppendLine(string.Format("{0,-20} {1,5} {2,10} {3,11}", "Descripcion Art.", "Cant", "P. Unit", "Importe"));
                     ticket.AppendLine("------------------------------------------------");
 
-                    foreach (var item in FormEntrada.Carrito)
+                    foreach (var item in FormVenta.Carrito)
                     {
                         // Cortamos la descripción si excede los 18 caracteres para no romper las columnas del ticket
                         string descCortada = item.Descripcion.Length > 18 ? item.Descripcion.Substring(0, 18) : item.Descripcion;
@@ -260,7 +260,7 @@ namespace PA
 
                         // Re-calculamos importes contables exactos desglosando el IVA de la imagen
                         decimal totalVentaFactura = 0;
-                        foreach (var item in FormEntrada.Carrito) { totalVentaFactura += item.Total; }
+                        foreach (var item in FormVenta.Carrito) { totalVentaFactura += item.Total; }
                         decimal subtotalFactura = totalVentaFactura / 1.16m;
                         decimal ivaFactura = totalVentaFactura - subtotalFactura;
 
@@ -305,7 +305,7 @@ namespace PA
                         html.AppendLine("<table class='concepts-table'>");
                         html.AppendLine("<tr><th>Clave Producto</th><th>No. Identificación</th><th>Cantidad</th><th>Clave Unidad</th><th>Unidad</th><th>Valor Unitario</th><th>Importe</th><th>Objeto Impuesto</th></tr>");
 
-                        foreach (var item in FormEntrada.Carrito)
+                        foreach (var item in FormVenta.Carrito)
                         {
                             decimal valorUnitarioNeto = item.Precio / 1.16m;
                             decimal importeNetoArticulo = valorUnitarioNeto * item.Cantidad;
@@ -384,7 +384,7 @@ namespace PA
                 MessageBox.Show(asiento, "Sistema Contable", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Limpiamos todo para la siguiente venta
-                FormEntrada.Carrito.Clear();
+                FormVenta.Carrito.Clear();
                 ActualizarPantallaCaja();
             }
             else

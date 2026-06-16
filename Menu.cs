@@ -20,18 +20,19 @@ namespace PA
 
         private void btnEntrada_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Oculta el Form3 actual
-            FormEntrada formEntrada = new FormEntrada();
-            formEntrada.Show(); 
+            this.Hide();
+            FormCompra formCompra = new FormCompra();
+            formCompra.Show();
+            
 
             
         }
 
         private void btnSalida_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormSalida formSalida = new FormSalida();
-            formSalida.Show(); 
+            this.Hide(); // Oculta el Form3 actual
+            FormVenta formVenta = new FormVenta();
+            formVenta.Show();
         }
 
         private void btnSucursales_Click(object sender, EventArgs e)
@@ -40,7 +41,6 @@ namespace PA
             FormSucusales formSucursales = new FormSucusales();
             formSucursales.Show();
             {
-                Application.Exit();
             }
         }
 
@@ -56,7 +56,7 @@ namespace PA
             
             btnEntrada.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnEntrada.Width, btnEntrada.Height, 15, 15));
             btnSalida.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnSalida.Width, btnSalida.Height, 15, 15));
-            btnSucursales.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnSucursales.Width, btnSucursales.Height, 15, 15));
+            //btnSucursales.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnSucursales.Width, btnSucursales.Height, 15, 15));
 
 
             this.OpFullUI();
@@ -69,7 +69,7 @@ namespace PA
                 lblMenu.Font = FontCLo.ObtainFont(40f, FontStyle.Regular);
                 btnEntrada.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
                 btnSalida.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
-                btnSucursales.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
+                //btnSucursales.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
 
 
             }

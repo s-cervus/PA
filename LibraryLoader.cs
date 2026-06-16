@@ -43,14 +43,14 @@ namespace PA
             if (is64Bit)
             {
                 // La computadora corre a 64 bits: Extraemos los rehenes de 64
-                rawSqliteInterop = PA.Resources.SQLite_Interop_x64;
-                rawWebviewLoader = PA.Resources.WebView2Loader_x64;
+                rawSqliteInterop = Properties.LibraryResources.SQLite_Interop_x64;
+                rawWebviewLoader = Properties.LibraryResources.WebView2Loader_x64;
             }
             else
             {
                 // La computadora es una tostadora de 32 bits: Extraemos los rehenes de 32
-                rawSqliteInterop = PA.Resources.SQLite_Interop_x86;
-                rawWebviewLoader = PA.Resources.WebView2Loader_x86;
+                rawSqliteInterop = Properties.LibraryResources.SQLite_Interop_x86;
+                rawWebviewLoader = Properties.LibraryResources.WebView2Loader_x86;
             }
 
             // 3. MATERIALIZACIÓN CRIPTOGRÁFICA EN EL %TEMP%
@@ -68,19 +68,20 @@ namespace PA
 
                 if (cleanName == "System.Data.SQLite")
                 {
-                    return Assembly.Load(PA.Resources.System_Data_SQLite);
+                    
+                    //return Assembly.Load(PA.Resources.System_Data_SQLite);
                 }
                 if (cleanName == "Microsoft.Web.WebView2.WinForms")
                 {
-                    return Assembly.Load(PA.Resources.WebView2_WinForms);
+                    return Assembly.Load(Properties.LibraryResources.WebView2_WinForms);
                 }
                 if (cleanName == "Microsoft.Web.WebView2.Core")
                 {
-                    return Assembly.Load(PA.Resources.WebView2_Core);
+                    return Assembly.Load(Properties.LibraryResources.WebView2_Core);
                 }
                 if (cleanName == "Microsoft.Web.WebView2.Wpf")
                 {
-                    return Assembly.Load(PA.Resources.WebView2_Wpf);
+                    return Assembly.Load(Properties.LibraryResources.WebView2_Wpf);
                 }
                 return null;
             };

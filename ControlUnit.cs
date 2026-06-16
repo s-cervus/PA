@@ -537,7 +537,7 @@ namespace PA
                     using (SQLiteCommand cmdCat = new SQLiteCommand(insertarCat, con)) cmdCat.ExecuteNonQuery();
 
                     // Cuentas de desarrollo iniciales empaquetadas (Formato uID: [Rango][Secuencia])
-                    _registrar_init_local(con, "root_super", "super7", 100001);
+                    _registrar_init_local(con, "super", "super7", 100001);
                     _registrar_init_local(con, "gerente_admin", "admin123", 200001);
                     _registrar_init_local(con, "cajero_push", "push99", 300001);
                     _registrar_init_local(con, "sat_auditor", "readonly", 400001);

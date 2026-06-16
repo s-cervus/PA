@@ -1,6 +1,6 @@
 ﻿namespace PA
 {
-    partial class FormSalida
+    partial class FormCompra
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -604,6 +604,7 @@
             this.btnRegresarMenu.TabIndex = 21;
             this.btnRegresarMenu.Text = "Regresar al Menú";
             this.btnRegresarMenu.UseVisualStyleBackColor = false;
+            this.btnRegresarMenu.Click += new System.EventHandler(this.btnRegresarMenu_Click);
             // 
             // btnTicket
             // 
@@ -617,7 +618,7 @@
             this.btnTicket.UseVisualStyleBackColor = false;
             this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
-            // FormSalida
+            // FormCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -641,7 +642,7 @@
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormSalida";
+            this.Name = "FormCompra";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.grpDatosVendedor.ResumeLayout(false);
