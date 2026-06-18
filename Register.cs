@@ -12,14 +12,11 @@ using System.Windows.Forms;
 
 namespace PA
 {
-    public partial class Register : Form
+    public partial class Register : Flag
     {
         public Register()
         {
             InitializeComponent();
-
-            
-
         }
         
         
@@ -78,6 +75,9 @@ namespace PA
         private FontCLo FontCLo;
         private void Register_Load(object sender, EventArgs e)
         {
+
+            this.optimizer();
+
             this.Region = System.Drawing.Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             this.FormBorderStyle = FormBorderStyle.None;
 

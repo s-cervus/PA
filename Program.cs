@@ -66,13 +66,13 @@ namespace PA
 }
 
 
-public partial class MainFlag : Form
+public partial class Flag : Form
 {
-    public MainFlag()
+    public Flag()
     {
         // Constructor base vacío
     }
-    public void flaged_screen()
+    public void optimizer()
     {
         this.SetStyle(
             ControlStyles.AllPaintingInWmPaint |

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PA
 {
-    public partial class Menu : Form
+    public partial class Menu : Flag
     {
         public Menu()
         {
@@ -50,6 +50,8 @@ namespace PA
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            this.optimizer();
+
             this.Region = System.Drawing.Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             this.FormBorderStyle = FormBorderStyle.None;
 
@@ -68,8 +70,6 @@ namespace PA
                 btnEntrada.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
                 btnSalida.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
                 //btnSucursales.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
-
-
             }
             catch (Exception ex)
             {

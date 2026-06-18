@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace PA
 {
-    public partial class Login : MainFlag
+    public partial class Login : Flag
     {
         private FontCLo FontCLo;
 
@@ -19,7 +19,7 @@ namespace PA
         private void Login_Load(object sender, EventArgs e)
         {
 
-            this.flaged_screen();
+            this.optimizer();
 
             this.Region = System.Drawing.Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             this.FormBorderStyle = FormBorderStyle.None;
