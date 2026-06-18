@@ -119,19 +119,19 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="SQLite_Interop_x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DLL\SQLite\x64\SQLite.Interop.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\DLL\SQLite\x64_b\SQLite.Interop.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SQLite_Interop_x86" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DLL\SQLite\x86\SQLite.Interop.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\DLL\SQLite\x86_b\SQLite.Interop.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="System_Data_SQLite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DLL\SQLite\System.Data.SQLite.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WebView2Loader_x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DLL\WebView\x64\WebView2Loader.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\DLL\WebView\x64_b\WebView2Loader.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WebView2Loader_x86" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DLL\WebView\x86\WebView2Loader.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\DLL\WebView\x86_b\WebView2Loader.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="WebView2_Core" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DLL\WebView\Microsoft.Web.WebView2.Core.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
