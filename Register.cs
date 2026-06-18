@@ -69,7 +69,6 @@ namespace PA
         }
 
 
-
         #region Codigo en visual front
 
         private FontCLo FontCLo;
