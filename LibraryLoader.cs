@@ -68,8 +68,7 @@ namespace PA
 
                 if (cleanName == "System.Data.SQLite")
                 {
-                    
-                    //return Assembly.Load(PA.Resources.System_Data_SQLite);
+                    return Assembly.Load(Properties.LibraryResources.System_Data_SQLite);
                 }
                 if (cleanName == "Microsoft.Web.WebView2.WinForms")
                 {
@@ -128,22 +127,6 @@ namespace PA
                 {
                     // Si Windows retiene el archivo por un milisegundo extra, el sistema operativo
                     // limpiará la carpeta temporal en su próximo ciclo de mantenimiento automático.
-                }
-            }
-        }
-
-        private static void _materializar_dll_nativa(string nombreArchivo, byte[] recursoBytes)
-        {
-            string rutaDestino = Path.Combine(_TempRouteApp, nombreArchivo);
-            if (!File.Exists(rutaDestino))
-            {
-                try
-                {
-                    File.WriteAllBytes(rutaDestino, recursoBytes);
-                }
-                catch
-                {
-                    // Si el archivo está bloqueado porque la app ya corrió, ignoramos pacíficamente
                 }
             }
         }
