@@ -53,9 +53,6 @@ namespace PA
 
             // Arrancamos el barrido desde la raíz del formulario
             ReadControls(form_item);
-
-            
-
         }
 
         public static void ClosesAll(object sender, EventArgs e)
