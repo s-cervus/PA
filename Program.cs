@@ -82,6 +82,15 @@ namespace PA
     }
 }
 
+public class GlobalFormSupervisor : ApplicationContext
+{
+    public GlobalFormSupervisor(Form mainForm)
+    {
+        // Reg Main Form
+        RegisterForm(mainForm);
+        mainForm.Show();
+    }
+}
 
 /*
 public class OVERLOAD
