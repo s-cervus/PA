@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.InteropServices.ComTypes;
+using System.Runtime.CompilerServices;
 
 namespace PA
 {
@@ -56,7 +57,13 @@ namespace PA
             
 
         }
-        
+
+
+        private static void UpdateStyles()
+        {
+            throw new NotImplementedException();
+        }
+
         public static void ClosesAll(object sender, EventArgs e)
         {
             Environment.Exit(0);

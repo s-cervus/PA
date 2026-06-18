@@ -28,63 +28,12 @@ namespace PA
             // Periodo de insert
             // ==================================
 
-            //MyPreLoaderLib.MyPre_0();
-
-
             // Secuestro el MainForm y lo proceso
             ControlUnit.InicializarEntornoLocal();
             Application.Run(new GlobalFormSupervisor(new Login()));
             Application.Exit();
         }
     }
-
-
-    /*
-    public class OVERLOAD
-    {
-        public void OverChargeScreen(TableLayoutPanel panel)
-        {
-            // Usamos reflexión para acceder a los secretos ocultos de Win32 en .NET
-            PropertyInfo pi = typeof(Control).GetProperty("DoubleBuffered",
-                BindingFlags.NonPublic | BindingFlags.Instance);
-
-            // Le inyectamos el buffer doble para que dibuje en memoria RAM antes de mandar al monitor
-            pi.SetValue(panel, true, null);
-        }
-    }
-
-    
-    public class MyPreLoaderLib
-    {
-        public static void MyPre_0()
-        {
-            // ========================================================
-            // <<<< FILE DEPEND EXTRACTOR.... >>>>
-            // ========================================================
-            try
-            {
-                string execRoute = AppDomain.CurrentDomain.BaseDirectory;
-                string routeDLLphysic = Path.Combine(execRoute, "SQLite.Interop.dll");
-
-                if (!File.Exists(routeDLLphysic))
-                {
-                    byte[] dllBytes = Properties.Resources.LibSQL_DLLe;
-                    File.WriteAllBytes(routeDLLphysic, dllBytes);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error crítico de inicialización : " + ex.Message, "Error :(");
-                return; // Abortamos antes de que explote por falta de DLL
-            }
-        }
-    }
-
-    */
-
-
-
-
 
     public class GlobalFormSupervisor : ApplicationContext
     {
@@ -113,9 +62,66 @@ namespace PA
             };
         }
     }
-
-
-
+    public partial class MainFlag : Form
+    {
+        public MainFlag()
+        {
+            // Constructor base vacío
+        }
+        public void flaged_screen()
+        {
+            this.SetStyle(
+                ControlStyles.AllPaintingInWmPaint |
+                ControlStyles.UserPaint |
+                ControlStyles.OptimizedDoubleBuffer |
+                ControlStyles.ResizeRedraw,
+                true
+            );
+            this.UpdateStyles();
+        }
+    }
 }
 
 
+/*
+public class OVERLOAD
+{
+    public void OverChargeScreen(TableLayoutPanel panel)
+    {
+        // Usamos reflexión para acceder a los secretos ocultos de Win32 en .NET
+        PropertyInfo pi = typeof(Control).GetProperty("DoubleBuffered",
+            BindingFlags.NonPublic | BindingFlags.Instance);
+
+        // Le inyectamos el buffer doble para que dibuje en memoria RAM antes de mandar al monitor
+        pi.SetValue(panel, true, null);
+    }
+}
+
+//Remplazada por LibraryLoader.cs
+public class MyPreLoaderLib
+{
+    public static void MyPre_0()
+    {
+        // ========================================================
+        // <<<< FILE DEPEND EXTRACTOR.... >>>>
+        // ========================================================
+        try
+        {
+            string execRoute = AppDomain.CurrentDomain.BaseDirectory;
+            string routeDLLphysic = Path.Combine(execRoute, "SQLite.Interop.dll");
+
+            if (!File.Exists(routeDLLphysic))
+            {
+                byte[] dllBytes = Properties.Resources.LibSQL_DLLe;
+                File.WriteAllBytes(routeDLLphysic, dllBytes);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error crítico de inicialización : " + ex.Message, "Error :(");
+            return; // Abortamos antes de que explote por falta de DLL
+        }
+    }
+}
+
+*/

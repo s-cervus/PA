@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace PA
 {
-    public partial class Login : Form
+    public partial class Login : MainFlag
     {
         private FontCLo FontCLo;
 
@@ -13,20 +13,23 @@ namespace PA
         public Login()
         {
             InitializeComponent();
-            flaged_screen();
             
-            this.Region = System.Drawing.Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            this.FormBorderStyle = FormBorderStyle.None;
-
-            
-            pnlUser.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, pnlUser.Width, pnlUser.Height, 15, 15));
-            pnlPasswd.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, pnlPasswd.Width, pnlPasswd.Height, 15, 15));
-            btnLogin.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnLogin.Width, btnLogin.Height, 15, 15));
-            btnRegister.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnRegister.Width, btnRegister.Height, 15, 15));
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
+
+            this.flaged_screen();
+
+            this.Region = System.Drawing.Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            this.FormBorderStyle = FormBorderStyle.None;
+
+
+            pnlUser.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, pnlUser.Width, pnlUser.Height, 15, 15));
+            pnlPasswd.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, pnlPasswd.Width, pnlPasswd.Height, 15, 15));
+            btnLogin.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnLogin.Width, btnLogin.Height, 15, 15));
+            btnRegister.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnRegister.Width, btnRegister.Height, 15, 15));
+
             this.OpFullUI();
             try
             {
@@ -100,20 +103,10 @@ namespace PA
             Application.Exit();
         }
 
-        public void flaged_screen()
-        {
-            this.SetStyle
-                (
-                ControlStyles.AllPaintingInWmPaint |
-                ControlStyles.UserPaint |
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.ResizeRedraw, true
-                );
-            this.UpdateStyles();
-        }
-
         private int tryes = 0;
-        
+
+        public object GraphicExt { get; private set; }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if(tryes >= 3)

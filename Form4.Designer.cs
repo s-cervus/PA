@@ -265,6 +265,7 @@ namespace PA
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormVenta";
             this.Text = "Form4";
+            this.Load += new System.EventHandler(this.FormVenta_Load);
             this.pnlTopBar.ResumeLayout(false);
             this.pnlTopBar.PerformLayout();
             this.pnlMenuLateral.ResumeLayout(false);

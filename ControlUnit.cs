@@ -573,6 +573,11 @@ namespace PA
                 cmd.ExecuteNonQuery();
             }
         }
+
+        internal static void flaged_screen()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

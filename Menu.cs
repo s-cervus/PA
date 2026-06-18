@@ -64,8 +64,6 @@ namespace PA
             {
                 FontCLo = new FontCLo();
 
-
-
                 lblMenu.Font = FontCLo.ObtainFont(40f, FontStyle.Regular);
                 btnEntrada.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
                 btnSalida.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
