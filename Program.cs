@@ -62,33 +62,26 @@ namespace PA
             };
         }
     }
-    public partial class MainFlag : Form
-    {
-        public MainFlag()
-        {
-            // Constructor base vacío
-        }
-        public void flaged_screen()
-        {
-            this.SetStyle(
-                ControlStyles.AllPaintingInWmPaint |
-                ControlStyles.UserPaint |
-                ControlStyles.OptimizedDoubleBuffer |
-                ControlStyles.ResizeRedraw,
-                true
-            );
-            this.UpdateStyles();
-        }
-    }
+    
 }
 
-public class GlobalFormSupervisor : ApplicationContext
+
+public partial class MainFlag : Form
 {
-    public GlobalFormSupervisor(Form mainForm)
+    public MainFlag()
     {
-        // Reg Main Form
-        RegisterForm(mainForm);
-        mainForm.Show();
+        // Constructor base vacío
+    }
+    public void flaged_screen()
+    {
+        this.SetStyle(
+            ControlStyles.AllPaintingInWmPaint |
+            ControlStyles.UserPaint |
+            ControlStyles.OptimizedDoubleBuffer |
+            ControlStyles.ResizeRedraw,
+            true
+        );
+        this.UpdateStyles();
     }
 }
 

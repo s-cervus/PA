@@ -58,12 +58,6 @@ namespace PA
 
         }
 
-
-        private static void UpdateStyles()
-        {
-            throw new NotImplementedException();
-        }
-
         public static void ClosesAll(object sender, EventArgs e)
         {
             Environment.Exit(0);

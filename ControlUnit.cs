@@ -572,12 +572,7 @@ namespace PA
                 cmd.Parameters.Add("@caramel", DbType.Binary).Value = caramel;
                 cmd.ExecuteNonQuery();
             }
-        }
-
-        internal static void flaged_screen()
-        {
-            throw new NotImplementedException();
-        }
+        } 
     }
 }
 
