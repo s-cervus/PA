@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace PA
 {
-    public partial class Register : Flag
+    public partial class Register : Form
     {
         public Register()
         {
@@ -75,7 +75,7 @@ namespace PA
         private void Register_Load(object sender, EventArgs e)
         {
 
-            this.optimizer();
+            //this.optimizer();
 
             this.Region = System.Drawing.Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             this.FormBorderStyle = FormBorderStyle.None;

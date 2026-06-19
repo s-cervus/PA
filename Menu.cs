@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PA
 {
-    public partial class Menu : Flag
+    public partial class Menu : Form
     {
         public Menu()
         {
@@ -50,7 +50,7 @@ namespace PA
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            this.optimizer();
+            //this.optimizer();
 
             this.Region = System.Drawing.Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             this.FormBorderStyle = FormBorderStyle.None;

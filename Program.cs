@@ -6,6 +6,10 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+
 
 namespace PA
 {
@@ -65,7 +69,7 @@ namespace PA
     
 }
 
-
+/*
 public partial class Flag : Form
 {
     public Flag()
@@ -84,6 +88,8 @@ public partial class Flag : Form
         this.UpdateStyles();
     }
 }
+*/
+
 
 /*
 public class OVERLOAD
