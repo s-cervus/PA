@@ -56,13 +56,13 @@ namespace PA
             // 
             // pnlTopBar
             // 
-            this.pnlTopBar.BackColor = System.Drawing.Color.Gainsboro;
+            this.pnlTopBar.BackColor = System.Drawing.Color.White;
             this.pnlTopBar.Controls.Add(this.label2);
             this.pnlTopBar.Controls.Add(this.label1);
             this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTopBar.Location = new System.Drawing.Point(225, 3);
             this.pnlTopBar.Name = "pnlTopBar";
-            this.pnlTopBar.Size = new System.Drawing.Size(872, 56);
+            this.pnlTopBar.Size = new System.Drawing.Size(872, 46);
             this.pnlTopBar.TabIndex = 16;
             // 
             // label2
@@ -70,7 +70,7 @@ namespace PA
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(591, 17);
+            this.label2.Location = new System.Drawing.Point(596, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 20);
             this.label2.TabIndex = 2;
@@ -83,7 +83,7 @@ namespace PA
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(215, 17);
+            this.label1.Location = new System.Drawing.Point(13, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(245, 30);
             this.label1.TabIndex = 1;
@@ -100,9 +100,9 @@ namespace PA
             this.pnlMenuLateral.Controls.Add(this.btnVentas);
             this.pnlMenuLateral.Controls.Add(this.btnInicio);
             this.pnlMenuLateral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMenuLateral.Location = new System.Drawing.Point(3, 65);
+            this.pnlMenuLateral.Location = new System.Drawing.Point(3, 55);
             this.pnlMenuLateral.Name = "pnlMenuLateral";
-            this.pnlMenuLateral.Size = new System.Drawing.Size(216, 552);
+            this.pnlMenuLateral.Size = new System.Drawing.Size(216, 562);
             this.pnlMenuLateral.TabIndex = 17;
             // 
             // btnVerMapa
@@ -224,19 +224,19 @@ namespace PA
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(872, 552);
+            this.pictureBox1.Size = new System.Drawing.Size(872, 562);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // pnlContenedor
             // 
-            this.pnlContenedor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlContenedor.BackColor = System.Drawing.Color.Transparent;
             this.pnlContenedor.Controls.Add(this.pictureBox1);
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenedor.Location = new System.Drawing.Point(225, 65);
+            this.pnlContenedor.Location = new System.Drawing.Point(225, 55);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(872, 552);
+            this.pnlContenedor.Size = new System.Drawing.Size(872, 562);
             this.pnlContenedor.TabIndex = 18;
             // 
             // tlpMain
@@ -251,8 +251,8 @@ namespace PA
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 2;
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.08902F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.91098F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.387096F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.6129F));
             this.tlpMain.Size = new System.Drawing.Size(1100, 620);
             this.tlpMain.TabIndex = 19;
             // 
