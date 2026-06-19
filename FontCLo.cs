@@ -23,7 +23,6 @@ namespace PA
         private void LoadFontFrom()
         {
             // Extraemos los bytes desde los recursos del proyecto
-            // Asegúrate de que "MiFuente" sea el nombre exacto en tu Resources.resx
             byte[] fontData = Properties.Resources.FontSugo;
 
             // Alocamos memoria no administrada

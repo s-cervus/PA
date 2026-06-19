@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblSistemaReciclaje = new System.Windows.Forms.Label();
             this.grpDatosVendedor = new System.Windows.Forms.GroupBox();
             this.txtEdad = new System.Windows.Forms.TextBox();
@@ -89,16 +88,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(1, 48);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(159, 533);
-            this.flowLayoutPanel3.TabIndex = 2;
-            // 
             // lblSistemaReciclaje
             // 
             this.lblSistemaReciclaje.AutoSize = true;
+            this.lblSistemaReciclaje.BackColor = System.Drawing.Color.Transparent;
             this.lblSistemaReciclaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSistemaReciclaje.Location = new System.Drawing.Point(260, 9);
             this.lblSistemaReciclaje.Name = "lblSistemaReciclaje";
@@ -108,6 +101,7 @@
             // 
             // grpDatosVendedor
             // 
+            this.grpDatosVendedor.BackColor = System.Drawing.Color.Transparent;
             this.grpDatosVendedor.Controls.Add(this.txtEdad);
             this.grpDatosVendedor.Controls.Add(this.label2);
             this.grpDatosVendedor.Controls.Add(this.txtTeléfono);
@@ -116,7 +110,7 @@
             this.grpDatosVendedor.Controls.Add(this.lblDirección);
             this.grpDatosVendedor.Controls.Add(this.txtNombreCompleto);
             this.grpDatosVendedor.Controls.Add(this.lblNombre);
-            this.grpDatosVendedor.Location = new System.Drawing.Point(172, 120);
+            this.grpDatosVendedor.Location = new System.Drawing.Point(166, 109);
             this.grpDatosVendedor.Name = "grpDatosVendedor";
             this.grpDatosVendedor.Size = new System.Drawing.Size(284, 231);
             this.grpDatosVendedor.TabIndex = 5;
@@ -199,6 +193,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
             this.label1.Location = new System.Drawing.Point(167, 48);
@@ -384,6 +379,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(599, 20);
             this.label5.Name = "label5";
@@ -404,7 +400,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::PA.Properties.Resources.pibble;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(630, 72);
+            this.pictureBox1.Location = new System.Drawing.Point(663, 72);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(539, 241);
             this.pictureBox1.TabIndex = 16;
@@ -622,6 +618,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::PA.Properties.Resources._4Display2;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1102, 653);
             this.Controls.Add(this.btnTicket);
             this.Controls.Add(this.btnRegresarMenu);
@@ -639,7 +638,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grpDatosVendedor);
             this.Controls.Add(this.lblSistemaReciclaje);
-            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCompra";
@@ -660,8 +658,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label lblSistemaReciclaje;
         private System.Windows.Forms.GroupBox grpDatosVendedor;
         private System.Windows.Forms.Label label1;

@@ -39,6 +39,7 @@
             this.btnClosePic = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblUSER = new System.Windows.Forms.Label();
             this.pnlBase.SuspendLayout();
             this.tlpMain.SuspendLayout();
             this.pnlDragBKaiMsg.SuspendLayout();
@@ -174,6 +175,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel2.Controls.Add(this.btnEntrada, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnSalida, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblUSER, 1, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 144);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -183,6 +185,19 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(476, 296);
             this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // lblUSER
+            // 
+            this.lblUSER.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUSER.AutoSize = true;
+            this.lblUSER.BackColor = System.Drawing.Color.Transparent;
+            this.lblUSER.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUSER.ForeColor = System.Drawing.Color.Black;
+            this.lblUSER.Location = new System.Drawing.Point(82, 239);
+            this.lblUSER.Name = "lblUSER";
+            this.lblUSER.Size = new System.Drawing.Size(311, 13);
+            this.lblUSER.TabIndex = 4;
+            this.lblUSER.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Menu
             // 
@@ -205,6 +220,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -221,5 +237,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel pnlDragZone;
         private System.Windows.Forms.PictureBox btnClosePic;
+        private System.Windows.Forms.Label lblUSER;
     }
 }

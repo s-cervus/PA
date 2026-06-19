@@ -11,46 +11,29 @@ using System.Windows.Forms;
 
 namespace PA
 {
-    public partial class Menu : Form
+    public partial class OBJ : Form
     {
-        public Menu()
+        public OBJ()
         {
             InitializeComponent();
         }
 
-        private void btnEntrada_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormCompra formCompra = new FormCompra();
-            formCompra.Show();
-            
 
-            
-        }
-
-        private void btnSalida_Click(object sender, EventArgs e)
-        {
-            this.Hide(); // Oculta el Form3 actual
-            FormVenta formVenta = new FormVenta();
-            formVenta.Show();
-        }
-
-        
 
         #region Codigo en visual front
 
         private FontCLo FontCLo;
 
-        private void Menu_Load(object sender, EventArgs e)
+        private void OBJ_Load(object sender, EventArgs e)
         {
             //this.optimizer();
 
             this.Region = System.Drawing.Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             this.FormBorderStyle = FormBorderStyle.None;
-            lblUSER.Text = "Usuario:" ;
-            
-            btnEntrada.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnEntrada.Width, btnEntrada.Height, 15, 15));
-            btnSalida.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnSalida.Width, btnSalida.Height, 15, 15));
+
+
+            //btnEntrada.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnEntrada.Width, btnEntrada.Height, 15, 15));
+            //btnSalida.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnSalida.Width, btnSalida.Height, 15, 15));
             //btnSucursales.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnSucursales.Width, btnSucursales.Height, 15, 15));
 
 
@@ -59,10 +42,10 @@ namespace PA
             {
                 FontCLo = new FontCLo();
 
-                lblMenu.Font = FontCLo.ObtainFont(40f, FontStyle.Regular);
-                btnEntrada.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
-                btnSalida.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
-                lblUSER.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
+                //lblMenu.Font = FontCLo.ObtainFont(40f, FontStyle.Regular);
+                //btnEntrada.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
+                //btnSalida.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
+                //lblUSER.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
             }
             catch (Exception ex)
             {
@@ -95,7 +78,5 @@ namespace PA
 
 
         #endregion
-
-
     }
 }

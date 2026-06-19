@@ -117,20 +117,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContableArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContableArea.Designer.cs">
+      <DependentUpon>ContableArea.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlUnit.cs" />
     <Compile Include="DreamStyle.cs" />
     <Compile Include="FontCLo.cs" />
-    <Compile Include="Form4.cs">
+    <Compile Include="Venta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="Venta.Designer.cs">
+      <DependentUpon>Venta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form6.cs">
+    <Compile Include="Example.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form6.Designer.cs">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <Compile Include="Example.Designer.cs">
+      <DependentUpon>Example.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -195,11 +201,14 @@
     <Compile Include="uc_VentasCatalogo.Designer.cs">
       <DependentUpon>uc_VentasCatalogo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="ContableArea.resx">
+      <DependentUpon>ContableArea.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form6.resx">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <EmbeddedResource Include="Venta.resx">
+      <DependentUpon>Venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Example.resx">
+      <DependentUpon>Example.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PA
 {
-    public partial class FormSucusales : Form
+    public partial class ContableArea : Form
     {
-        public FormSucusales()
+        public ContableArea()
         {
             InitializeComponent();
         }
