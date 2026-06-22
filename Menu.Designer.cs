@@ -37,16 +37,19 @@
             this.pnlDragBKaiMsg = new System.Windows.Forms.Panel();
             this.pnlDragZone = new System.Windows.Forms.Panel();
             this.btnClosePic = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpBTN = new System.Windows.Forms.TableLayoutPanel();
             this.lblUSER = new System.Windows.Forms.Label();
+            this.lblCID = new System.Windows.Forms.Label();
+            this.tlpDATA = new System.Windows.Forms.TableLayoutPanel();
             this.pnlBase.SuspendLayout();
             this.tlpMain.SuspendLayout();
             this.pnlDragBKaiMsg.SuspendLayout();
             this.pnlDragZone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClosePic)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tlpMenu.SuspendLayout();
+            this.tlpBTN.SuspendLayout();
+            this.tlpDATA.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnEntrada
@@ -56,7 +59,7 @@
             this.btnEntrada.FlatAppearance.BorderSize = 0;
             this.btnEntrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrada.ForeColor = System.Drawing.Color.White;
-            this.btnEntrada.Location = new System.Drawing.Point(142, 45);
+            this.btnEntrada.Location = new System.Drawing.Point(142, 47);
             this.btnEntrada.Name = "btnEntrada";
             this.btnEntrada.Size = new System.Drawing.Size(191, 50);
             this.btnEntrada.TabIndex = 0;
@@ -71,7 +74,7 @@
             this.btnSalida.FlatAppearance.BorderSize = 0;
             this.btnSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalida.ForeColor = System.Drawing.Color.White;
-            this.btnSalida.Location = new System.Drawing.Point(142, 143);
+            this.btnSalida.Location = new System.Drawing.Point(142, 147);
             this.btnSalida.Name = "btnSalida";
             this.btnSalida.Size = new System.Drawing.Size(191, 50);
             this.btnSalida.TabIndex = 1;
@@ -86,7 +89,7 @@
             this.lblMenu.BackColor = System.Drawing.Color.Transparent;
             this.lblMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenu.ForeColor = System.Drawing.Color.Black;
-            this.lblMenu.Location = new System.Drawing.Point(108, 38);
+            this.lblMenu.Location = new System.Drawing.Point(108, 28);
             this.lblMenu.Name = "lblMenu";
             this.lblMenu.Size = new System.Drawing.Size(258, 13);
             this.lblMenu.TabIndex = 3;
@@ -108,25 +111,26 @@
             this.tlpMain.ColumnCount = 1;
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpMain.Controls.Add(this.pnlDragBKaiMsg, 0, 0);
-            this.tlpMain.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tlpMain.Controls.Add(this.tlpBTN, 0, 1);
+            this.tlpMain.Controls.Add(this.tlpDATA, 0, 2);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 3;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.82844F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.17155F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.tlpMain.Size = new System.Drawing.Size(482, 496);
             this.tlpMain.TabIndex = 5;
             // 
             // pnlDragBKaiMsg
             // 
             this.pnlDragBKaiMsg.Controls.Add(this.pnlDragZone);
-            this.pnlDragBKaiMsg.Controls.Add(this.tableLayoutPanel1);
+            this.pnlDragBKaiMsg.Controls.Add(this.tlpMenu);
             this.pnlDragBKaiMsg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDragBKaiMsg.Location = new System.Drawing.Point(3, 3);
             this.pnlDragBKaiMsg.Name = "pnlDragBKaiMsg";
-            this.pnlDragBKaiMsg.Size = new System.Drawing.Size(476, 135);
+            this.pnlDragBKaiMsg.Size = new System.Drawing.Size(476, 114);
             this.pnlDragBKaiMsg.TabIndex = 4;
             // 
             // pnlDragZone
@@ -152,52 +156,84 @@
             this.btnClosePic.TabStop = false;
             this.btnClosePic.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // tableLayoutPanel1
+            // tlpMenu
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel1.Controls.Add(this.lblMenu, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 46);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(476, 89);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tlpMenu.ColumnCount = 3;
+            this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
+            this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
+            this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
+            this.tlpMenu.Controls.Add(this.lblMenu, 1, 0);
+            this.tlpMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tlpMenu.Location = new System.Drawing.Point(0, 44);
+            this.tlpMenu.Name = "tlpMenu";
+            this.tlpMenu.RowCount = 1;
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMenu.Size = new System.Drawing.Size(476, 70);
+            this.tlpMenu.TabIndex = 0;
             // 
-            // tableLayoutPanel2
+            // tlpBTN
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.Controls.Add(this.btnEntrada, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnSalida, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lblUSER, 1, 2);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 144);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(476, 296);
-            this.tableLayoutPanel2.TabIndex = 5;
+            this.tlpBTN.ColumnCount = 3;
+            this.tlpBTN.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tlpBTN.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            this.tlpBTN.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tlpBTN.Controls.Add(this.btnEntrada, 1, 0);
+            this.tlpBTN.Controls.Add(this.btnSalida, 1, 1);
+            this.tlpBTN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpBTN.Location = new System.Drawing.Point(3, 123);
+            this.tlpBTN.Name = "tlpBTN";
+            this.tlpBTN.RowCount = 3;
+            this.tlpBTN.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpBTN.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpBTN.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.89189F));
+            this.tlpBTN.Size = new System.Drawing.Size(476, 251);
+            this.tlpBTN.TabIndex = 5;
             // 
             // lblUSER
             // 
-            this.lblUSER.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUSER.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUSER.AutoSize = true;
             this.lblUSER.BackColor = System.Drawing.Color.Transparent;
             this.lblUSER.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUSER.ForeColor = System.Drawing.Color.Black;
-            this.lblUSER.Location = new System.Drawing.Point(82, 239);
+            this.lblUSER.Location = new System.Drawing.Point(3, 43);
             this.lblUSER.Name = "lblUSER";
-            this.lblUSER.Size = new System.Drawing.Size(311, 13);
+            this.lblUSER.Size = new System.Drawing.Size(232, 13);
             this.lblUSER.TabIndex = 4;
-            this.lblUSER.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUSER.Text = "MaskedUser";
+            this.lblUSER.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCID
+            // 
+            this.lblCID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCID.AutoSize = true;
+            this.lblCID.BackColor = System.Drawing.Color.Transparent;
+            this.lblCID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCID.ForeColor = System.Drawing.Color.Black;
+            this.lblCID.Location = new System.Drawing.Point(3, 100);
+            this.lblCID.Name = "lblCID";
+            this.lblCID.Size = new System.Drawing.Size(232, 13);
+            this.lblCID.TabIndex = 5;
+            this.lblCID.Text = "MaskedCID";
+            this.lblCID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tlpDATA
+            // 
+            this.tlpDATA.ColumnCount = 2;
+            this.tlpDATA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpDATA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpDATA.Controls.Add(this.lblUSER, 0, 0);
+            this.tlpDATA.Controls.Add(this.lblCID, 0, 1);
+            this.tlpDATA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDATA.Location = new System.Drawing.Point(3, 380);
+            this.tlpDATA.Name = "tlpDATA";
+            this.tlpDATA.RowCount = 2;
+            this.tlpDATA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpDATA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpDATA.Size = new System.Drawing.Size(476, 113);
+            this.tlpDATA.TabIndex = 6;
             // 
             // Menu
             // 
@@ -217,10 +253,11 @@
             this.pnlDragZone.ResumeLayout(false);
             this.pnlDragZone.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClosePic)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.tlpMenu.ResumeLayout(false);
+            this.tlpMenu.PerformLayout();
+            this.tlpBTN.ResumeLayout(false);
+            this.tlpDATA.ResumeLayout(false);
+            this.tlpDATA.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -233,10 +270,12 @@
         private System.Windows.Forms.Panel pnlBase;
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.Panel pnlDragBKaiMsg;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tlpMenu;
+        private System.Windows.Forms.TableLayoutPanel tlpBTN;
         private System.Windows.Forms.Panel pnlDragZone;
         private System.Windows.Forms.PictureBox btnClosePic;
         private System.Windows.Forms.Label lblUSER;
+        private System.Windows.Forms.Label lblCID;
+        private System.Windows.Forms.TableLayoutPanel tlpDATA;
     }
 }

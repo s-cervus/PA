@@ -5,6 +5,7 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Data.SQLite;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace PA
 {
@@ -20,6 +21,7 @@ namespace PA
         public static string Uniq_ID { get; private set; } = "";
         public static string CurrentRole { get; private set; } = "";
         public static int IntentosFallidos { get; private set; } = 0;
+        public static string CurrentUser { get; private set; } = "";
 
         // Directorio exclusivo de tu sistema para evitar colisiones en la USB o disco
         private const string DirectorioBunker = "data_PDC7";
@@ -106,9 +108,12 @@ namespace PA
         /// Capa de abstracción superior: Consulta dinámicamente la tabla cID 
         /// para resolver el rol en RAM sin usar condicionales rígidos.
         /// </summary>
-        private static void _establecer_sesion(string usuario, int uid, SQLiteConnection conCompartida = null)
+        private static void _establish_session(string usuario, int uid, SQLiteConnection conShared = null)
         {
             Uniq_ID = _generate_uniq_id(usuario);
+
+            CurrentUser = usuario.Trim();
+
             int rolId = uid / 100000; // Extrae el prefijo del rol (Ej: 100045 -> 1)
 
             if (CurrentMode == DbMode.Server)
@@ -123,15 +128,15 @@ namespace PA
             string query = "SELECT element FROM cID WHERE ID = @id LIMIT 1";
 
             // Reutilizamos la conexión activa del login para no reabrir el descriptor de archivo
-            bool viajaConexionInterna = (conCompartida == null);
-            SQLiteConnection con = viajaConexionInterna ? new SQLiteConnection(LocalConnectionString) : conCompartida;
+            bool travellingConnectionInternal = (conShared == null);
+            SQLiteConnection con = travellingConnectionInternal ? new SQLiteConnection(LocalConnectionString) : conShared;
 
             using (SQLiteCommand cmd = new SQLiteCommand(query, con))
             {
                 cmd.Parameters.AddWithValue("@id", rolId);
                 try
                 {
-                    if (viajaConexionInterna) con.Open();
+                    if (travellingConnectionInternal) con.Open();
                     object result = cmd.ExecuteScalar();
 
                     if (result != null)
@@ -150,12 +155,12 @@ namespace PA
                 }
                 finally
                 {
-                    if (viajaConexionInterna) con.Close();
+                    if (travellingConnectionInternal) con.Close();
                 }
             }
 
-            /* * ===================================================================
-             * ⚠️ POLÍTICAS DE DENEGACIÓN
+            /* ===================================================================
+             * POLÍTICAS DE DENEGACIÓN
              * ===================================================================
              * Aqui van las políitcas de denegación
              * ===================================================================
@@ -244,7 +249,7 @@ namespace PA
                 }
                 catch { /* Manejo sigiloso ante colisión de hilos */ }
             }
-            _establecer_sesion("nobody", 0, null); // Degradación instantánea de credenciales en RAM
+            _establish_session("nobody", 0, null); // Degradación instantánea de credenciales en RAM
         }
 
         private static void _limpiar_lockdown(SQLiteConnection con)
@@ -262,8 +267,9 @@ namespace PA
         // INFRAESTRUCTURA DE REGISTRO SEGURO (Códigos: 1, 2, 3)
         // ========================================================
 
-        public static int RegistrarUsuario(string username, string password, int uid)
+        public static int RegistrarUsuario(string username, string password)
         {
+            int uid = 3;
             if (IsLockedDown()) return 3; // Operación denegada por infraestructura bajo fuego DOM
 
             string userClean = username.ToLower().Trim();
@@ -325,6 +331,7 @@ namespace PA
             }
         }
 
+        /*
         public static int AutoRegistrarEmpleado(string username, string password)
         {
             int nuevoUid = 300001; // El prefijo de rol es 3 (empleado)
@@ -348,6 +355,10 @@ namespace PA
             }
             return RegistrarUsuario(username, password, nuevoUid);
         }
+        */
+
+
+
 
         // ========================================================
         // AUTENTICACIÓN DIRECTA E INSTANTÁNEA
@@ -391,7 +402,7 @@ namespace PA
                                         IntentosFallidos = 0; // Limpiamos el contador
 
                                         // Resolvemos la sesión inyectando la conexión compartida para máxima velocidad
-                                        _establecer_sesion(userClean, uidDb, con);
+                                        _establish_session(userClean, uidDb, con);
 
                                         // Destruimos el Caramel previo forzando la mutación criptográfica instantánea
                                         _mutar_caramel_local(con, userClean, password);
@@ -430,7 +441,7 @@ namespace PA
                                     {
                                         lector.Close();
                                         IntentosFallidos = 0;
-                                        _establecer_sesion(userClean, uidDb, null);
+                                        _establish_session(userClean, uidDb, null);
                                         _mutar_caramel_server(con, userClean, password);
                                         return true;
                                     }
@@ -496,14 +507,14 @@ namespace PA
             string rutaArchivo = Path.Combine(DirectorioBunker, "login.db");
             bool recienCreado = !File.Exists(rutaArchivo);
 
-            using (SQLiteConnection con = new SQLiteConnection(LocalConnectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(LocalConnectionString))
             {
-                con.Open();
+                connection.Open();
 
                 if (recienCreado)
                 {
                     // Tabla Login adaptada al estándar STRICT binario puro
-                    string tablaLogin = @"
+                    string tableLogin = @"
                         CREATE TABLE ""Login"" (
                             ""Username"" TEXT UNIQUE,
                             ""uID""      INTEGER NOT NULL UNIQUE,
@@ -514,15 +525,15 @@ namespace PA
                         ) STRICT;";
 
                     // Tabla cID con llave compuesta para control estricto de roles
-                    string tablaCID = @"
+                    string tableCID = @"
                         CREATE TABLE ""cID"" (
                             ""ID""      INTEGER,
                             ""element"" TEXT,
                             PRIMARY KEY(""ID"", ""element"")
                         );";
 
-                    using (SQLiteCommand cmd = new SQLiteCommand(tablaLogin, con)) cmd.ExecuteNonQuery();
-                    using (SQLiteCommand cmd = new SQLiteCommand(tablaCID, con)) cmd.ExecuteNonQuery();
+                    using (SQLiteCommand cmd = new SQLiteCommand(tableLogin, connection)) cmd.ExecuteNonQuery();
+                    using (SQLiteCommand cmd = new SQLiteCommand(tableCID, connection)) cmd.ExecuteNonQuery();
 
                     // Alimentamos la abstracción de roles
                     string insertarCat = @"
@@ -532,16 +543,17 @@ namespace PA
                         (2, 'admin'),
                         (3, 'empleado'),
                         (4, 'auditor'),
-                        (5, 'ajustes');";
+                        (5, 'ajustes'),
+                        (999, 'test');";
 
-                    using (SQLiteCommand cmdCat = new SQLiteCommand(insertarCat, con)) cmdCat.ExecuteNonQuery();
+                    using (SQLiteCommand cmdCat = new SQLiteCommand(insertarCat, connection)) cmdCat.ExecuteNonQuery();
 
                     // Cuentas de desarrollo iniciales empaquetadas (Formato uID: [Rango][Secuencia])
-                    _registrar_init_local(con, "super", "super7", 100001);
-                    _registrar_init_local(con, "gerente_admin", "admin123", 200001);
-                    _registrar_init_local(con, "cajero_push", "push99", 300001);
-                    _registrar_init_local(con, "sat_auditor", "readonly", 400001);
-                    _registrar_init_local(con, "conta_ajustes", "rw_conta", 500001);
+                    _registrar_init_local(connection, "super", "super7", 100001);
+                    _registrar_init_local(connection, "admin_sec", "admin123", 200001);
+                    _registrar_init_local(connection, "empleado", "push99", 300001);
+                    _registrar_init_local(connection, "auditor", "readonly", 400001);
+                    _registrar_init_local(connection, "test", "test", 99900001);
                 }
             }
 

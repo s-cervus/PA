@@ -47,8 +47,10 @@ namespace PA
 
             this.Region = System.Drawing.Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             this.FormBorderStyle = FormBorderStyle.None;
-            lblUSER.Text = "Usuario:" ;
-            
+            lblUSER.Text = "Usuario:" + ControlUnit.CurrentUser;
+            lblCID.Text = "ROL:" + ControlUnit.CurrentRole;
+
+
             btnEntrada.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnEntrada.Width, btnEntrada.Height, 15, 15));
             btnSalida.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnSalida.Width, btnSalida.Height, 15, 15));
             //btnSucursales.Region = Region.FromHrgn(DreamStyle.CreateRoundRectRgn(0, 0, btnSucursales.Width, btnSucursales.Height, 15, 15));
@@ -62,7 +64,8 @@ namespace PA
                 lblMenu.Font = FontCLo.ObtainFont(40f, FontStyle.Regular);
                 btnEntrada.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
                 btnSalida.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
-                lblUSER.Font = FontCLo.ObtainFont(20F, FontStyle.Regular);
+                lblUSER.Font = FontCLo.ObtainFont(18F, FontStyle.Regular);
+                lblCID.Font = FontCLo.ObtainFont(18F, FontStyle.Regular);
             }
             catch (Exception ex)
             {

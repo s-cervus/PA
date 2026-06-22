@@ -34,11 +34,13 @@ namespace PA
 
             // Secuestro el MainForm y lo proceso
             ControlUnit.InicializarEntornoLocal();
-            Application.Run(new GlobalFormSupervisor(new FormCompra()));
+            Application.Run(new GlobalFormSupervisor(new Login()));
             Application.Exit();
         }
     }
 
+
+    // No se sabe si esta funcion sirve, pero ojala y que si...
     public class GlobalFormSupervisor : ApplicationContext
     {
         public GlobalFormSupervisor(Form mainForm)
