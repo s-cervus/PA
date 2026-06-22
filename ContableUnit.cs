@@ -7,3 +7,7 @@ using System.Data.SQLite;
 using System.Data.SqlClient;
 using System.Diagnostics;
 
+namespace PA
+{
+public static class ContableUnit{}
+}
