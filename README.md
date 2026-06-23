@@ -16,7 +16,7 @@ Integracion de archivo PDF y xml de facturas y tickets (nivel medio)
 
 Cambios SQL para los datagrid (dificil si no se sabe integrar)
 
-# Relevante pero se estructura para antes de
+# Relevante pero se estructura para __"antes de"__
 
 Control Granular de Usuarios (Dificil si no se sabe integrar, pero muy laborioso por acceso de controles)
 Nota : (dedica +8 horas debido al rediseño y prohibiciones)
