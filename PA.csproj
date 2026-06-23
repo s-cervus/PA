@@ -171,6 +171,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="uc_CompraScrap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_CompraScrap.Designer.cs">
+      <DependentUpon>uc_CompraScrap.cs</DependentUpon>
+    </Compile>
     <Compile Include="uc_InventarioGeneral.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_CompraScrap.resx">
+      <DependentUpon>uc_CompraScrap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uc_InventarioGeneral.resx">
       <DependentUpon>uc_InventarioGeneral.cs</DependentUpon>

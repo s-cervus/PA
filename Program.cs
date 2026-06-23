@@ -34,7 +34,7 @@ namespace PA
 
             // Secuestro el MainForm y lo proceso
             ControlUnit.InicializarEntornoLocal();
-            Application.Run(new GlobalFormSupervisor(new FormCompra()));
+            Application.Run(new GlobalFormSupervisor(new Login()));
             Application.Exit();
         }
     }

@@ -31,8 +31,6 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblSistemaReciclaje = new System.Windows.Forms.Label();
             this.grpDatosVendedor = new System.Windows.Forms.GroupBox();
-            this.txtEdad = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtTeléfono = new System.Windows.Forms.TextBox();
             this.lblTeléfono = new System.Windows.Forms.Label();
             this.txtDirección = new System.Windows.Forms.TextBox();
@@ -51,8 +49,6 @@
             this.lblPrecioporKg = new System.Windows.Forms.Label();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
-            this.lblCantidadPiezas = new System.Windows.Forms.Label();
             this.cmbMaterial = new System.Windows.Forms.ComboBox();
             this.lblTipoMaterial = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -83,7 +79,6 @@
             this.btnTicket = new System.Windows.Forms.Button();
             this.grpDatosVendedor.SuspendLayout();
             this.grpDetalleMaterial.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grpResumenCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
@@ -108,8 +103,6 @@
             // 
             // grpDatosVendedor
             // 
-            this.grpDatosVendedor.Controls.Add(this.txtEdad);
-            this.grpDatosVendedor.Controls.Add(this.label2);
             this.grpDatosVendedor.Controls.Add(this.txtTeléfono);
             this.grpDatosVendedor.Controls.Add(this.lblTeléfono);
             this.grpDatosVendedor.Controls.Add(this.txtDirección);
@@ -118,28 +111,9 @@
             this.grpDatosVendedor.Controls.Add(this.lblNombre);
             this.grpDatosVendedor.Location = new System.Drawing.Point(172, 120);
             this.grpDatosVendedor.Name = "grpDatosVendedor";
-            this.grpDatosVendedor.Size = new System.Drawing.Size(284, 231);
+            this.grpDatosVendedor.Size = new System.Drawing.Size(284, 203);
             this.grpDatosVendedor.TabIndex = 5;
             this.grpDatosVendedor.TabStop = false;
-            // 
-            // txtEdad
-            // 
-            this.txtEdad.Location = new System.Drawing.Point(10, 173);
-            this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(264, 20);
-            this.txtEdad.TabIndex = 7;
-            this.txtEdad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEdad_KeyPress);
-            this.txtEdad.Leave += new System.EventHandler(this.txtEdad_Leave);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 157);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Edad:";
             // 
             // txtTeléfono
             // 
@@ -192,9 +166,9 @@
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.Location = new System.Drawing.Point(7, 31);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(109, 13);
+            this.lblNombre.Size = new System.Drawing.Size(108, 13);
             this.lblNombre.TabIndex = 0;
-            this.lblNombre.Text = "Nombre completo:";
+            this.lblNombre.Text = "Nombre/Empresa:";
             // 
             // label1
             // 
@@ -266,20 +240,18 @@
             this.grpDetalleMaterial.Controls.Add(this.lblPrecioporKg);
             this.grpDetalleMaterial.Controls.Add(this.txtPeso);
             this.grpDetalleMaterial.Controls.Add(this.label3);
-            this.grpDetalleMaterial.Controls.Add(this.nudCantidad);
-            this.grpDetalleMaterial.Controls.Add(this.lblCantidadPiezas);
             this.grpDetalleMaterial.Controls.Add(this.cmbMaterial);
             this.grpDetalleMaterial.Controls.Add(this.lblTipoMaterial);
             this.grpDetalleMaterial.Location = new System.Drawing.Point(480, 135);
             this.grpDetalleMaterial.Name = "grpDetalleMaterial";
-            this.grpDetalleMaterial.Size = new System.Drawing.Size(282, 216);
+            this.grpDetalleMaterial.Size = new System.Drawing.Size(282, 188);
             this.grpDetalleMaterial.TabIndex = 12;
             this.grpDetalleMaterial.TabStop = false;
             // 
             // cmbEstado
             // 
             this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(122, 173);
+            this.cmbEstado.Location = new System.Drawing.Point(122, 125);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(145, 21);
             this.cmbEstado.TabIndex = 9;
@@ -290,7 +262,7 @@
             // 
             this.lblEstadoEquipo.AutoSize = true;
             this.lblEstadoEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadoEquipo.Location = new System.Drawing.Point(6, 176);
+            this.lblEstadoEquipo.Location = new System.Drawing.Point(6, 128);
             this.lblEstadoEquipo.Name = "lblEstadoEquipo";
             this.lblEstadoEquipo.Size = new System.Drawing.Size(113, 13);
             this.lblEstadoEquipo.TabIndex = 8;
@@ -298,7 +270,7 @@
             // 
             // txtPrecioKg
             // 
-            this.txtPrecioKg.Location = new System.Drawing.Point(122, 142);
+            this.txtPrecioKg.Location = new System.Drawing.Point(122, 94);
             this.txtPrecioKg.Name = "txtPrecioKg";
             this.txtPrecioKg.Size = new System.Drawing.Size(145, 20);
             this.txtPrecioKg.TabIndex = 7;
@@ -308,7 +280,7 @@
             // 
             this.lblPrecioporKg.AutoSize = true;
             this.lblPrecioporKg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioporKg.Location = new System.Drawing.Point(9, 142);
+            this.lblPrecioporKg.Location = new System.Drawing.Point(9, 94);
             this.lblPrecioporKg.Name = "lblPrecioporKg";
             this.lblPrecioporKg.Size = new System.Drawing.Size(107, 13);
             this.lblPrecioporKg.TabIndex = 6;
@@ -316,7 +288,7 @@
             // 
             // txtPeso
             // 
-            this.txtPeso.Location = new System.Drawing.Point(122, 96);
+            this.txtPeso.Location = new System.Drawing.Point(122, 54);
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(145, 20);
             this.txtPeso.TabIndex = 5;
@@ -326,28 +298,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 99);
+            this.label3.Location = new System.Drawing.Point(17, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Peso (kg):";
-            // 
-            // nudCantidad
-            // 
-            this.nudCantidad.Location = new System.Drawing.Point(122, 53);
-            this.nudCantidad.Name = "nudCantidad";
-            this.nudCantidad.Size = new System.Drawing.Size(145, 20);
-            this.nudCantidad.TabIndex = 3;
-            // 
-            // lblCantidadPiezas
-            // 
-            this.lblCantidadPiezas.AutoSize = true;
-            this.lblCantidadPiezas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadPiezas.Location = new System.Drawing.Point(9, 55);
-            this.lblCantidadPiezas.Name = "lblCantidadPiezas";
-            this.lblCantidadPiezas.Size = new System.Drawing.Size(99, 13);
-            this.lblCantidadPiezas.TabIndex = 2;
-            this.lblCantidadPiezas.Text = "Cantidad (pzas):";
             // 
             // cmbMaterial
             // 
@@ -649,7 +604,6 @@
             this.grpDatosVendedor.PerformLayout();
             this.grpDetalleMaterial.ResumeLayout(false);
             this.grpDetalleMaterial.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grpResumenCompra.ResumeLayout(false);
             this.grpResumenCompra.PerformLayout();
@@ -675,16 +629,12 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.TextBox txtEdad;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox grpDetalleMaterial;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblCantidadPiezas;
         private System.Windows.Forms.ComboBox cmbMaterial;
         private System.Windows.Forms.Label lblTipoMaterial;
         private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.Label lblEstadoEquipo;
         private System.Windows.Forms.TextBox txtPrecioKg;
         private System.Windows.Forms.Label lblPrecioporKg;
