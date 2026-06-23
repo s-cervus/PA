@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Diagnostics;
+using System.Xml.Linq;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+
+
 
 namespace PA
 {
@@ -365,6 +371,35 @@ namespace PA
                 File.WriteAllText(guardar.FileName, ticket);
                 MessageBox.Show("Ticket generado correctamente");
                 Process.Start("notepad.exe", guardar.FileName);
+            }
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivo PDF (*.pdf)|*.pdf";
+            saveFileDialog.FileName = $"ReciboVenta_{nombre}.pdf";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                PdfWriter writer = new PdfWriter(saveFileDialog.FileName);
+                PdfDocument pdf = new PdfDocument(writer);
+                Document document = new Document(pdf);
+
+                document.Add(new Paragraph("===== COMPROBANTE DE VENTA ====="));
+                document.Add(new Paragraph("\n"));
+                document.Add(new Paragraph($"Nombre: {nombre}"));
+                document.Add(new Paragraph($"Correo: {correo}"));
+                document.Add(new Paragraph($"Teléfono: {telefono}"));
+                document.Add(new Paragraph($"Alcaldia Seleccionada: {alcaldia}"));
+                document.Add(new Paragraph($"Empresa Seleccionada: {seleccion}\n\n"));
+                document.Add(new Paragraph("Productos vendidos (kilos):"));
+                foreach (var item in productos)
+                {
+                    document.Add(new Paragraph($"- {item.Key}: {item.Value:F2} kg"));
+                }
+                document.Add(new Paragraph($"\nGanancia total: ${ganancia}"));
+                document.Add(new Paragraph("\nGracias por su venta."));
+                document.Close();
+
+                MessageBox.Show("PDF del recibo generado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

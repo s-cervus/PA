@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblSistemaReciclaje = new System.Windows.Forms.Label();
             this.grpDatosVendedor = new System.Windows.Forms.GroupBox();
             this.txtTeléfono = new System.Windows.Forms.TextBox();
@@ -68,28 +67,20 @@
             this.lblPesoTot = new System.Windows.Forms.Label();
             this.lblTotalArtículos = new System.Windows.Forms.Label();
             this.dgvCompras = new System.Windows.Forms.DataGridView();
-            this.clmID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmTipoMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPeso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPrecioKg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnRegresarMenu = new System.Windows.Forms.Button();
             this.btnTicket = new System.Windows.Forms.Button();
+            this.clmID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmTipoMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPeso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPrecioKg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpDatosVendedor.SuspendLayout();
             this.grpDetalleMaterial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grpResumenCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras)).BeginInit();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(1, 48);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(159, 533);
-            this.flowLayoutPanel3.TabIndex = 2;
             // 
             // lblSistemaReciclaje
             // 
@@ -103,6 +94,7 @@
             // 
             // grpDatosVendedor
             // 
+            this.grpDatosVendedor.BackColor = System.Drawing.Color.White;
             this.grpDatosVendedor.Controls.Add(this.txtTeléfono);
             this.grpDatosVendedor.Controls.Add(this.lblTeléfono);
             this.grpDatosVendedor.Controls.Add(this.txtDirección);
@@ -234,6 +226,7 @@
             // 
             // grpDetalleMaterial
             // 
+            this.grpDetalleMaterial.BackColor = System.Drawing.Color.White;
             this.grpDetalleMaterial.Controls.Add(this.cmbEstado);
             this.grpDetalleMaterial.Controls.Add(this.lblEstadoEquipo);
             this.grpDetalleMaterial.Controls.Add(this.txtPrecioKg);
@@ -498,44 +491,13 @@
             this.dgvCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmID,
             this.ClmTipoMaterial,
-            this.clmCantidad,
             this.clmPeso,
             this.clmPrecioKg,
             this.clmSubtotal});
-            this.dgvCompras.Location = new System.Drawing.Point(166, 406);
+            this.dgvCompras.Location = new System.Drawing.Point(152, 406);
             this.dgvCompras.Name = "dgvCompras";
             this.dgvCompras.Size = new System.Drawing.Size(624, 192);
             this.dgvCompras.TabIndex = 19;
-            // 
-            // clmID
-            // 
-            this.clmID.HeaderText = "ID";
-            this.clmID.Name = "clmID";
-            // 
-            // ClmTipoMaterial
-            // 
-            this.ClmTipoMaterial.HeaderText = "Tipo de Material";
-            this.ClmTipoMaterial.Name = "ClmTipoMaterial";
-            // 
-            // clmCantidad
-            // 
-            this.clmCantidad.HeaderText = "Cantidad (pzas)";
-            this.clmCantidad.Name = "clmCantidad";
-            // 
-            // clmPeso
-            // 
-            this.clmPeso.HeaderText = "Peso (kg)";
-            this.clmPeso.Name = "clmPeso";
-            // 
-            // clmPrecioKg
-            // 
-            this.clmPrecioKg.HeaderText = "Precio por Kg";
-            this.clmPrecioKg.Name = "clmPrecioKg";
-            // 
-            // clmSubtotal
-            // 
-            this.clmSubtotal.HeaderText = "Subtotal";
-            this.clmSubtotal.Name = "clmSubtotal";
             // 
             // btnRegistrar
             // 
@@ -573,10 +535,38 @@
             this.btnTicket.UseVisualStyleBackColor = false;
             this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
+            // clmID
+            // 
+            this.clmID.HeaderText = "ID";
+            this.clmID.Name = "clmID";
+            this.clmID.Width = 90;
+            // 
+            // ClmTipoMaterial
+            // 
+            this.ClmTipoMaterial.HeaderText = "Tipo de Material";
+            this.ClmTipoMaterial.Name = "ClmTipoMaterial";
+            this.ClmTipoMaterial.Width = 190;
+            // 
+            // clmPeso
+            // 
+            this.clmPeso.HeaderText = "Peso (kg)";
+            this.clmPeso.Name = "clmPeso";
+            // 
+            // clmPrecioKg
+            // 
+            this.clmPrecioKg.HeaderText = "Precio por Kg";
+            this.clmPrecioKg.Name = "clmPrecioKg";
+            // 
+            // clmSubtotal
+            // 
+            this.clmSubtotal.HeaderText = "Subtotal";
+            this.clmSubtotal.Name = "clmSubtotal";
+            // 
             // FormCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1102, 653);
             this.Controls.Add(this.btnTicket);
             this.Controls.Add(this.btnRegresarMenu);
@@ -594,7 +584,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grpDatosVendedor);
             this.Controls.Add(this.lblSistemaReciclaje);
-            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCompra";
@@ -614,8 +603,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label lblSistemaReciclaje;
         private System.Windows.Forms.GroupBox grpDatosVendedor;
         private System.Windows.Forms.Label label1;
@@ -651,12 +638,6 @@
         private System.Windows.Forms.Label lblSubtot;
         private System.Windows.Forms.Label lblTotalPaga;
         private System.Windows.Forms.Label lblTotalArti;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmTipoMaterial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPeso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPrecioKg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubtotal;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
@@ -664,6 +645,11 @@
         private System.Windows.Forms.Button btnRegresarMenu;
         private System.Windows.Forms.Button btnTicket;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmTipoMaterial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPeso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPrecioKg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSubtotal;
     }
 }
 
